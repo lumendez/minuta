@@ -1,0 +1,1 @@
+json.array! @tipos_bajas, partial: 'tipos_bajas/tipos_baja', as: :tipos_baja

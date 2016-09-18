@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tutor_uno: MyString
+  tutor_dos: MyString
+  tutor_tres: MyString
+  tutor_cuatro: MyString
+
+two:
+  tutor_uno: MyString
+  tutor_dos: MyString
+  tutor_tres: MyString
+  tutor_cuatro: MyString

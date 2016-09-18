@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipos Bajas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipos_bajas.each do |tipos_baja| %>
+      <tr>
+        <td><%= tipos_baja.tipo %></td>
+        <td><%= link_to 'Show', tipos_baja %></td>
+        <td><%= link_to 'Edit', edit_tipos_baja_path(tipos_baja) %></td>
+        <td><%= link_to 'Destroy', tipos_baja, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tipos Baja', new_tipos_baja_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Anterior:</strong>
+  <%= @cambiar_asignatura.anterior %>
+</p>
+
+<p>
+  <strong>Actual:</strong>
+  <%= @cambiar_asignatura.actual %>
+</p>
+
+<%= link_to 'Edit', edit_cambiar_asignatura_path(@cambiar_asignatura) %> |
+<%= link_to 'Back', cambiar_asignaturas_path %>

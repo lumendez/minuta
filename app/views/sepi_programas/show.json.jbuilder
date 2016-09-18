@@ -1,0 +1,1 @@
+json.partial! "sepi_programas/sepi_programa", sepi_programa: @sepi_programa

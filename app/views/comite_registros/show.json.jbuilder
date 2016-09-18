@@ -1,0 +1,1 @@
+json.partial! "comite_registros/comite_registro", comite_registro: @comite_registro

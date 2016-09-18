@@ -1,0 +1,2 @@
+class BajaAsignatura < ApplicationRecord
+end

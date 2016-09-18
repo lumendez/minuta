@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tema: MyString
+  director: MyString
+  presidente: MyString
+  secretario: MyString
+  primer_vocal: MyString
+  segundo_vocal: MyString
+  tercer_vocal: MyString
+  suplente: MyString
+
+two:
+  tema: MyString
+  director: MyString
+  presidente: MyString
+  secretario: MyString
+  primer_vocal: MyString
+  segundo_vocal: MyString
+  tercer_vocal: MyString
+  suplente: MyString

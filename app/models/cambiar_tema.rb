@@ -1,0 +1,2 @@
+class CambiarTema < ApplicationRecord
+end

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clave Semestres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Semestre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clave_semestres.each do |clave_semestre| %>
+      <tr>
+        <td><%= clave_semestre.semestre %></td>
+        <td><%= link_to 'Show', clave_semestre %></td>
+        <td><%= link_to 'Edit', edit_clave_semestre_path(clave_semestre) %></td>
+        <td><%= link_to 'Destroy', clave_semestre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clave Semestre', new_clave_semestre_path %>

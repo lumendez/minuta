@@ -1,0 +1,1 @@
+json.partial! "receso_semestres/receso_semestre", receso_semestre: @receso_semestre

@@ -1,0 +1,2 @@
+class ClaveSemestre < ApplicationRecord
+end

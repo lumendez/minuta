@@ -1,0 +1,2 @@
+json.extract! tesis_registro, :id, :tema, :director, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :created_at, :updated_at
+json.url tesis_registro_url(tesis_registro, format: :json)

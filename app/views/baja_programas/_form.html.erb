@@ -1,0 +1,22 @@
+<%= form_for(baja_programa) do |f| %>
+  <% if baja_programa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(baja_programa.errors.count, "error") %> prohibited this baja_programa from being saved:</h2>
+
+      <ul>
+      <% baja_programa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

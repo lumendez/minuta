@@ -1,0 +1,1 @@
+json.array! @cambiar_asignaturas, partial: 'cambiar_asignaturas/cambiar_asignatura', as: :cambiar_asignatura

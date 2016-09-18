@@ -1,0 +1,1 @@
+json.array! @clave_semestres, partial: 'clave_semestres/clave_semestre', as: :clave_semestre

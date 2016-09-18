@@ -1,0 +1,1 @@
+json.array! @comite_registros, partial: 'comite_registros/comite_registro', as: :comite_registro

@@ -1,0 +1,22 @@
+<%= form_for(examen_graduado) do |f| %>
+  <% if examen_graduado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(examen_graduado.errors.count, "error") %> prohibited this examen_graduado from being saved:</h2>
+
+      <ul>
+      <% examen_graduado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo %>
+    <%= f.text_field :tipo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

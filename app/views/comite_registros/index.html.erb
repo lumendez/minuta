@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comite Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tutor uno</th>
+      <th>Tutor dos</th>
+      <th>Tutor tres</th>
+      <th>Tutor cuatro</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comite_registros.each do |comite_registro| %>
+      <tr>
+        <td><%= comite_registro.tutor_uno %></td>
+        <td><%= comite_registro.tutor_dos %></td>
+        <td><%= comite_registro.tutor_tres %></td>
+        <td><%= comite_registro.tutor_cuatro %></td>
+        <td><%= link_to 'Show', comite_registro %></td>
+        <td><%= link_to 'Edit', edit_comite_registro_path(comite_registro) %></td>
+        <td><%= link_to 'Destroy', comite_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Comite Registro', new_comite_registro_path %>

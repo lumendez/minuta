@@ -1,0 +1,1 @@
+json.array! @sepi_programas, partial: 'sepi_programas/sepi_programa', as: :sepi_programa

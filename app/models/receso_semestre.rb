@@ -1,0 +1,2 @@
+class RecesoSemestre < ApplicationRecord
+end

@@ -1,0 +1,22 @@
+<%= form_for(clave_semestre) do |f| %>
+  <% if clave_semestre.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clave_semestre.errors.count, "error") %> prohibited this clave_semestre from being saved:</h2>
+
+      <ul>
+      <% clave_semestre.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :semestre %>
+    <%= f.text_field :semestre %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

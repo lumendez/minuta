@@ -1,0 +1,2 @@
+class TiposBaja < ApplicationRecord
+end

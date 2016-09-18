@@ -1,0 +1,1 @@
+json.partial! "cambiar_temas/cambiar_tema", cambiar_tema: @cambiar_tema

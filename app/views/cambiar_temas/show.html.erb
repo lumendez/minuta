@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Anterior:</strong>
+  <%= @cambiar_tema.anterior %>
+</p>
+
+<p>
+  <strong>Actual:</strong>
+  <%= @cambiar_tema.actual %>
+</p>
+
+<%= link_to 'Edit', edit_cambiar_tema_path(@cambiar_tema) %> |
+<%= link_to 'Back', cambiar_temas_path %>

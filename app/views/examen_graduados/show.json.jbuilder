@@ -1,0 +1,1 @@
+json.partial! "examen_graduados/examen_graduado", examen_graduado: @examen_graduado

@@ -1,0 +1,2 @@
+class CambiarAsignatura < ApplicationRecord
+end

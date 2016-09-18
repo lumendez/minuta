@@ -1,0 +1,1 @@
+json.array! @agregar_asignaturas, partial: 'agregar_asignaturas/agregar_asignatura', as: :agregar_asignatura

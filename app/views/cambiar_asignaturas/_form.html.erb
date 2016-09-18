@@ -1,0 +1,27 @@
+<%= form_for(cambiar_asignatura) do |f| %>
+  <% if cambiar_asignatura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cambiar_asignatura.errors.count, "error") %> prohibited this cambiar_asignatura from being saved:</h2>
+
+      <ul>
+      <% cambiar_asignatura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :anterior %>
+    <%= f.text_field :anterior %>
+  </div>
+
+  <div class="field">
+    <%= f.label :actual %>
+    <%= f.text_field :actual %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

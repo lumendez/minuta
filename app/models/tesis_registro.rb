@@ -1,0 +1,2 @@
+class TesisRegistro < ApplicationRecord
+end

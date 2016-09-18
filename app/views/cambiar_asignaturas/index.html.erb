@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cambiar Asignaturas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anterior</th>
+      <th>Actual</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_asignaturas.each do |cambiar_asignatura| %>
+      <tr>
+        <td><%= cambiar_asignatura.anterior %></td>
+        <td><%= cambiar_asignatura.actual %></td>
+        <td><%= link_to 'Show', cambiar_asignatura %></td>
+        <td><%= link_to 'Edit', edit_cambiar_asignatura_path(cambiar_asignatura) %></td>
+        <td><%= link_to 'Destroy', cambiar_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cambiar Asignatura', new_cambiar_asignatura_path %>

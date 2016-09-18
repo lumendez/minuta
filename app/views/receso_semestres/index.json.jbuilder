@@ -1,0 +1,1 @@
+json.array! @receso_semestres, partial: 'receso_semestres/receso_semestre', as: :receso_semestre

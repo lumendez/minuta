@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cambiar Consejeros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Anterior</th>
+      <th>Actual</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_consejeros.each do |cambiar_consejero| %>
+      <tr>
+        <td><%= cambiar_consejero.anterior %></td>
+        <td><%= cambiar_consejero.actual %></td>
+        <td><%= link_to 'Show', cambiar_consejero %></td>
+        <td><%= link_to 'Edit', edit_cambiar_consejero_path(cambiar_consejero) %></td>
+        <td><%= link_to 'Destroy', cambiar_consejero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cambiar Consejero', new_cambiar_consejero_path %>

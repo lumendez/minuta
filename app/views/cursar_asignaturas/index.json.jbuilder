@@ -1,0 +1,1 @@
+json.array! @cursar_asignaturas, partial: 'cursar_asignaturas/cursar_asignatura', as: :cursar_asignatura

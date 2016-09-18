@@ -1,0 +1,1 @@
+json.partial! "clave_semestres/clave_semestre", clave_semestre: @clave_semestre

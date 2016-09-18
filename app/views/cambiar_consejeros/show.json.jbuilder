@@ -1,0 +1,1 @@
+json.partial! "cambiar_consejeros/cambiar_consejero", cambiar_consejero: @cambiar_consejero

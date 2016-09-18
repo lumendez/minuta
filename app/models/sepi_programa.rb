@@ -1,0 +1,2 @@
+class SepiPrograma < ApplicationRecord
+end

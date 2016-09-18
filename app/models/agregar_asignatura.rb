@@ -1,0 +1,2 @@
+class AgregarAsignatura < ApplicationRecord
+end

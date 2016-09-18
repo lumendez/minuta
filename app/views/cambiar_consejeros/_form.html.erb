@@ -1,0 +1,27 @@
+<%= form_for(cambiar_consejero) do |f| %>
+  <% if cambiar_consejero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cambiar_consejero.errors.count, "error") %> prohibited this cambiar_consejero from being saved:</h2>
+
+      <ul>
+      <% cambiar_consejero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :anterior %>
+    <%= f.text_field :anterior %>
+  </div>
+
+  <div class="field">
+    <%= f.label :actual %>
+    <%= f.text_field :actual %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

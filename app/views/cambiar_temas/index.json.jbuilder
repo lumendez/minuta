@@ -1,0 +1,1 @@
+json.array! @cambiar_temas, partial: 'cambiar_temas/cambiar_tema', as: :cambiar_tema

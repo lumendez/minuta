@@ -1,0 +1,57 @@
+<%= form_for(tesis_registro) do |f| %>
+  <% if tesis_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tesis_registro.errors.count, "error") %> prohibited this tesis_registro from being saved:</h2>
+
+      <ul>
+      <% tesis_registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tema %>
+    <%= f.text_field :tema %>
+  </div>
+
+  <div class="field">
+    <%= f.label :director %>
+    <%= f.text_field :director %>
+  </div>
+
+  <div class="field">
+    <%= f.label :presidente %>
+    <%= f.text_field :presidente %>
+  </div>
+
+  <div class="field">
+    <%= f.label :secretario %>
+    <%= f.text_field :secretario %>
+  </div>
+
+  <div class="field">
+    <%= f.label :primer_vocal %>
+    <%= f.text_field :primer_vocal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :segundo_vocal %>
+    <%= f.text_field :segundo_vocal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tercer_vocal %>
+    <%= f.text_field :tercer_vocal %>
+  </div>
+
+  <div class="field">
+    <%= f.label :suplente %>
+    <%= f.text_field :suplente %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

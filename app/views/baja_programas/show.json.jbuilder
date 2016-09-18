@@ -1,0 +1,1 @@
+json.partial! "baja_programas/baja_programa", baja_programa: @baja_programa

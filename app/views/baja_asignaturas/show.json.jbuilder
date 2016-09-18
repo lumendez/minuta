@@ -1,0 +1,1 @@
+json.partial! "baja_asignaturas/baja_asignatura", baja_asignatura: @baja_asignatura

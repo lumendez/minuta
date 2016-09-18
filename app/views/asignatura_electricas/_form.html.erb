@@ -1,0 +1,22 @@
+<%= form_for(asignatura_electrica) do |f| %>
+  <% if asignatura_electrica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(asignatura_electrica.errors.count, "error") %> prohibited this asignatura_electrica from being saved:</h2>
+
+      <ul>
+      <% asignatura_electrica.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

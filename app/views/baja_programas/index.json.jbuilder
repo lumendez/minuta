@@ -1,0 +1,1 @@
+json.array! @baja_programas, partial: 'baja_programas/baja_programa', as: :baja_programa

@@ -1,0 +1,1 @@
+json.partial! "tipos_bajas/tipos_baja", tipos_baja: @tipos_baja

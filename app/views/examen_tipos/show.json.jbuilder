@@ -1,0 +1,1 @@
+json.partial! "examen_tipos/examen_tipo", examen_tipo: @examen_tipo

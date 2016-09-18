@@ -1,0 +1,1 @@
+json.array! @cambiar_consejeros, partial: 'cambiar_consejeros/cambiar_consejero', as: :cambiar_consejero

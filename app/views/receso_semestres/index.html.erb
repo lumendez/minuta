@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Receso Semestres</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Semestre</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receso_semestres.each do |receso_semestre| %>
+      <tr>
+        <td><%= receso_semestre.semestre %></td>
+        <td><%= link_to 'Show', receso_semestre %></td>
+        <td><%= link_to 'Edit', edit_receso_semestre_path(receso_semestre) %></td>
+        <td><%= link_to 'Destroy', receso_semestre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Receso Semestre', new_receso_semestre_path %>

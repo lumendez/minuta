@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cursar_asignatura.nombre %>
+</p>
+
+<p>
+  <strong>Clave:</strong>
+  <%= @cursar_asignatura.clave %>
+</p>
+
+<p>
+  <strong>Unidad:</strong>
+  <%= @cursar_asignatura.unidad %>
+</p>
+
+<%= link_to 'Edit', edit_cursar_asignatura_path(@cursar_asignatura) %> |
+<%= link_to 'Back', cursar_asignaturas_path %>

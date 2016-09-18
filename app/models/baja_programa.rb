@@ -1,0 +1,2 @@
+class BajaPrograma < ApplicationRecord
+end

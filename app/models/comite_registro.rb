@@ -1,0 +1,2 @@
+class ComiteRegistro < ApplicationRecord
+end
