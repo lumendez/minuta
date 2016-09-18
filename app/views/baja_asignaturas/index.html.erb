@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Creado por</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @baja_asignaturas.each do |baja_asignatura| %>
       <tr>
         <td><%= baja_asignatura.nombre %></td>
+        <td><%= baja_asignatura.user.nombre %></td>
         <td><%= link_to 'Show', baja_asignatura %></td>
         <td><%= link_to 'Edit', edit_baja_asignatura_path(baja_asignatura) %></td>
         <td><%= link_to 'Destroy', baja_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>

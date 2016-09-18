@@ -1,4 +1,5 @@
 class BajaAsignaturasController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_baja_asignatura, only: [:show, :edit, :update, :destroy]
 
   # GET /baja_asignaturas
@@ -14,7 +15,7 @@ class BajaAsignaturasController < ApplicationController
 
   # GET /baja_asignaturas/new
   def new
-    @baja_asignatura = BajaAsignatura.new
+    @baja_asignatura = current_user.baja_asignaturas.build
   end
 
   # GET /baja_asignaturas/1/edit
@@ -23,17 +24,29 @@ class BajaAsignaturasController < ApplicationController
 
   # POST /baja_asignaturas
   # POST /baja_asignaturas.json
-  def create
-    @baja_asignatura = BajaAsignatura.new(baja_asignatura_params)
+  #def create
+    #@baja_asignatura = BajaAsignatura.new(baja_asignatura_params)
 
-    respond_to do |format|
-      if @baja_asignatura.save
-        format.html { redirect_to @baja_asignatura, notice: 'Baja asignatura was successfully created.' }
-        format.json { render :show, status: :created, location: @baja_asignatura }
-      else
-        format.html { render :new }
-        format.json { render json: @baja_asignatura.errors, status: :unprocessable_entity }
-      end
+    #respond_to do |format|
+      #if @baja_asignatura.save
+        #format.html { redirect_to @baja_asignatura, notice: 'Baja asignatura was successfully created.' }
+        #format.json { render :show, status: :created, location: @baja_asignatura }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @baja_asignatura.errors, status: :unprocessable_entity }
+      #end
+    #end
+  #end
+
+  def create
+    @baja_asignatura = current_user.baja_asignaturas.build(baja_asignatura_params)
+
+    if @baja_asignatura.save
+      flash[:success] = "Your post has been created!"
+      redirect_to baja_asignaturas_path
+    else
+      flash[:alert] = "Your new post couldn't be created!  Please check the form."
+      render :new
     end
   end
 

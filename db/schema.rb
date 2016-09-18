@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918053331) do
+ActiveRecord::Schema.define(version: 20160918065827) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20160918053331) do
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_baja_asignaturas_on_user_id"
   end
 
   create_table "baja_programas", force: :cascade do |t|
@@ -153,13 +155,25 @@ ActiveRecord::Schema.define(version: 20160918053331) do
     t.integer  "sepi_programa_id"
     t.integer  "consejero_id"
     t.integer  "coordinador_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "tipos_usuario_id"
     t.integer  "coordinador_nombre_id"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.index ["consejero_id"], name: "index_users_on_consejero_id"
     t.index ["coordinador_id"], name: "index_users_on_coordinador_id"
     t.index ["coordinador_nombre_id"], name: "index_users_on_coordinador_nombre_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["sepi_programa_id"], name: "index_users_on_sepi_programa_id"
     t.index ["tipos_usuario_id"], name: "index_users_on_tipos_usuario_id"
   end
