@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :coordinador_nombres
+  resources :consejeros
   resources :tipos_usuarios
   resources :tipos_bajas
   resources :tesis_registros

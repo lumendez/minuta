@@ -1,0 +1,1 @@
+json.array! @consejeros, partial: 'consejeros/consejero', as: :consejero

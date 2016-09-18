@@ -1,0 +1,1 @@
+json.array! @coordinador_nombres, partial: 'coordinador_nombres/coordinador_nombre', as: :coordinador_nombre
