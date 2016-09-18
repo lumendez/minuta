@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  boleta: MyString
+  sepi_programa: one
+  consejero: one
+  coordinador: one
+
+two:
+  nombre: MyString
+  boleta: MyString
+  sepi_programa: two
+  consejero: two
+  coordinador: two

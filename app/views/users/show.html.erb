@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.nombre %>
+</p>
+
+<p>
+  <strong>Boleta:</strong>
+  <%= @user.boleta %>
+</p>
+
+<p>
+  <strong>Sepi programa:</strong>
+  <%= @user.sepi_programa.nombre %>
+</p>
+
+<p>
+  <strong>Consejero:</strong>
+  <%= @user.consejero.nombre %>
+</p>
+
+<p>
+  <strong>Coordinador:</strong>
+  <%= @user.coordinador_nombre.nombre %>
+</p>
+
+<p>
+  <strong>Tipo de usuario:</strong>
+  <%= @user.tipos_usuario.tipo %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

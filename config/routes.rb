@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :coordinador_nombres
   resources :consejeros
   resources :tipos_usuarios
