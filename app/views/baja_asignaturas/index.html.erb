@@ -7,6 +7,8 @@
     <tr>
       <th>Nombre</th>
       <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Fecha</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,14 +18,21 @@
       <tr>
         <td><%= baja_asignatura.nombre %></td>
         <td><%= baja_asignatura.user.nombre %></td>
-        <td><%= link_to 'Show', baja_asignatura %></td>
-        <td><%= link_to 'Edit', edit_baja_asignatura_path(baja_asignatura) %></td>
-        <td><%= link_to 'Destroy', baja_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= baja_asignatura.user.boleta %></td>
+        <td><%= baja_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td><%= link_to 'Información', baja_asignatura %></td>
+        <% if can? :update, baja_asignatura %>
+          <td><%= link_to 'Editar', edit_baja_asignatura_path(baja_asignatura) %></td>
+        <% end %>
+        <% if can? :destroy, baja_asignatura %>
+          <td><%= link_to 'Eliminar', baja_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Baja Asignatura', new_baja_asignatura_path %>
+<% if can? :create, BajaAsignatura %>
+  <%= link_to 'Crear petición de baja de asignatura', new_baja_asignatura_path %>
+<% end %>

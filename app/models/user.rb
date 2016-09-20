@@ -8,5 +8,22 @@ class User < ApplicationRecord
   belongs_to :coordinador_nombre
   belongs_to :tipos_usuario
 
-  has_many :baja_asignaturas, dependent: :destroy  
+  has_many :baja_asignaturas, dependent: :destroy
+
+  def admin?
+    self.tipos_usuario.tipo == "Administrador"
+  end
+
+  def coordinador?
+    self.tipos_usuario.tipo == "Coordinador"
+  end
+
+  def consejero?
+    self.tipos_usuario.tipo == "Consejero"
+  end
+
+  def alumno?
+    self.tipos_usuario.tipo == "Alumno"
+  end
+
 end

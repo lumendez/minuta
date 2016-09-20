@@ -1,7 +1,9 @@
 class BajaAsignaturasController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_baja_asignatura, only: [:show, :edit, :update, :destroy]
-  before_action :owned_post, only: [:edit, :update, :destroy]  
+  before_action :baja_asignatura, only: :create
+  load_and_authorize_resource
+  #before_action :set_baja_asignatura, only: [:show, :edit, :update, :destroy]
+  #before_action :owned_post, only: [:edit, :update, :destroy]
 
   # GET /baja_asignaturas
   # GET /baja_asignaturas.json
@@ -77,19 +79,23 @@ class BajaAsignaturasController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_baja_asignatura
-      @baja_asignatura = BajaAsignatura.find(params[:id])
-    end
+    #def set_baja_asignatura
+      #@baja_asignatura = BajaAsignatura.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baja_asignatura_params
       params.require(:baja_asignatura).permit(:nombre)
     end
 
-    def owned_post
-      unless current_user == @baja_asignatura.user
-        flash[:alert] = "Esta solicitud no le pertenece!"
-        redirect_to baja_asignaturas_path
-      end
+    def baja_asignatura
+      @baja_asignatura = BajaAsignatura.new(baja_asignatura_params)
     end
+
+    #def owned_post
+      #unless current_user == @baja_asignatura.user
+        #flash[:alert] = "Esta solicitud no le pertenece!"
+        #redirect_to baja_asignaturas_path
+      #end
+    #end
 end

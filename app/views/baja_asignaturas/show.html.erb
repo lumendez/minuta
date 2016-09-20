@@ -4,7 +4,12 @@
   <strong>Nombre:</strong>
   <%= @baja_asignatura.nombre %>
 </p>
-<% if @baja_asignatura.user.id == current_user.id %>
+
+<p>
+  <strong>Creado:</strong>
+  <%= @baja_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %>
+</p>
+<% if can? :update, @baja_asignatura %>
   <%= link_to 'Edit', edit_baja_asignatura_path(@baja_asignatura) %> |
   <%= link_to 'Back', baja_asignaturas_path %>
 <% else %>
