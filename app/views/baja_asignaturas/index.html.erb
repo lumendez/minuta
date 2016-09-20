@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Baja Asignaturas</h1>
-
 <table>
   <thead>
     <tr>
@@ -31,7 +30,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 <% if can? :create, BajaAsignatura %>
   <%= link_to 'Crear petición de baja de asignatura', new_baja_asignatura_path %>

@@ -8,7 +8,8 @@ class BajaAsignaturasController < ApplicationController
   # GET /baja_asignaturas
   # GET /baja_asignaturas.json
   def index
-    @baja_asignaturas = BajaAsignatura.all
+    #@baja_asignaturas = BajaAsignatura.all
+    @baja_asignaturas = current_user.baja_asignaturas
   end
 
   # GET /baja_asignaturas/1
