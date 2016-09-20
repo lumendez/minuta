@@ -1,6 +1,7 @@
 class BajaAsignaturasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_baja_asignatura, only: [:show, :edit, :update, :destroy]
+  before_action :owned_post, only: [:edit, :update, :destroy]  
 
   # GET /baja_asignaturas
   # GET /baja_asignaturas.json
@@ -83,5 +84,12 @@ class BajaAsignaturasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def baja_asignatura_params
       params.require(:baja_asignatura).permit(:nombre)
+    end
+
+    def owned_post
+      unless current_user == @baja_asignatura.user
+        flash[:alert] = "Esta solicitud no le pertenece!"
+        redirect_to baja_asignaturas_path
+      end
     end
 end

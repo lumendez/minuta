@@ -30,6 +30,21 @@
   <%= @user.tipos_usuario.tipo %>
 </p>
 
+<p>
+  <strong>Joined on:</strong>
+  <%= @user.created_at %>
+</p>
+
+<p>
+  <strong>Last logged in on:</strong>
+  <%= @user.last_sign_in_at %>
+</p>
+
+<p>
+  <strong>No. times logged in:</strong>
+  <%= @user.sign_in_count %>
+</p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

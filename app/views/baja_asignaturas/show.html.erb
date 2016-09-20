@@ -4,6 +4,9 @@
   <strong>Nombre:</strong>
   <%= @baja_asignatura.nombre %>
 </p>
-
-<%= link_to 'Edit', edit_baja_asignatura_path(@baja_asignatura) %> |
-<%= link_to 'Back', baja_asignaturas_path %>
+<% if @baja_asignatura.user.id == current_user.id %>
+  <%= link_to 'Edit', edit_baja_asignatura_path(@baja_asignatura) %> |
+  <%= link_to 'Back', baja_asignaturas_path %>
+<% else %>
+  <%= link_to 'Back', baja_asignaturas_path %>
+<% end %>
