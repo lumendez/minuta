@@ -6,6 +6,12 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Fecha</th>
+      <th>Validacion consejero</th>
+      <th>Validacion coordinador</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +20,12 @@
     <% @baja_programas.each do |baja_programa| %>
       <tr>
         <td><%= baja_programa.nombre %></td>
+        <td><%= baja_programa.user.nombre %></td>
+        <td><%= baja_programa.user.boleta %></td>
+        <td><%= baja_programa.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td><%= baja_programa.valida_consejero ? 'Si' : 'No' %></td>
+        <td><%= baja_programa.valida_coordinador ? 'Si' : 'No' %></td>
+        <td><%= baja_programa.estado %></td>
         <td><%= link_to 'Show', baja_programa %></td>
         <td><%= link_to 'Edit', edit_baja_programa_path(baja_programa) %></td>
         <td><%= link_to 'Destroy', baja_programa, method: :delete, data: { confirm: 'Are you sure?' } %></td>

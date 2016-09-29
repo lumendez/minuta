@@ -13,7 +13,28 @@
 
   <div class="field">
     <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+    <%= collection_select(:baja_programa, :nombre, SepiPrograma.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_consejero, baja_programa %>
+      <%= f.label :valida_consejero %>
+      <%= f.check_box :valida_consejero %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_coordinador, baja_programa %>
+      <%= f.label :valida_coordinador %>
+      <%= f.check_box :valida_coordinador %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :cambiar_estado, baja_programa %>
+      <%= f.label :estado %>
+      <%= collection_select(:baja_programa, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    <% end %>
   </div>
 
   <div class="actions">

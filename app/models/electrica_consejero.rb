@@ -1,0 +1,2 @@
+class ElectricaConsejero < ApplicationRecord
+end

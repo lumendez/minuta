@@ -1,0 +1,3 @@
+class ElectricaAsignatura < ApplicationRecord
+
+end

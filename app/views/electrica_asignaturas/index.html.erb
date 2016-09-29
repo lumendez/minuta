@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Electrica Asignaturas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @electrica_asignaturas.each do |electrica_asignatura| %>
+      <tr>
+        <td><%= electrica_asignatura.nombre %></td>
+        <td><%= electrica_asignatura.clave %></td>
+        <td><%= link_to 'Show', electrica_asignatura %></td>
+        <td><%= link_to 'Edit', edit_electrica_asignatura_path(electrica_asignatura) %></td>
+        <td><%= link_to 'Destroy', electrica_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Electrica Asignatura', new_electrica_asignatura_path %>

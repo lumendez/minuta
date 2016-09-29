@@ -13,15 +13,78 @@
 
   <div class="field">
     <%= f.label :anterior %>
-    <%= f.text_field :anterior %>
+      <%= collection_select(:cambiar_asignatura, :anterior, ElectricaAsignatura.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clave %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectricaAsignatura.all, :clave, :clave, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :actual %>
-    <%= f.text_field :actual %>
+    <%= collection_select(:cambiar_asignatura, :actual, ElectricaAsignatura.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :clave %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectricaAsignatura.all, :clave, :clave, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_consejero, cambiar_asignatura %>
+      <%= f.label :valida_consejero %>
+      <%= f.check_box :valida_consejero %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_coordinador, cambiar_asignatura %>
+      <%= f.label :valida_coordinador %>
+      <%= f.check_box :valida_coordinador %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :cambiar_estado, cambiar_asignatura %>
+      <%= f.label :estado %>
+      <%= collection_select(:cambiar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    <% end %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+function matchUp(selected, toselect)
+{
+  var idx = selected.prop('selectedIndex');
+  toselect.prop('selectedIndex', idx);
+}
+
+
+$('#cambiar_asignatura_anterior').change(
+  function() {
+    matchUp($('#cambiar_asignatura_anterior'), $('#cambiar_asignatura_clave_anterior'));
+  }
+);
+
+$('#cambiar_asignatura_clave_anterior').change(
+  function() {
+    matchUp($('#cambiar_asignatura_clave_anterior'), $('#cambiar_asignatura_anterior'));
+  }
+);
+
+$('#cambiar_asignatura_actual').change(
+  function() {
+    matchUp($('#cambiar_asignatura_actual'), $('#cambiar_asignatura_clave_actual'));
+  }
+);
+
+$('#cambiar_asignatura_clave_actual').change(
+  function() {
+    matchUp($('#cambiar_asignatura_clave_actual'), $('#ambiar_asignatura_actual'));
+  }
+);
+</script>

@@ -1,0 +1,1 @@
+json.partial! "electrica_consejeros/electrica_consejero", electrica_consejero: @electrica_consejero

@@ -1,5 +1,7 @@
 class BajaProgramasController < ApplicationController
-  before_action :set_baja_programa, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :baja_programa, only: :create
+  load_and_authorize_resource
 
   # GET /baja_programas
   # GET /baja_programas.json
@@ -14,7 +16,7 @@ class BajaProgramasController < ApplicationController
 
   # GET /baja_programas/new
   def new
-    @baja_programa = BajaPrograma.new
+    @baja_programa = current_user.baja_programas.build
   end
 
   # GET /baja_programas/1/edit
@@ -24,16 +26,14 @@ class BajaProgramasController < ApplicationController
   # POST /baja_programas
   # POST /baja_programas.json
   def create
-    @baja_programa = BajaPrograma.new(baja_programa_params)
+    @baja_programa = current_user.baja_programas.build(baja_programa_params)
 
-    respond_to do |format|
-      if @baja_programa.save
-        format.html { redirect_to @baja_programa, notice: 'Baja programa was successfully created.' }
-        format.json { render :show, status: :created, location: @baja_programa }
-      else
-        format.html { render :new }
-        format.json { render json: @baja_programa.errors, status: :unprocessable_entity }
-      end
+    if @baja_programa.save
+      flash[:success] = "Su petición para darse de baja de un programa ha sido creada!"
+      redirect_to baja_programas_path
+    else
+      flash[:alert] = "Su petición para darse de baja de un programa no pudo ser creada!  Revise el formulario."
+      render :new
     end
   end
 
@@ -61,14 +61,58 @@ class BajaProgramasController < ApplicationController
     end
   end
 
+  def validar_consejero
+    if @baja_programa.update(validar_consejero_params)
+      format.html { redirect_to @baja_programa, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @baja_programa }
+    else
+      format.html { render :edit }
+      format.json { render json: @baja_programa.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def validar_coordinador
+    if @baja_programa.update(validar_coordinador_params)
+      format.html { redirect_to @baja_programa, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @baja_programa }
+    else
+      format.html { render :edit }
+      format.json { render json: @baja_programa.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def cambiar_estado
+    if @baja_programa.update(cambiar_estado_params)
+      format.html { redirect_to @baja_programa, notice: 'La petición ha cambiado de estado.' }
+      format.json { render :show, status: :ok, location: @baja_programa }
+    else
+      format.html { render :edit }
+      format.json { render json: @baja_programa.errors, status: :unprocessable_entity }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_baja_programa
-      @baja_programa = BajaPrograma.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baja_programa_params
-      params.require(:baja_programa).permit(:nombre)
+      params.require(:baja_programa).permit(:nombre, :valida_consejero, :valida_coordinador, :estado)
     end
+
+    def baja_programa
+      @baja_programa = BajaPrograma.new(baja_programa_params)
+    end
+
+    def validar_consejero_params
+      params.require(:baja_programa).permit(:valida_consejero)
+    end
+
+    def validar_coordinador_params
+      params.require(:baja_programa).permit(:valida_coordinador)
+    end
+
+    def cambiar_estado_params
+      params.require(:baja_programa).permit(:estado)
+    end
+
 end

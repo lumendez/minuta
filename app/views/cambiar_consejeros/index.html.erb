@@ -5,8 +5,14 @@
 <table>
   <thead>
     <tr>
-      <th>Anterior</th>
-      <th>Actual</th>
+      <th>Consejero Anterior</th>
+      <th>Consejero Actual</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Fecha</th>
+      <th>Validacion consejero</th>
+      <th>Validacion coordinador</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +22,12 @@
       <tr>
         <td><%= cambiar_consejero.anterior %></td>
         <td><%= cambiar_consejero.actual %></td>
+        <td><%= cambiar_consejero.user.nombre %></td>
+        <td><%= cambiar_consejero.user.boleta %></td>
+        <td><%= cambiar_consejero.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td><%= cambiar_consejero.valida_consejero ? 'Si' : 'No' %></td>
+        <td><%= cambiar_consejero.valida_coordinador ? 'Si' : 'No' %></td>
+        <td><%= cambiar_consejero.estado %></td>
         <td><%= link_to 'Show', cambiar_consejero %></td>
         <td><%= link_to 'Edit', edit_cambiar_consejero_path(cambiar_consejero) %></td>
         <td><%= link_to 'Destroy', cambiar_consejero, method: :delete, data: { confirm: 'Are you sure?' } %></td>

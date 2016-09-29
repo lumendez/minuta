@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :electrica_consejeros
+  resources :electrica_asignaturas
+  resources :estados
   devise_for :users, :controllers => { registrations: 'registrations' }
   scope "/admin" do
     resources :users

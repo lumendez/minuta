@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918065827) do
+ActiveRecord::Schema.define(version: 20160928194506) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
@@ -26,30 +26,51 @@ ActiveRecord::Schema.define(version: 20160918065827) do
 
   create_table "baja_asignaturas", force: :cascade do |t|
     t.string   "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.string   "clave"
     t.index ["user_id"], name: "index_baja_asignaturas_on_user_id"
   end
 
   create_table "baja_programas", force: :cascade do |t|
     t.string   "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_baja_programas_on_user_id"
   end
 
   create_table "cambiar_asignaturas", force: :cascade do |t|
     t.string   "anterior"
     t.string   "actual"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "clave_anterior"
+    t.string   "clave_actual"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_cambiar_asignaturas_on_user_id"
   end
 
   create_table "cambiar_consejeros", force: :cascade do |t|
     t.string   "anterior"
     t.string   "actual"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_cambiar_consejeros_on_user_id"
   end
 
   create_table "cambiar_temas", force: :cascade do |t|
@@ -96,6 +117,25 @@ ActiveRecord::Schema.define(version: 20160918065827) do
     t.string   "nombre"
     t.string   "clave"
     t.string   "unidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "electrica_asignaturas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "clave"
+  end
+
+  create_table "electrica_consejeros", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "estados", force: :cascade do |t|
+    t.string   "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

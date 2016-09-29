@@ -26,30 +26,14 @@ class BajaAsignaturasController < ApplicationController
   def edit
   end
 
-  # POST /baja_asignaturas
-  # POST /baja_asignaturas.json
-  #def create
-    #@baja_asignatura = BajaAsignatura.new(baja_asignatura_params)
-
-    #respond_to do |format|
-      #if @baja_asignatura.save
-        #format.html { redirect_to @baja_asignatura, notice: 'Baja asignatura was successfully created.' }
-        #format.json { render :show, status: :created, location: @baja_asignatura }
-      #else
-        #format.html { render :new }
-        #format.json { render json: @baja_asignatura.errors, status: :unprocessable_entity }
-      #end
-    #end
-  #end
-
   def create
     @baja_asignatura = current_user.baja_asignaturas.build(baja_asignatura_params)
 
     if @baja_asignatura.save
-      flash[:success] = "Your post has been created!"
+      flash[:success] = "Su petición  de baja ha sido creada!"
       redirect_to baja_asignaturas_path
     else
-      flash[:alert] = "Your new post couldn't be created!  Please check the form."
+      flash[:alert] = "Su petición de baja no pudo crearse!  Por favor revise el formulario."
       render :new
     end
   end
@@ -59,7 +43,7 @@ class BajaAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @baja_asignatura.update(baja_asignatura_params)
-        format.html { redirect_to @baja_asignatura, notice: 'Baja asignatura was successfully updated.' }
+        format.html { redirect_to @baja_asignatura, notice: 'Su petición de baja fue actualizada.' }
         format.json { render :show, status: :ok, location: @baja_asignatura }
       else
         format.html { render :edit }
@@ -73,8 +57,38 @@ class BajaAsignaturasController < ApplicationController
   def destroy
     @baja_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to baja_asignaturas_url, notice: 'Baja asignatura was successfully destroyed.' }
+      format.html { redirect_to baja_asignaturas_url, notice: 'Su petición de baja fue eliminada.' }
       format.json { head :no_content }
+    end
+  end
+
+  def validar_consejero
+    if @baja_asignatura.update(validar_consejero_params)
+      format.html { redirect_to @baja_asignatura, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @baja_asignatura }
+    else
+      format.html { render :edit }
+      format.json { render json: @baja_asignatura.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def validar_coordinador
+    if @baja_asignatura.update(validar_coordinador_params)
+      format.html { redirect_to @baja_asignatura, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @baja_asignatura }
+    else
+      format.html { render :edit }
+      format.json { render json: @baja_asignatura.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def cambiar_estado
+    if @baja_asignatura.update(cambiar_estado_params)
+      format.html { redirect_to @baja_asignatura, notice: 'La petición ha cambiado de estado.' }
+      format.json { render :show, status: :ok, location: @baja_asignatura }
+    else
+      format.html { render :edit }
+      format.json { render json: @baja_asignatura.errors, status: :unprocessable_entity }
     end
   end
 
@@ -86,17 +100,23 @@ class BajaAsignaturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baja_asignatura_params
-      params.require(:baja_asignatura).permit(:nombre)
+      params.require(:baja_asignatura).permit(:nombre, :clave, :valida_consejero, :valida_coordinador, :estado)
     end
 
     def baja_asignatura
       @baja_asignatura = BajaAsignatura.new(baja_asignatura_params)
     end
 
-    #def owned_post
-      #unless current_user == @baja_asignatura.user
-        #flash[:alert] = "Esta solicitud no le pertenece!"
-        #redirect_to baja_asignaturas_path
-      #end
-    #end
+    def validar_consejero_params
+      params.require(:baja_asignatura).permit(:valida_consejero)
+    end
+
+    def validar_coordinador_params
+      params.require(:baja_asignatura).permit(:valida_coordinador)
+    end
+
+    def cambiar_estado_params
+      params.require(:baja_asignatura).permit(:estado)
+    end
+
 end

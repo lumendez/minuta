@@ -1,0 +1,1 @@
+json.array! @electrica_asignaturas, partial: 'electrica_asignaturas/electrica_asignatura', as: :electrica_asignatura
