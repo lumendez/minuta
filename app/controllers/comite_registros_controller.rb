@@ -1,5 +1,7 @@
 class ComiteRegistrosController < ApplicationController
-  before_action :set_comite_registro, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :comite_registro, only: :create
+  load_and_authorize_resource
 
   # GET /comite_registros
   # GET /comite_registros.json
@@ -14,7 +16,7 @@ class ComiteRegistrosController < ApplicationController
 
   # GET /comite_registros/new
   def new
-    @comite_registro = ComiteRegistro.new
+    @comite_registro = current_user.comite_registros.build
   end
 
   # GET /comite_registros/1/edit
@@ -24,16 +26,14 @@ class ComiteRegistrosController < ApplicationController
   # POST /comite_registros
   # POST /comite_registros.json
   def create
-    @comite_registro = ComiteRegistro.new(comite_registro_params)
+    @comite_registro = current_user.comite_registros.build(comite_registro_params)
 
-    respond_to do |format|
-      if @comite_registro.save
-        format.html { redirect_to @comite_registro, notice: 'Comite registro was successfully created.' }
-        format.json { render :show, status: :created, location: @comite_registro }
-      else
-        format.html { render :new }
-        format.json { render json: @comite_registro.errors, status: :unprocessable_entity }
-      end
+    if @comite_registro.save
+      flash[:success] = "Su petición para registrar su comité tutorial fue creada!"
+      redirect_to comite_registros_path
+    else
+      flash[:alert] = "Su petición para registrar su comité tutorial no pudo ser creada! Revise el formulario."
+      render :new
     end
   end
 
@@ -61,14 +61,55 @@ class ComiteRegistrosController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comite_registro
-      @comite_registro = ComiteRegistro.find(params[:id])
+  def validar_consejero
+    if @comite_registro.update(validar_consejero_params)
+      format.html { redirect_to @comite_registro, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @comite_registro }
+    else
+      format.html { render :edit }
+      format.json { render json: @comite_registro.errors, status: :unprocessable_entity }
     end
+  end
 
+  def validar_coordinador
+    if @comite_registro.update(validar_coordinador_params)
+      format.html { redirect_to @comite_registro, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @comite_registro }
+    else
+      format.html { render :edit }
+      format.json { render json: @comite_registro.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def cambiar_estado
+    if @comite_registro.update(cambiar_estado_params)
+      format.html { redirect_to @comite_registro, notice: 'La petición ha cambiado de estado.' }
+      format.json { render :show, status: :ok, location: @comite_registro }
+    else
+      format.html { render :edit }
+      format.json { render json: @comite_registro.errors, status: :unprocessable_entity }
+    end
+  end
+
+  private
     # Never trust parameters from the scary internet, only allow the white list through.
     def comite_registro_params
-      params.require(:comite_registro).permit(:tutor_uno, :tutor_dos, :tutor_tres, :tutor_cuatro)
+      params.require(:comite_registro).permit(:tutor_uno, :tutor_dos, :tutor_tres, :tutor_cuatro, :valida_consejero, :valida_coordinador, :estado)
+    end
+
+    def comite_registro
+      @comite_registro = ComiteRegistro.new(comite_registro_params)
+    end
+
+    def validar_consejero_params
+      params.require(:comite_registro).permit(:valida_consejero)
+    end
+
+    def validar_coordinador_params
+      params.require(:comite_registro).permit(:valida_coordinador)
+    end
+
+    def cambiar_estado_params
+      params.require(:comite_registro).permit(:estado)
     end
 end

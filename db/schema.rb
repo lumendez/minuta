@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928194506) do
+ActiveRecord::Schema.define(version: 20160930163824) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
@@ -76,8 +76,13 @@ ActiveRecord::Schema.define(version: 20160928194506) do
   create_table "cambiar_temas", force: :cascade do |t|
     t.string   "anterior"
     t.string   "actual"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_cambiar_temas_on_user_id"
   end
 
   create_table "clave_semestres", force: :cascade do |t|
@@ -91,8 +96,13 @@ ActiveRecord::Schema.define(version: 20160928194506) do
     t.string   "tutor_dos"
     t.string   "tutor_tres"
     t.string   "tutor_cuatro"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_comite_registros_on_user_id"
   end
 
   create_table "consejero_electricas", force: :cascade do |t|
@@ -117,8 +127,13 @@ ActiveRecord::Schema.define(version: 20160928194506) do
     t.string   "nombre"
     t.string   "clave"
     t.string   "unidad"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_cursar_asignaturas_on_user_id"
   end
 
   create_table "electrica_asignaturas", force: :cascade do |t|
@@ -142,8 +157,13 @@ ActiveRecord::Schema.define(version: 20160928194506) do
 
   create_table "examen_graduados", force: :cascade do |t|
     t.string   "tipo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_examen_graduados_on_user_id"
   end
 
   create_table "examen_tipos", force: :cascade do |t|
@@ -154,8 +174,13 @@ ActiveRecord::Schema.define(version: 20160928194506) do
 
   create_table "receso_semestres", force: :cascade do |t|
     t.string   "semestre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_receso_semestres_on_user_id"
   end
 
   create_table "sepi_programas", force: :cascade do |t|
@@ -173,8 +198,13 @@ ActiveRecord::Schema.define(version: 20160928194506) do
     t.string   "segundo_vocal"
     t.string   "tercer_vocal"
     t.string   "suplente"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_tesis_registros_on_user_id"
   end
 
   create_table "tipos_bajas", force: :cascade do |t|

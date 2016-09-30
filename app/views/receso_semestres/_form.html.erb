@@ -13,7 +13,28 @@
 
   <div class="field">
     <%= f.label :semestre %>
-    <%= f.text_field :semestre %>
+    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_consejero, receso_semestre %>
+      <%= f.label :valida_consejero %>
+      <%= f.check_box :valida_consejero %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_coordinador, receso_semestre %>
+      <%= f.label :valida_coordinador %>
+      <%= f.check_box :valida_coordinador %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :cambiar_estado, receso_semestre %>
+      <%= f.label :estado %>
+      <%= collection_select(:receso_semestre, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    <% end %>
   </div>
 
   <div class="actions">

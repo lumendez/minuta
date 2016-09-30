@@ -6,6 +6,12 @@
   <thead>
     <tr>
       <th>Semestre</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Fecha</th>
+      <th>Validacion consejero</th>
+      <th>Validacion coordinador</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +20,12 @@
     <% @receso_semestres.each do |receso_semestre| %>
       <tr>
         <td><%= receso_semestre.semestre %></td>
+        <td><%= receso_semestre.user.nombre %></td>
+        <td><%= receso_semestre.user.boleta %></td>
+        <td><%= receso_semestre.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td><%= receso_semestre.valida_consejero ? 'Si' : 'No' %></td>
+        <td><%= receso_semestre.valida_coordinador ? 'Si' : 'No' %></td>
+        <td><%= receso_semestre.estado %></td>
         <td><%= link_to 'Show', receso_semestre %></td>
         <td><%= link_to 'Edit', edit_receso_semestre_path(receso_semestre) %></td>
         <td><%= link_to 'Destroy', receso_semestre, method: :delete, data: { confirm: 'Are you sure?' } %></td>

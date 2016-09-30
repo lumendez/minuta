@@ -13,6 +13,12 @@
       <th>Segundo vocal</th>
       <th>Tercer vocal</th>
       <th>Suplente</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Fecha</th>
+      <th>Validacion consejero</th>
+      <th>Validacion coordinador</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +34,12 @@
         <td><%= tesis_registro.segundo_vocal %></td>
         <td><%= tesis_registro.tercer_vocal %></td>
         <td><%= tesis_registro.suplente %></td>
+        <td><%= tesis_registro.user.nombre %></td>
+        <td><%= tesis_registro.user.boleta %></td>
+        <td><%= tesis_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td><%= tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <td><%= tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <td><%= tesis_registro.estado %></td>
         <td><%= link_to 'Show', tesis_registro %></td>
         <td><%= link_to 'Edit', edit_tesis_registro_path(tesis_registro) %></td>
         <td><%= link_to 'Destroy', tesis_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>

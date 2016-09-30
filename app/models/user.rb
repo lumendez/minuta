@@ -12,6 +12,12 @@ class User < ApplicationRecord
   has_many :baja_programas, dependent: :destroy
   has_many :cambiar_asignaturas, dependent: :destroy
   has_many :cambiar_consejeros, dependent: :destroy
+  has_many :cambiar_temas, dependent: :destroy
+  has_many :comite_registros, dependent: :destroy
+  has_many :cursar_asignaturas, dependent: :destroy
+  has_many :examen_graduados, dependent: :destroy
+  has_many :receso_semestres, dependent: :destroy
+  has_many :tesis_registros, dependent: :destroy
 
   def admin?
     self.tipos_usuario.tipo == "Administrador"

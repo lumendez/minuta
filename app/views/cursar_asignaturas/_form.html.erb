@@ -26,6 +26,27 @@
     <%= f.text_field :unidad %>
   </div>
 
+  <div class="field">
+    <% if can? :validar_consejero, cursar_asignatura %>
+      <%= f.label :valida_consejero %>
+      <%= f.check_box :valida_consejero %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_coordinador, cursar_asignatura %>
+      <%= f.label :valida_coordinador %>
+      <%= f.check_box :valida_coordinador %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :cambiar_estado, cursar_asignatura %>
+      <%= f.label :estado %>
+      <%= collection_select(:cursar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

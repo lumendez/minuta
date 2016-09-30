@@ -5,7 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Tipo</th>
+      <th>Tipo de examen</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Fecha</th>
+      <th>Validacion consejero</th>
+      <th>Validacion coordinador</th>
+      <th>Estado</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +20,12 @@
     <% @examen_graduados.each do |examen_graduado| %>
       <tr>
         <td><%= examen_graduado.tipo %></td>
+        <td><%= examen_graduado.user.nombre %></td>
+        <td><%= examen_graduado.user.boleta %></td>
+        <td><%= examen_graduado.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>
+        <td><%= examen_graduado.valida_coordinador ? 'Si' : 'No' %></td>
+        <td><%= examen_graduado.estado %></td>
         <td><%= link_to 'Show', examen_graduado %></td>
         <td><%= link_to 'Edit', edit_examen_graduado_path(examen_graduado) %></td>
         <td><%= link_to 'Destroy', examen_graduado, method: :delete, data: { confirm: 'Are you sure?' } %></td>

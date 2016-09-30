@@ -18,37 +18,58 @@
 
   <div class="field">
     <%= f.label :director %>
-    <%= f.text_field :director %>
+    <%= collection_select(:tesis_registro, :director, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :presidente %>
-    <%= f.text_field :presidente %>
+    <%= collection_select(:tesis_registro, :presidente, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :secretario %>
-    <%= f.text_field :secretario %>
+    <%= collection_select(:tesis_registro, :secretario, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :primer_vocal %>
-    <%= f.text_field :primer_vocal %>
+    <%= collection_select(:tesis_registro, :primer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :segundo_vocal %>
-    <%= f.text_field :segundo_vocal %>
+    <%= collection_select(:tesis_registro, :segundo_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :tercer_vocal %>
-    <%= f.text_field :tercer_vocal %>
+    <%= collection_select(:tesis_registro, :tercer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
     <%= f.label :suplente %>
-    <%= f.text_field :suplente %>
+    <%= collection_select(:tesis_registro, :suplente, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_consejero, tesis_registro %>
+      <%= f.label :valida_consejero %>
+      <%= f.check_box :valida_consejero %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :validar_coordinador, tesis_registro %>
+      <%= f.label :valida_coordinador %>
+      <%= f.check_box :valida_coordinador %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% if can? :cambiar_estado, tesis_registro %>
+      <%= f.label :estado %>
+      <%= collection_select(:tesis_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    <% end %>
   </div>
 
   <div class="actions">

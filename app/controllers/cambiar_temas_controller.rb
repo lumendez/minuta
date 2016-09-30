@@ -1,5 +1,7 @@
 class CambiarTemasController < ApplicationController
-  before_action :set_cambiar_tema, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :cambiar_tema, only: :create
+  load_and_authorize_resource
 
   # GET /cambiar_temas
   # GET /cambiar_temas.json
@@ -14,7 +16,7 @@ class CambiarTemasController < ApplicationController
 
   # GET /cambiar_temas/new
   def new
-    @cambiar_tema = CambiarTema.new
+    @cambiar_tema = current_user.cambiar_temas.build
   end
 
   # GET /cambiar_temas/1/edit
@@ -24,16 +26,13 @@ class CambiarTemasController < ApplicationController
   # POST /cambiar_temas
   # POST /cambiar_temas.json
   def create
-    @cambiar_tema = CambiarTema.new(cambiar_tema_params)
-
-    respond_to do |format|
-      if @cambiar_tema.save
-        format.html { redirect_to @cambiar_tema, notice: 'Cambiar tema was successfully created.' }
-        format.json { render :show, status: :created, location: @cambiar_tema }
-      else
-        format.html { render :new }
-        format.json { render json: @cambiar_tema.errors, status: :unprocessable_entity }
-      end
+    @cambiar_tema = current_user.cambiar_temas.build(cambiar_tema_params)
+    if @cambiar_tema.save
+      flash[:success] = "Su petición para cambiar tema de tesis ha sido creada!"
+      redirect_to cambiar_temas_path
+    else
+      flash[:alert] = "Su petición para cambiar tema de tesis no pudo crearse! Revise el formulario."
+      render :new
     end
   end
 
@@ -61,14 +60,55 @@ class CambiarTemasController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cambiar_tema
-      @cambiar_tema = CambiarTema.find(params[:id])
+  def validar_consejero
+    if @cambiar_tema.update(validar_consejero_params)
+      format.html { redirect_to @cambiar_tema, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @cambiar_tema }
+    else
+      format.html { render :edit }
+      format.json { render json: @cambiar_tema.errors, status: :unprocessable_entity }
     end
+  end
 
+  def validar_coordinador
+    if @cambiar_tema.update(validar_coordinador_params)
+      format.html { redirect_to @cambiar_tema, notice: 'La validación cambió de estado.' }
+      format.json { render :show, status: :ok, location: @cambiar_tema }
+    else
+      format.html { render :edit }
+      format.json { render json: @cambiar_tema.errors, status: :unprocessable_entity }
+    end
+  end
+
+  def cambiar_estado
+    if @cambiar_tema.update(cambiar_estado_params)
+      format.html { redirect_to @cambiar_tema, notice: 'La petición ha cambiado de estado.' }
+      format.json { render :show, status: :ok, location: @cambiar_tema }
+    else
+      format.html { render :edit }
+      format.json { render json: @cambiar_tema.errors, status: :unprocessable_entity }
+    end
+  end
+
+  private
     # Never trust parameters from the scary internet, only allow the white list through.
     def cambiar_tema_params
-      params.require(:cambiar_tema).permit(:anterior, :actual)
+      params.require(:cambiar_tema).permit(:anterior, :actual, :valida_consejero, :valida_coordinador, :estado)
+    end
+
+    def cambiar_tema
+      @cambiar_tema = CambiarTema.new(cambiar_tema_params)
+    end
+
+    def validar_consejero_params
+      params.require(:cambiar_tema).permit(:valida_consejero)
+    end
+
+    def validar_coordinador_params
+      params.require(:cambiar_tema).permit(:valida_coordinador)
+    end
+
+    def cambiar_estado_params
+      params.require(:cambiar_tema).permit(:estado)
     end
 end
