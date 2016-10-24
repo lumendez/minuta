@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Nombre:</strong>
   <%= @user.nombre %>
@@ -11,7 +9,7 @@
 </p>
 
 <p>
-  <strong>Sepi programa:</strong>
+  <strong>Programa:</strong>
   <%= @user.sepi_programa.nombre %>
 </p>
 
@@ -31,20 +29,25 @@
 </p>
 
 <p>
-  <strong>Joined on:</strong>
-  <%= @user.created_at %>
+  <strong>&Aacute;rea a la que pertenece:</strong>
+  <%= @user.area %>
 </p>
 
 <p>
-  <strong>Last logged in on:</strong>
-  <%= @user.last_sign_in_at %>
+  <strong>Creado el:</strong>
+  <%= @user.created_at.strftime("%d/%m/%y a las %T %P") %>
 </p>
 
 <p>
-  <strong>No. times logged in:</strong>
+  <strong>&Uacute;ltimo inicio de sesi&oacute;n:</strong>
+  <%= @user.last_sign_in_at.strftime("%d/%m/%y a las %T %P") %>
+</p>
+
+<p>
+  <strong>N&uacute;mero de veces que ha iniciado sesi&oacute;n:</strong>
   <%= @user.sign_in_count %>
 </p>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Regresar', users_path %>

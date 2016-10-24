@@ -11,31 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :nombre %>
     <%= collection_select(:baja_asignatura, :nombre, ElectricaAsignatura.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :clave %>
     <%= collection_select(:baja_asignatura, :clave, ElectricaAsignatura.all, :clave, :clave, {prompt: true}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, baja_asignatura %>
       <%= f.label :valida_consejero %>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, baja_asignatura %>
       <%= f.label :valida_coordinador %>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, baja_asignatura %>
       <%= f.label :estado %>
       <%= collection_select(:baja_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
@@ -43,7 +43,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Actualizar", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>
 <script>

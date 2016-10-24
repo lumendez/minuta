@@ -5,5 +5,15 @@
   <%= @agregar_asignatura.nombre %>
 </p>
 
+<p>
+  <strong>Creada por:</strong>
+  <%= @agregar_asignatura.user.nombre %>
+</p>
+
+<p>
+  <strong>&Aacute;rea:</strong>
+  <%= @agregar_asignatura.user.area %>
+</p>
+
 <%= link_to 'Edit', edit_agregar_asignatura_path(@agregar_asignatura) %> |
 <%= link_to 'Back', agregar_asignaturas_path %>

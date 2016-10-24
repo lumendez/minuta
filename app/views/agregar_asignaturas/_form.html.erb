@@ -11,12 +11,58 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+  <div class="form-group">
+    <%= f.label :nombre %><br>
+    <%= collection_select(:agregar_asignatura, :nombre, ElectricaAsignatura.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :clave %><br>
+    <%= collection_select(:agregar_asignatura, :clave, ElectricaAsignatura.all, :clave, :clave, {prompt: true}) %>
+  </div>
+
+  <div class="form-group">
+    <% if can? :validar_consejero, agregar_asignatura %>
+      <%= f.label :valida_consejero %><br>
+      <%= f.check_box :valida_consejero %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% if can? :validar_coordinador, agregar_asignatura %>
+      <%= f.label :valida_coordinador %><br>
+      <%= f.check_box :valida_coordinador %>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <% if can? :cambiar_estado, agregar_asignatura %>
+      <%= f.label :estado %><br>
+      <%= collection_select(:agregar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición" %>
   </div>
 <% end %>
+<script>
+function matchUp(selected, toselect)
+{
+  var idx = selected.prop('selectedIndex');
+  toselect.prop('selectedIndex', idx);
+}
+
+
+$('#agregar_asignatura_nombre').change(
+  function() {
+    matchUp($('#agregar_asignatura_nombre'), $('#agregar_asignatura_clave'));
+  }
+);
+
+$('#agregar_asignatura_clave').change(
+  function() {
+    matchUp($('#agregar_asignatura_clave'), $('#agregar_asignatura_nombre'));
+  }
+);
+</script>

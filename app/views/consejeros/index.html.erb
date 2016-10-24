@@ -1,12 +1,10 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Consejeros</h3>
 
-<h1>Consejeros</h1>
-
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th colspan="3"></th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -14,9 +12,9 @@
     <% @consejeros.each do |consejero| %>
       <tr>
         <td><%= consejero.nombre %></td>
-        <td><%= link_to 'Show', consejero %></td>
-        <td><%= link_to 'Edit', edit_consejero_path(consejero) %></td>
-        <td><%= link_to 'Destroy', consejero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Información', consejero %></td>
+        <td><%= link_to 'Editar', edit_consejero_path(consejero) %></td>
+        <td><%= link_to 'Eliminar', consejero, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Consejero', new_consejero_path %>
+<%= link_to 'Agregar consejero', new_consejero_path, class: "btn btn-md btn-default" %>

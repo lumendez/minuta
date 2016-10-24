@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930163824) do
+ActiveRecord::Schema.define(version: 20161014211119) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.string   "clave"
+    t.index ["user_id"], name: "index_agregar_asignaturas_on_user_id"
+  end
+
+  create_table "alumnos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "areas", force: :cascade do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -239,6 +256,7 @@ ActiveRecord::Schema.define(version: 20160930163824) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "area"
     t.index ["consejero_id"], name: "index_users_on_consejero_id"
     t.index ["coordinador_id"], name: "index_users_on_coordinador_id"
     t.index ["coordinador_nombre_id"], name: "index_users_on_coordinador_nombre_id"

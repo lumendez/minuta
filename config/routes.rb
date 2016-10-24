@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :areas
   resources :electrica_consejeros
   resources :electrica_asignaturas
   resources :estados
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
   resources :baja_asignaturas
   resources :asignatura_electricas
   resources :agregar_asignaturas
+  resources :alumnos
+  resources :coordinadores
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "baja_asignaturas#index"
+  root to: "alumnos#index"
 end

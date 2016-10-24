@@ -41,7 +41,33 @@
     <%= collection_select(:user, :tipos_usuario_id, TiposUsuario.all, :id, :tipo, {prompt: true}) %>
   </div>
 
+  <div class="field">
+    <%= f.label :area %>
+    <%= collection_select(:user, :area, Area.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+function matchUp(selected, toselect)
+{
+  var idx = selected.prop('selectedIndex');
+  toselect.prop('selectedIndex', idx);
+}
+
+
+$('#user_sepi_programa_id').change(
+  function() {
+    matchUp($('#user_sepi_programa_id'), $('#user_area'));
+  }
+);
+
+$('#user_area').change(
+  function() {
+    matchUp($('#user_area'), $('#ser_sepi_programa_id'));
+  }
+);
+</script>

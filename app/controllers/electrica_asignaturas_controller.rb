@@ -1,5 +1,7 @@
 class ElectricaAsignaturasController < ApplicationController
-  before_action :set_electrica_asignatura, only: [:show, :edit, :update, :destroy]
+  bbefore_action :authenticate_user!
+  before_action :electrica_asignatura, only: :create
+  load_and_authorize_resource
 
   # GET /electrica_asignaturas
   # GET /electrica_asignaturas.json

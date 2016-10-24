@@ -7,7 +7,8 @@ class User < ApplicationRecord
   belongs_to :consejero
   belongs_to :coordinador_nombre
   belongs_to :tipos_usuario
-
+  
+  has_many :agregar_asignaturas, dependent: :destroy
   has_many :baja_asignaturas, dependent: :destroy
   has_many :baja_programas, dependent: :destroy
   has_many :cambiar_asignaturas, dependent: :destroy

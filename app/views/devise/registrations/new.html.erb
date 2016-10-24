@@ -1,59 +1,84 @@
-<h2>Sign up</h2>
+<h3 class="sub">Registrar nuevo usuario</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :nombre %>
+  <div class="form-group">
+    <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
   </div>
 
-  <div class="field">
-    <%= f.label :boleta %>
+  <div class="form-group">
+    <%= f.label :boleta %><br>
     <%= f.text_field :boleta %>
   </div>
 
-  <div class="field">
-    <%= f.label :sepi_programa_id %>
+  <div class="form-group">
+    <%= f.label :sepi_programa_id, "Programa" %><br>
     <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: true}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :consejero_id %>
+  <div class="form-group">
+    <%= f.label :consejero_id %><br>
     <%= collection_select(:user, :consejero_id, Consejero.all, :id, :nombre, {prompt: true}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :coordinador_nombre_id %>
+  <div class="form-group">
+    <%= f.label :coordinador_nombre_id, "Coordinador" %><br>
     <%= collection_select(:user, :coordinador_nombre_id, CoordinadorNombre.all, :id, :nombre, {prompt: true}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :tipos_usuario_id %>
+  <div class="form-group">
+    <%= f.label :area %><br>
+    <%= collection_select(:user, :area, Area.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tipos_usuario_id, "Tipo de usuario" %><br>
     <%= collection_select(:user, :tipos_usuario_id, TiposUsuario.all, :id, :tipo, {prompt: true}) %>
   </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
+
+  <div class="form-group">
+    <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %><br>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Registrar" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+<script>
+function matchUp(selected, toselect)
+{
+  var idx = selected.prop('selectedIndex');
+  toselect.prop('selectedIndex', idx);
+}
+
+
+$('#user_sepi_programa_id').change(
+  function() {
+    matchUp($('#user_sepi_programa_id'), $('#user_area'));
+  }
+);
+
+$('#user_area').change(
+  function() {
+    matchUp($('#user_area'), $('#ser_sepi_programa_id'));
+  }
+);
+</script>

@@ -8,8 +8,8 @@ class BajaAsignaturasController < ApplicationController
   # GET /baja_asignaturas
   # GET /baja_asignaturas.json
   def index
-    #@baja_asignaturas = BajaAsignatura.all
-    @baja_asignaturas = current_user.baja_asignaturas
+    @baja_asignaturas = BajaAsignatura.all
+    #@baja_asignaturas = current_user.baja_asignaturas
   end
 
   # GET /baja_asignaturas/1
@@ -43,7 +43,7 @@ class BajaAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @baja_asignatura.update(baja_asignatura_params)
-        format.html { redirect_to @baja_asignatura, notice: 'Su petición de baja fue actualizada.' }
+        format.html { redirect_to root_path, notice: 'Su petición de baja fue actualizada.' }
         format.json { render :show, status: :ok, location: @baja_asignatura }
       else
         format.html { render :edit }

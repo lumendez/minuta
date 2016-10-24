@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Minutas</title>
+    <title>Minutas de asuntos escolares</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,17 +9,111 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      Bienvenido <%= current_user.nombre %>. ¿No eres tú?
-      <%= link_to "Editar perfil", edit_user_registration_path %>
-      <%= link_to "Salir", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Registarse", new_user_registration_path %> o <%= link_to "Iniciar sesión", new_user_session_path %>
-    <% end %>
+    <div id="Header"><!--Inicio Header-->
+		<!--Fin Menú utilerias-->
+			<div class="banner"><!--Inicio Banner IPN-->
+				<div class="contbanner">
+					<div class="logosep">
+						<div class="sep"><a href="http://www.sep.gob.mx/" target="_blank"></a></div>
+						<div class="gobernacion"><a href="http://www.gobernacion.gob.mx" target="_blank"></a></div>
+					</div>
+					<div class="logoipn">
+					<div class="derecha" style="width: 208px">
+	    		    	<div class="escudoipn" id="clickeable" ><a href="http://www.ipn.mx/" title="Página Inicio IPN"></a></div>
+							<span >
+						    <a href="http://www.ipn.mx">Instituto Politécnico Nacional
+						    <span>"La Técnica al Servicio de la Patria"</span></a>
+						    </span>
+						</div>
+						<div class="institucion">
+                            <p><span class="sepi">Secci&oacute;n de Estudios de Posgrado e Investigaci&oacute;n</span><br>
+                            <strong>Escuela Superior de Ingenier&iacute;a Mec&aacute;nica y El&eacute;ctrica</strong><br>
+                            Unidad Zacatenco</p>
+						</div>
+					</div>
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
-    <%= yield %>
+				</div>
+			</div><!--Fin Banner IPN-->
+			<div class="navbar navbar-inverse">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+                <div class="navbar-collapse collapse borde">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li class="Selected"><a href="/">Inicio</a></li>
+                    <li></li>
+                    <!--<li><a href="http://www.ipn.mx/Paginas/Correo-Electronico.aspx">Correo electrónico</a></li>
+                    <li><a href="http://www.ipn.mx/Paginas/Calendario-Escolar-IPN.aspx">Calendario Académico</a></li>
+                    <li><a href="http://www.ipn.mx/Paginas/directorio.aspx">Directorio</a></li>-->
+                    <% if user_signed_in? %>
+                      <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nueva petici&oacute;n  <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <%= link_to "Agregar asignaturas", new_agregar_asignatura_path %>
+                          </li>
+                        	<li>
+                            <%= link_to "Baja de asignaturas", new_baja_asignatura_path %>
+                          </li>
+                          <li>
+                            <a href="#mecanica">Mec&aacute;nica</a>
+                          </li>
+              		  	    <li>
+                            <a href="#telecomunicaciones">Telecomunicaciones</a>
+                          </li>
+                          <li>
+                            <a href="#sistemas">Sistemas</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+                    <% else %>
+                      <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+                    <% end %>
+                    </li>
+                  </ul>
+                </div>
+                <!--/.navbar-collapse -->
+              </div>
+            </div>
+		</div>
+    <div class="container">
+      <div class="row">
+        <div id="flash">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+        <!-- inicia footer institucional-->
+        	<div class="PiePagina">
+            	<hr>
+                	<h1 align="center">
+                    <a target="_blank" href="http://www.ipn.mx">Instituto Polit&eacute;cnico Nacional</a>
+                </h1>
+                <p align="center">Secci&oacute;n de Estudios de Posgrado e Investigaci&oacute;n de la Escuela Superior de Ingenier&iacute;a Mec&aacute;nica y El&eacute;ctrica Unidad Zacatenco<br>
+                Unidad Profesional &ldquo;Adolfo L&oacute;pez Mateos&rdquo; Edificio 5 Tercer Piso.<br>
+        		Tel&eacute;fono: (55) 57296000 extensi&oacute;n: 54586
+                </p>
+        	</div>
+        <!-- termina el footer institucional -->
+    	</footer>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+      setTimeout(function(){
+        $('#flash').fadeOut(function() { $(this).remove(); });
+      }, 3000);
+     })
+    </script>
   </body>
 </html>

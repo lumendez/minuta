@@ -7,6 +7,13 @@ class Ability
       can :cambiar_estado, BajaAsignatura
       can :cambiar_estado, BajaPrograma
     elsif user.coordinador?
+      #AgregarAsignatura
+      can :read, AgregarAsignatura
+      can :update, AgregarAsignatura
+      can :validar_coordinador, AgregarAsignatura do |agregar_asignatura|
+        agregar_asignatura.try(:valida_coordinador) == false || agregar_asignatura.try(:valida_coordinador) == true
+      end
+      #BajaAsignatura
       can :read, BajaAsignatura
       can :update, BajaAsignatura
       can :validar_coordinador, BajaAsignatura do |baja_asignatura|
@@ -67,6 +74,13 @@ class Ability
         tesis_registro.try(:valida_coordinador) == false || tesis_registro.try(:valida_coordinador) == true
       end
     elsif user.consejero?
+      #AgregarAsignatura
+      can :read, AgregarAsignatura
+      can :update, AgregarAsignatura
+      can :validar_consejero, AgregarAsignatura do |agregar_asignatura|
+        agregar_asignatura.try(:valida_consejero) == false || agregar_asignatura.try(:valida_consejero) == true
+      end
+      #BajaAsignatura
       can :read, BajaAsignatura
       can :update, BajaAsignatura
       can :validar_consejero, BajaAsignatura do |baja_asignatura|
@@ -127,7 +141,16 @@ class Ability
         tesis_registro.try(:valida_consejero) == false || tesis_registro.try(:valida_consejero) == true
       end
     elsif user.alumno?
-        can :read, BajaAsignatura
+        #Alumno
+        can :read, Alumno
+        #AgregarAsignatura
+        can :read, AgregarAsignatura
+        can :create, AgregarAsignatura
+        can :update, AgregarAsignatura do |agregar_asignatura|
+          agregar_asignatura.try(:user) == user
+        end
+        #BajaAsignatura
+        #can :read, BajaAsignatura
         can :create, BajaAsignatura
         can :update, BajaAsignatura do |baja_asignatura|
           baja_asignatura.try(:user) == user
