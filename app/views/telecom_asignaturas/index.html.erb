@@ -1,0 +1,27 @@
+<h3 class="sub">Asignaturas de Ingenier&iacute;a de Telecomunicaciones</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @telecom_asignaturas.each do |telecom_asignatura| %>
+      <tr>
+        <td><%= telecom_asignatura.nombre %></td>
+        <td><%= telecom_asignatura.clave %></td>
+        <td><%= link_to 'Detalles', telecom_asignatura %></td>
+        <td><%= link_to 'Editar', edit_telecom_asignatura_path(telecom_asignatura) %></td>
+        <td><%= link_to 'Eliminar', telecom_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nueva asignatura', new_telecom_asignatura_path %>

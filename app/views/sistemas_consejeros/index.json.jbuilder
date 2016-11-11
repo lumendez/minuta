@@ -1,0 +1,1 @@
+json.array! @sistemas_consejeros, partial: 'sistemas_consejeros/sistemas_consejero', as: :sistemas_consejero

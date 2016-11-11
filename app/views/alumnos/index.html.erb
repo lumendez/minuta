@@ -1,4 +1,4 @@
-<h2 class="sub">Mis peticiones</h2>
+<h1 class="titulo-sub" align="center">Mis peticiones</h1>
 <% if @agregar_asignaturas.empty? %>
 <% else %>
 <h3 class="sub">Petición para agregar asignaturas al programa de estudios</h3>
@@ -437,6 +437,7 @@
         <% else receso_semestre.estado == "Finalizado" %>
         <td class="info"><%= receso_semestre.estado %></td>
         <% end %>
+      </tr>
     <% end %>
   </tbody>
 </table>

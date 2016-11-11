@@ -11,48 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tutor_uno %>
-    <%= collection_select(:comite_registro, :tutor_uno, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :tutor_uno %><br>
+    <%= collection_select(:comite_registro, :tutor_uno, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :tutor_dos %>
-    <%= collection_select(:comite_registro, :tutor_dos, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :tutor_dos %><br>
+    <%= collection_select(:comite_registro, :tutor_dos, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :tutor_tres %>
-    <%= collection_select(:comite_registro, :tutor_tres, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :tutor_tres %><br>
+    <%= collection_select(:comite_registro, :tutor_tres, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :tutor_cuatro %>
-    <%= collection_select(:comite_registro, :tutor_cuatro, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :tutor_cuatro %><br>
+    <%= collection_select(:comite_registro, :tutor_cuatro, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, comite_registro %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, comite_registro %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, comite_registro %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:comite_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

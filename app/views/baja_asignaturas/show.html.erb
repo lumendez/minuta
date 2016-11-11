@@ -1,17 +1,22 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h1>
 <p>
   <strong>Nombre:</strong>
   <%= @baja_asignatura.nombre %>
 </p>
 
 <p>
-  <strong>Creado:</strong>
+  <strong>Creada por:</strong>
+  <%= @baja_asignatura.user.nombre %>
+</p>
+
+<p>
+  <strong>Fecha de creaci&oacute;n:</strong>
   <%= @baja_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %>
 </p>
-<% if can? :update, @baja_asignatura %>
-  <%= link_to 'Edit', edit_baja_asignatura_path(@baja_asignatura) %> |
-  <%= link_to 'Back', baja_asignaturas_path %>
-<% else %>
-  <%= link_to 'Back', baja_asignaturas_path %>
-<% end %>
+
+<p>
+  <strong>&Aacute;rea:</strong>
+  <%= @baja_asignatura.user.area %>
+</p>
+
+<%= render 'baja_asignaturas/links' %>

@@ -11,34 +11,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tipo %>
-      <%= collection_select(:examen_graduado, :tipo, ExamenTipo.all, :tipo, :tipo, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :tipo %><br>
+      <%= collection_select(:examen_graduado, :tipo, ExamenTipo.all, :tipo, :tipo, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, examen_graduado %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, examen_graduado %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, examen_graduado %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:examen_graduado, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

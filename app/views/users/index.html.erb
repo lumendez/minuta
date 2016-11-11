@@ -20,11 +20,11 @@
         <td><%= user.boleta %></td>
         <td><%= user.sepi_programa.nombre %></td>
         <td><%= user.consejero.nombre %></td>
-        <td><%= user.coordinador_nombre.nombre %></td>
+        
         <td><%= user.tipos_usuario.tipo %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>

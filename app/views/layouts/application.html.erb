@@ -44,40 +44,7 @@
                   </button>
                 </div>
                 <div class="navbar-collapse collapse borde">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="Selected"><a href="/">Inicio</a></li>
-                    <li></li>
-                    <!--<li><a href="http://www.ipn.mx/Paginas/Correo-Electronico.aspx">Correo electrónico</a></li>
-                    <li><a href="http://www.ipn.mx/Paginas/Calendario-Escolar-IPN.aspx">Calendario Académico</a></li>
-                    <li><a href="http://www.ipn.mx/Paginas/directorio.aspx">Directorio</a></li>-->
-                    <% if user_signed_in? %>
-                      <li><%= link_to "Editar perfil", edit_user_registration_path %></li>
-                      <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nueva petici&oacute;n  <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <%= link_to "Agregar asignaturas", new_agregar_asignatura_path %>
-                          </li>
-                        	<li>
-                            <%= link_to "Baja de asignaturas", new_baja_asignatura_path %>
-                          </li>
-                          <li>
-                            <a href="#mecanica">Mec&aacute;nica</a>
-                          </li>
-              		  	    <li>
-                            <a href="#telecomunicaciones">Telecomunicaciones</a>
-                          </li>
-                          <li>
-                            <a href="#sistemas">Sistemas</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
-                    <% else %>
-                      <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
-                    <% end %>
-                    </li>
-                  </ul>
+                  <%= render 'layouts/menu' %>
                 </div>
                 <!--/.navbar-collapse -->
               </div>

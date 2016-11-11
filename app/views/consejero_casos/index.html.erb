@@ -1,0 +1,56 @@
+<h1 class="titulo-sub" align="center">Peticiones de alumnos</h1>
+<% if @agregar_asignaturas.empty? %>
+<% else %>
+<h3 class="sub">Petición para agregar asignaturas al programa de estudios</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agregar_asignaturas.each do |agregar_asignatura| %>
+      <% if current_user.nombre == agregar_asignatura.user.consejero.nombre %>
+      <tr>
+        <td><%= agregar_asignatura.user.nombre %></td>
+        <td><%= agregar_asignatura.user.boleta %></td>
+        <td><%= agregar_asignatura.user.sepi_programa.nombre %></td>
+        <td><%= agregar_asignatura.nombre %></td>
+        <td><%= agregar_asignatura.clave %></td>
+        <td><%= agregar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if agregar_asignatura.valida_consejero == true %>
+        <td class="success"><%= agregar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= agregar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if agregar_asignatura.valida_coordinador == true %>
+        <td class="success"><%= agregar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= agregar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if agregar_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= agregar_asignatura.estado %></td>
+        <% elsif agregar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= agregar_asignatura.estado %></td>
+        <% else %>
+        <td class="info"><%= agregar_asignatura.estado %></td>
+        <% end %>
+        <% if can? :update, AgregarAsignatura %>
+        <td><%= link_to 'Editar', edit_agregar_asignatura_path(agregar_asignatura) %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    <% end%>
+  </tbody>
+</table>
+<% end %>

@@ -1,5 +1,5 @@
 class ElectricaAsignaturasController < ApplicationController
-  bbefore_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :electrica_asignatura, only: :create
   load_and_authorize_resource
 
@@ -26,7 +26,6 @@ class ElectricaAsignaturasController < ApplicationController
   # POST /electrica_asignaturas
   # POST /electrica_asignaturas.json
   def create
-    @electrica_asignatura = ElectricaAsignatura.new(electrica_asignatura_params)
 
     respond_to do |format|
       if @electrica_asignatura.save
@@ -64,13 +63,12 @@ class ElectricaAsignaturasController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_electrica_asignatura
-      @electrica_asignatura = ElectricaAsignatura.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def electrica_asignatura_params
       params.require(:electrica_asignatura).permit(:nombre, :clave)
+    end
+
+    def electrica_asignatura
+      @electrica_asignatura = ElectricaAsignatura.new(electrica_asignatura_params)
     end
 end

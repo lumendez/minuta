@@ -1,0 +1,2 @@
+class TelecomConsejero < ApplicationRecord
+end

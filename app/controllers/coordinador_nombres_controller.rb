@@ -1,5 +1,7 @@
 class CoordinadorNombresController < ApplicationController
-  before_action :set_coordinador_nombre, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :coordinador_nombre, only: :create
+  load_and_authorize_resource
 
   # GET /coordinador_nombres
   # GET /coordinador_nombres.json
@@ -24,11 +26,10 @@ class CoordinadorNombresController < ApplicationController
   # POST /coordinador_nombres
   # POST /coordinador_nombres.json
   def create
-    @coordinador_nombre = CoordinadorNombre.new(coordinador_nombre_params)
 
     respond_to do |format|
       if @coordinador_nombre.save
-        format.html { redirect_to @coordinador_nombre, notice: 'Coordinador nombre was successfully created.' }
+        format.html { redirect_to @coordinador_nombre, notice: 'Se añadió un nombre de coordinador correctamente.' }
         format.json { render :show, status: :created, location: @coordinador_nombre }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class CoordinadorNombresController < ApplicationController
   def update
     respond_to do |format|
       if @coordinador_nombre.update(coordinador_nombre_params)
-        format.html { redirect_to @coordinador_nombre, notice: 'Coordinador nombre was successfully updated.' }
+        format.html { redirect_to @coordinador_nombre, notice: 'La actualización del nombre del coordinador se realizó correctamente.' }
         format.json { render :show, status: :ok, location: @coordinador_nombre }
       else
         format.html { render :edit }
@@ -56,19 +57,18 @@ class CoordinadorNombresController < ApplicationController
   def destroy
     @coordinador_nombre.destroy
     respond_to do |format|
-      format.html { redirect_to coordinador_nombres_url, notice: 'Coordinador nombre was successfully destroyed.' }
+      format.html { redirect_to coordinador_nombres_url, notice: 'El nombre del coordinador se eliminó corrctamente.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coordinador_nombre
-      @coordinador_nombre = CoordinadorNombre.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def coordinador_nombre_params
       params.require(:coordinador_nombre).permit(:nombre)
+    end
+
+    def coordinador_nombre
+        @coordinador_nombre = CoordinadorNombre.new(coordinador_nombre_params)
     end
 end

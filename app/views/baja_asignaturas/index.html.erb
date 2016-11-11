@@ -1,16 +1,17 @@
-<h1>Baja Asignaturas</h1>
-<table>
+<h3 class="sub">Peticiones para dar de baja una asignatura del programa</h3>
+
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Clave</th>
       <th>Creado por</th>
       <th>Boleta</th>
-      <th>Fecha</th>
-      <th>Validacion consejero</th>
-      <th>Validacion coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -22,15 +23,29 @@
         <td><%= baja_asignatura.user.nombre %></td>
         <td><%= baja_asignatura.user.boleta %></td>
         <td><%= baja_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <td><%= baja_asignatura.valida_consejero ? 'Si' : 'No' %></td>
-        <td><%= baja_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
-        <td><%= baja_asignatura.estado %></td>
-        <td><%= link_to 'Información', baja_asignatura %></td>
+        <% if baja_asignatura.valida_consejero == true %>
+        <td class="success"><%= baja_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= baja_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if baja_asignatura.valida_coordinador == true %>
+        <td class="success"><%= baja_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= baja_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if baja_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= baja_asignatura.estado %></td>
+        <% elsif baja_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= baja_asignatura.estado %></td>
+        <% else baja_asignatura.estado == "Finalizado" %>
+        <td class="info"><%= baja_asignatura.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', baja_asignatura %></td>
         <% if can? :update, baja_asignatura %>
           <td><%= link_to 'Editar', edit_baja_asignatura_path(baja_asignatura) %></td>
         <% end %>
         <% if can? :destroy, baja_asignatura %>
-          <td><%= link_to 'Eliminar', baja_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Eliminar', baja_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
         <% end %>
       </tr>
     <% end %>

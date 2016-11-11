@@ -1,0 +1,27 @@
+<h3 class="sub">Asignaturas de Ingenier&iacute;a Electr&oacute;nica</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @electronica_asignaturas.each do |electronica_asignatura| %>
+      <tr>
+        <td><%= electronica_asignatura.nombre %></td>
+        <td><%= electronica_asignatura.clave %></td>
+        <td><%= link_to 'Detalles', electronica_asignatura %></td>
+        <td><%= link_to 'Editar', edit_electronica_asignatura_path(electronica_asignatura) %></td>
+        <td><%= link_to 'Eliminar', electronica_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nueva asignatura', new_electronica_asignatura_path %>

@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Tema:</strong>
   <%= @tesis_registro.tema %>
@@ -40,5 +39,4 @@
   <%= @tesis_registro.suplente %>
 </p>
 
-<%= link_to 'Edit', edit_tesis_registro_path(@tesis_registro) %> |
-<%= link_to 'Back', tesis_registros_path %>
+<%= render 'tesis_registros/links' %>

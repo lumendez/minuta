@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014211119) do
+ActiveRecord::Schema.define(version: 20161104164236) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
@@ -166,6 +166,19 @@ ActiveRecord::Schema.define(version: 20161014211119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "electronica_asignaturas", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "clave"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "electronica_consejeros", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "estados", force: :cascade do |t|
     t.string   "estado"
     t.datetime "created_at", null: false
@@ -189,6 +202,19 @@ ActiveRecord::Schema.define(version: 20161014211119) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "mecanica_asignaturas", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "clave"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mecanica_consejeros", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "receso_semestres", force: :cascade do |t|
     t.string   "semestre"
     t.datetime "created_at",         null: false
@@ -201,6 +227,32 @@ ActiveRecord::Schema.define(version: 20161014211119) do
   end
 
   create_table "sepi_programas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sistemas_asignaturas", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "clave"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sistemas_consejeros", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "telecom_asignaturas", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "clave"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "telecom_consejeros", force: :cascade do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

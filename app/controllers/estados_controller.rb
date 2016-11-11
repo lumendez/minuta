@@ -1,5 +1,7 @@
 class EstadosController < ApplicationController
-  before_action :set_estado, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :estado, only: :create
+  load_and_authorize_resource
 
   # GET /estados
   # GET /estados.json
@@ -24,11 +26,10 @@ class EstadosController < ApplicationController
   # POST /estados
   # POST /estados.json
   def create
-    @estado = Estado.new(estado_params)
 
     respond_to do |format|
       if @estado.save
-        format.html { redirect_to @estado, notice: 'Estado was successfully created.' }
+        format.html { redirect_to @estado, notice: 'Se añadió un estado correctamente.' }
         format.json { render :show, status: :created, location: @estado }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class EstadosController < ApplicationController
   def update
     respond_to do |format|
       if @estado.update(estado_params)
-        format.html { redirect_to @estado, notice: 'Estado was successfully updated.' }
+        format.html { redirect_to @estado, notice: 'La actualización del estado se realizó correctamente.' }
         format.json { render :show, status: :ok, location: @estado }
       else
         format.html { render :edit }
@@ -56,19 +57,18 @@ class EstadosController < ApplicationController
   def destroy
     @estado.destroy
     respond_to do |format|
-      format.html { redirect_to estados_url, notice: 'Estado was successfully destroyed.' }
+      format.html { redirect_to estados_url, notice: 'El estado se eliminó corrctamente.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_estado
-      @estado = Estado.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def estado_params
       params.require(:estado).permit(:estado)
+    end
+
+    def estado
+      @estado = Estado.new(estado_params)
     end
 end

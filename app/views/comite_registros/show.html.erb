@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Tutor uno:</strong>
   <%= @comite_registro.tutor_uno %>
@@ -20,5 +19,4 @@
   <%= @comite_registro.tutor_cuatro %>
 </p>
 
-<%= link_to 'Edit', edit_comite_registro_path(@comite_registro) %> |
-<%= link_to 'Back', comite_registros_path %>
+<%= render 'comite_registros/links' %>

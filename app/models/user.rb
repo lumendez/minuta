@@ -7,7 +7,7 @@ class User < ApplicationRecord
   belongs_to :consejero
   belongs_to :coordinador_nombre
   belongs_to :tipos_usuario
-  
+
   has_many :agregar_asignaturas, dependent: :destroy
   has_many :baja_asignaturas, dependent: :destroy
   has_many :baja_programas, dependent: :destroy
@@ -19,9 +19,14 @@ class User < ApplicationRecord
   has_many :examen_graduados, dependent: :destroy
   has_many :receso_semestres, dependent: :destroy
   has_many :tesis_registros, dependent: :destroy
+  #has_many :tipos_usuarios, dependent: :destroy
 
   def admin?
     self.tipos_usuario.tipo == "Administrador"
+  end
+
+  def control_escolar?
+    self.tipos_usuario.tipo == "Control escolar"
   end
 
   def coordinador?

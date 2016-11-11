@@ -1,5 +1,7 @@
 class ConsejerosController < ApplicationController
-  before_action :set_consejero, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :consejero, only: :create
+  load_and_authorize_resource
 
   # GET /consejeros
   # GET /consejeros.json
@@ -24,11 +26,10 @@ class ConsejerosController < ApplicationController
   # POST /consejeros
   # POST /consejeros.json
   def create
-    @consejero = Consejero.new(consejero_params)
 
     respond_to do |format|
       if @consejero.save
-        format.html { redirect_to @consejero, notice: 'Consejero was successfully created.' }
+        format.html { redirect_to @consejero, notice: 'Se añadió un nombre de consejero correctamente.' }
         format.json { render :show, status: :created, location: @consejero }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @consejero.update(consejero_params)
-        format.html { redirect_to @consejero, notice: 'Consejero was successfully updated.' }
+        format.html { redirect_to @consejero, notice: 'La actualización del nombre del consejero se realizó correctamente.' }
         format.json { render :show, status: :ok, location: @consejero }
       else
         format.html { render :edit }
@@ -56,19 +57,18 @@ class ConsejerosController < ApplicationController
   def destroy
     @consejero.destroy
     respond_to do |format|
-      format.html { redirect_to consejeros_url, notice: 'Consejero was successfully destroyed.' }
+      format.html { redirect_to consejeros_url, notice: 'El nombre del consejero se eliminó corrctamente.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_consejero
-      @consejero = Consejero.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def consejero_params
       params.require(:consejero).permit(:nombre)
+    end
+
+    def consejero
+      @consejero = Consejero.new(consejero_params)
     end
 end

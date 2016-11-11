@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :estado %>
+  <div class="form-group">
+    <%= f.label :estado, "Nombre del estado" %><br>
     <%= f.text_field :estado %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear", class: "btn btn-md btn-primary"%>
   </div>
 <% end %>

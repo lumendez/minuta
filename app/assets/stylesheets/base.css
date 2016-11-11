@@ -251,14 +251,13 @@ a.PieLink:hover {
 .PiePagina {
     /*background: url("/Style%20Library/images/FooterFondo.png") repeat-x scroll center top #DDDDE2;*/
 	background: #DDDDE2 none repeat scroll 0 0;
-    clear: both;
-    color: #666666;
-    display: block;
-    font-size: 12px;
+  clear: both;
+  color: #666666;
+  display: block;
+  font-size: 12px;
 	padding-bottom: 20px;
-    /*height: 150px;*/
-	/*height: 100%;*/
 	margin-top:15px !important;
+  box-shadow: 0px 500px 0px 500px #DDDDE2;
 }
 .PiePagina p {
     margin: 0 100px;
@@ -561,5 +560,6 @@ background-color: white;
 .cv li {margin-bottom: 10px;}
 
 .inicio-sesion { margin: 0 auto; width: 200px;}
-.sub{border-bottom: 3px #6c1a42 solid; padding-bottom:10px; font-weight:bold; width:40%; margin-bottom: 25px;}
+.sub{border-bottom: 3px #6c1a42 solid; padding-bottom:10px; font-weight:bold; width:50%; margin-bottom: 25px;}
+.titulo-sub{border-bottom: 3px #ff9933 solid; padding-bottom:10px; font-weight:bold; margin-bottom: 25px;}
 table th {background-color: #DBE6EC;}

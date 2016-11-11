@@ -1,0 +1,1 @@
+json.array! @mecanica_asignaturas, partial: 'mecanica_asignaturas/mecanica_asignatura', as: :mecanica_asignatura

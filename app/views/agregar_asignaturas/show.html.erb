@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Nombre:</strong>
   <%= @agregar_asignatura.nombre %>
@@ -11,9 +10,13 @@
 </p>
 
 <p>
+  <strong>Fecha de creaci&oacute;n:</strong>
+  <%= @agregar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %>
+</p>
+
+<p>
   <strong>&Aacute;rea:</strong>
   <%= @agregar_asignatura.user.area %>
 </p>
 
-<%= link_to 'Edit', edit_agregar_asignatura_path(@agregar_asignatura) %> |
-<%= link_to 'Back', agregar_asignaturas_path %>
+<%= render "agregar_asignaturas/links" %>

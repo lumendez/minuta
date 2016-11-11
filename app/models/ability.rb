@@ -4,9 +4,82 @@ class Ability
   def initialize(user)
     if user.admin?
       can :manage, :all
+    elsif user.control_escolar?
+      can :read, CeUsuario
+      #Peticiones
+      can :read, AgregarAsignatura
+      can :update, AgregarAsignatura
+      can :cambiar_estado, AgregarAsignatura
+      can :read, BajaAsignatura
+      can :update, BajaAsignatura
       can :cambiar_estado, BajaAsignatura
+      can :read, BajaPrograma
+      can :update, BajaPrograma
       can :cambiar_estado, BajaPrograma
+      can :read, CambiarAsignatura
+      can :update, CambiarAsignatura
+      can :cambiar_estado, CambiarAsignatura
+      can :read, CambiarConsejero
+      can :update, CambiarConsejero
+      can :cambiar_estado, CambiarConsejero
+      can :read, CambiarTema
+      can :update, CambiarTema
+      can :cambiar_estado, CambiarTema
+      can :read, ComiteRegistro
+      can :update, ComiteRegistro
+      can :cambiar_estado, ComiteRegistro
+      can :read, CursarAsignatura
+      can :update, CursarAsignatura
+      can :cambiar_estado, CursarAsignatura
+      can :read, ExamenGraduado
+      can :update, ExamenGraduado
+      can :cambiar_estado, ExamenGraduado
+      can :read, RecesoSemestre
+      can :update, RecesoSemestre
+      can :cambiar_estado, RecesoSemestre
+      can :read, TesisRegistro
+      can :update, TesisRegistro
+      can :cambiar_estado, TesisRegistro
+      #Puede administrar
+      can :read, Area
+      can :update, Area
+      can :create, Area
+      can :destroy, Area
+      can :read, ClaveSemestre
+      can :update, ClaveSemestre
+      can :create, ClaveSemestre
+      can :destroy, ClaveSemestre
+      can :read, Consejero
+      can :update, Consejero
+      can :create, Consejero
+      can :destroy, Consejero
+      can :read, CoordinadorNombre
+      can :update, CoordinadorNombre
+      can :create, CoordinadorNombre
+      can :destroy, CoordinadorNombre
+      can :read, ElectricaConsejero
+      can :update, ElectricaConsejero
+      can :create, ElectricaConsejero
+      can :destroy, ElectricaConsejero
+      can :read, Estado
+      can :update, Estado
+      can :create, Estado
+      can :destroy, Estado
+      can :read, ExamenTipo
+      can :update, ExamenTipo
+      can :create, ExamenTipo
+      can :destroy, ExamenTipo
+      can :read, SepiPrograma
+      can :update, SepiPrograma
+      can :create, SepiPrograma
+      can :destroy, SepiPrograma
+      can :read, TiposBaja
+      can :update, TiposBaja
+      can :create, TiposBaja
+      can :destroy, TiposBaja
     elsif user.coordinador?
+      can :read, Coordinadore
+      can :read, ElectricaCaso
       #AgregarAsignatura
       can :read, AgregarAsignatura
       can :update, AgregarAsignatura
@@ -74,6 +147,7 @@ class Ability
         tesis_registro.try(:valida_coordinador) == false || tesis_registro.try(:valida_coordinador) == true
       end
     elsif user.consejero?
+      can :read, ConsejeroCaso
       #AgregarAsignatura
       can :read, AgregarAsignatura
       can :update, AgregarAsignatura

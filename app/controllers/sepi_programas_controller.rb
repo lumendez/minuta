@@ -1,5 +1,7 @@
 class SepiProgramasController < ApplicationController
-  before_action :set_sepi_programa, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :sepi_programa, only: :create
+  load_and_authorize_resource
 
   # GET /sepi_programas
   # GET /sepi_programas.json
@@ -24,11 +26,10 @@ class SepiProgramasController < ApplicationController
   # POST /sepi_programas
   # POST /sepi_programas.json
   def create
-    @sepi_programa = SepiPrograma.new(sepi_programa_params)
 
     respond_to do |format|
       if @sepi_programa.save
-        format.html { redirect_to @sepi_programa, notice: 'Sepi programa was successfully created.' }
+        format.html { redirect_to @sepi_programa, notice: 'Se añadió un programa de SEPI correctamente.' }
         format.json { render :show, status: :created, location: @sepi_programa }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class SepiProgramasController < ApplicationController
   def update
     respond_to do |format|
       if @sepi_programa.update(sepi_programa_params)
-        format.html { redirect_to @sepi_programa, notice: 'Sepi programa was successfully updated.' }
+        format.html { redirect_to @sepi_programa, notice: 'La actualización del programa de SEPI se realizó correctamente.' }
         format.json { render :show, status: :ok, location: @sepi_programa }
       else
         format.html { render :edit }
@@ -56,19 +57,18 @@ class SepiProgramasController < ApplicationController
   def destroy
     @sepi_programa.destroy
     respond_to do |format|
-      format.html { redirect_to sepi_programas_url, notice: 'Sepi programa was successfully destroyed.' }
+      format.html { redirect_to sepi_programas_url, notice: 'El programa de SEPI se eliminó corrctamente.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sepi_programa
-      @sepi_programa = SepiPrograma.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def sepi_programa_params
       params.require(:sepi_programa).permit(:nombre)
+    end
+
+    def sepi_programa
+      @sepi_programa = SepiPrograma.new(sepi_programa_params)
     end
 end

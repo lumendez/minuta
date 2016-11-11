@@ -1,0 +1,27 @@
+<%= form_for(electronica_asignatura) do |f| %>
+  <% if electronica_asignatura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(electronica_asignatura.errors.count, "error") %> prohibited this electronica_asignatura from being saved:</h2>
+
+      <ul>
+      <% electronica_asignatura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nombre, "Nombre de la asignatura" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :clave, "Clave de la asignautura" %><br>
+    <%= f.text_field :clave %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Crear", class: "btn btn-md btn-primary"%>
+  </div>
+<% end %>

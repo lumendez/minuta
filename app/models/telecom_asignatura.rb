@@ -1,0 +1,2 @@
+class TelecomAsignatura < ApplicationRecord
+end

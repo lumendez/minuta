@@ -1,0 +1,555 @@
+<h1 class="titulo-sub" align="center">Casos del programa de Ingenier&iacute;a El&eacute;ctrica</h1>
+<% if @agregar_asignaturas.empty? %>
+<% else %>
+<h3 class="sub">Petición para agregar asignaturas al programa de estudios</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agregar_asignaturas.each do |agregar_asignatura| %>
+      <tr>
+        <td><%= agregar_asignatura.user.nombre %></td>
+        <td><%= agregar_asignatura.user.boleta %></td>
+        <td><%= agregar_asignatura.user.sepi_programa.nombre %></td>
+        <td><%= agregar_asignatura.nombre %></td>
+        <td><%= agregar_asignatura.clave %></td>
+        <td><%= agregar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if agregar_asignatura.valida_consejero == true %>
+        <td class="success"><%= agregar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= agregar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if agregar_asignatura.valida_coordinador == true %>
+        <td class="success"><%= agregar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= agregar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if agregar_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= agregar_asignatura.estado %></td>
+        <% elsif agregar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= agregar_asignatura.estado %></td>
+        <% else %>
+        <td class="info"><%= agregar_asignatura.estado %></td>
+        <% end %>
+      </tr>
+    <% end%>
+  </tbody>
+</table>
+<% end %>
+
+<% if @baja_asignaturas.empty? %>
+<% else %>
+<h3 class="sub">Petición de baja de asignaturas</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Alumno</th>
+        <th>Boleta</th>
+        <th>Programa</th>
+        <th>Nombre</th>
+        <th>Clave</th>
+        <th width="10%">Fecha</th>
+        <th width="5%">Validacion consejero</th>
+        <th width="5%">Validacion coordinador</th>
+        <th width="15%">Estado</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @baja_asignaturas.each do |baja_asignatura| %>
+        <tr>
+          <td><%= baja_asignatura.user.nombre %></td>
+          <td><%= baja_asignatura.user.boleta %></td>
+          <td><%= baja_asignatura.user.sepi_programa.nombre %></td>
+          <td><%= baja_asignatura.nombre %></td>
+          <td><%= baja_asignatura.clave %></td>
+          <td><%= baja_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+          <% if baja_asignatura.valida_consejero == true %>
+          <td class="success"><%= baja_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+          <% else %>
+          <td class="danger"><%= baja_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+          <% end %>
+          <% if baja_asignatura.valida_coordinador == true %>
+          <td class="success"><%= baja_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+          <% else %>
+          <td class="danger"><%= baja_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+          <% end %>
+          <% if baja_asignatura.estado == "Pendiente" %>
+          <td class="warning"><%= baja_asignatura.estado %></td>
+          <% elsif baja_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+          <td class="success"><%= baja_asignatura.estado %></td>
+          <% else baja_asignatura.estado == "Finalizado" %>
+          <td class="info"><%= baja_asignatura.estado %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+<% end %>
+
+<% if @baja_programas.empty? %>
+<% else %>
+<h3 class="sub">Petición para darse de baja de un programa</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Nombre</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @baja_programas.each do |baja_programa| %>
+      <tr>
+        <td><%= baja_programa.user.nombre %></td>
+        <td><%= baja_programa.user.boleta %></td>
+        <td><%= baja_programa.user.sepi_programa.nombre %></td>
+        <td><%= baja_programa.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if baja_programa.valida_consejero == true %>
+        <td class="success"><%= baja_programa.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= baja_programa.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if baja_programa.valida_coordinador == true %>
+        <td class="success"><%= baja_programa.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= baja_programa.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if baja_programa.estado == "Pendiente" %>
+        <td class="warning"><%= baja_programa.estado %></td>
+        <% elsif baja_programa.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= baja_programa.estado %></td>
+        <% else baja_programa.estado == "Finalizado" %>
+        <td class="info"><%= baja_programa.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @cambiar_asignaturas.empty? %>
+<% else %>
+<h3 class="sub">Petición para cambiar asignaturas de un programa de estudios</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Anterior</th>
+      <th>Clave</th>
+      <th>Actual</th>
+      <th>Clave</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_asignaturas.each do |cambiar_asignatura| %>
+      <tr>
+        <td><%= cambiar_asignatura.user.nombre %></td>
+        <td><%= cambiar_asignatura.user.boleta %></td>
+        <td><%= cambiar_asignatura.user.sepi_programa.nombre %></td>
+        <td><%= cambiar_asignatura.anterior %></td>
+        <td><%= cambiar_asignatura.clave_anterior %></td>
+        <td><%= cambiar_asignatura.actual %></td>
+        <td><%= cambiar_asignatura.clave_actual %></td>
+        <td><%= cambiar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cambiar_asignatura.valida_consejero == true %>
+        <td class="success"><%= cambiar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_asignatura.valida_coordinador == true %>
+        <td class="success"><%= cambiar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_asignatura.estado %></td>
+        <% elsif cambiar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_asignatura.estado %></td>
+        <% else cambiar_asignatura.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_asignatura.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @cambiar_consejeros.empty? %>
+<% else %>
+<h3 class="sub">Petición para cambiar de consejero</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Consejero Actual</th>
+      <th>Consejero Nuevo</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_consejeros.each do |cambiar_consejero| %>
+      <tr>
+        <td><%= cambiar_consejero.user.nombre %></td>
+        <td><%= cambiar_consejero.user.boleta %></td>
+        <td><%= cambiar_consejero.user.sepi_programa.nombre %></td>
+        <td><%= cambiar_consejero.anterior %></td>
+        <td><%= cambiar_consejero.actual %></td>
+        <td><%= cambiar_consejero.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cambiar_consejero.valida_consejero == true %>
+        <td class="success"><%= cambiar_consejero.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_consejero.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_consejero.valida_coordinador == true %>
+        <td class="success"><%= cambiar_consejero.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_consejero.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_consejero.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_consejero.estado %></td>
+        <% elsif cambiar_consejero.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_consejero.estado %></td>
+        <% else cambiar_consejero.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_consejero.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @cambiar_temas.empty? %>
+<% else %>
+<h3 class="sub">Petición de cambios de tema de tesis</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Anterior</th>
+      <th>Actual</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_temas.each do |cambiar_tema| %>
+      <tr>
+        <td><%= cambiar_tema.user.nombre %></td>
+        <td><%= cambiar_tema.user.boleta %></td>
+        <td><%= cambiar_tema.user.sepi_programa.nombre %></td>
+        <td><%= cambiar_tema.anterior %></td>
+        <td><%= cambiar_tema.actual %></td>
+        <td><%= cambiar_tema.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cambiar_tema.valida_consejero == true %>
+        <td class="success"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_tema.valida_coordinador == true %>
+        <td class="success"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_tema.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_tema.estado %></td>
+        <% elsif cambiar_tema.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_tema.estado %></td>
+        <% else cambiar_tema.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_tema.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @comite_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de registro de comit&eacute; tutorial</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Tutor uno</th>
+      <th>Tutor dos</th>
+      <th>Tutor tres</th>
+      <th>Tutor cuatro</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comite_registros.each do |comite_registro| %>
+      <tr>
+        <td><%= comite_registro.user.nombre %></td>
+        <td><%= comite_registro.user.boleta %></td>
+        <td><%= comite_registro.user.sepi_programa.nombre %></td>
+        <td><%= comite_registro.tutor_uno %></td>
+        <td><%= comite_registro.tutor_dos %></td>
+        <td><%= comite_registro.tutor_tres %></td>
+        <td><%= comite_registro.tutor_cuatro %></td>
+        <td><%= comite_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if comite_registro.valida_consejero == true %>
+        <td class="success"><%= comite_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comite_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comite_registro.valida_coordinador == true %>
+        <td class="success"><%= comite_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comite_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comite_registro.estado == "Pendiente" %>
+        <td class="warning"><%= comite_registro.estado %></td>
+        <% elsif comite_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= comite_registro.estado %></td>
+        <% else comite_registro.estado == "Finalizado" %>
+        <td class="info"><%= comite_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @cursar_asignaturas.empty? %>
+<% else %>
+<h3 class="sub">Petición para cursar asignaturas en otra unidad acad&eacute;mica</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th>Unidad</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cursar_asignaturas.each do |cursar_asignatura| %>
+      <tr>
+        <td><%= cursar_asignatura.user.nombre %></td>
+        <td><%= cursar_asignatura.user.boleta %></td>
+        <td><%= cursar_asignatura.user.sepi_programa.nombre %></td>
+        <td><%= cursar_asignatura.nombre %></td>
+        <td><%= cursar_asignatura.clave %></td>
+        <td><%= cursar_asignatura.unidad %></td>
+        <td><%= cursar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cursar_asignatura.valida_consejero == true %>
+        <td class="success"><%= cursar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cursar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cursar_asignatura.valida_coordinador == true %>
+        <td class="success"><%= cursar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cursar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cursar_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= cursar_asignatura.estado %></td>
+        <% elsif cursar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cursar_asignatura.estado %></td>
+        <% else cursar_asignatura.estado == "Finalizado" %>
+        <td class="info"><%= cursar_asignatura.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @examen_graduados.empty? %>
+<% else %>
+<h3 class="sub">Petición para presentar examen de grado</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Tipo de examen</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @examen_graduados.each do |examen_graduado| %>
+      <tr>
+        <td><%= examen_graduado.user.nombre %></td>
+        <td><%= examen_graduado.user.boleta %></td>
+        <td><%= examen_graduado.user.sepi_programa.nombre %></td>
+        <td><%= examen_graduado.tipo %></td>
+        <td><%= examen_graduado.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if examen_graduado.valida_consejero == true %>
+        <td class="success"><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if examen_graduado.valida_coordinador == true %>
+        <td class="success"><%= examen_graduado.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= examen_graduado.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if examen_graduado.estado == "Pendiente" %>
+        <td class="warning"><%= examen_graduado.estado %></td>
+        <% elsif examen_graduado.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= examen_graduado.estado %></td>
+        <% else examen_graduado.estado == "Finalizado" %>
+        <td class="info"><%= examen_graduado.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @receso_semestres.empty? %>
+<% else %>
+<h3 class="sub">Petición de receso por un semestre</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Semestre</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @receso_semestres.each do |receso_semestre| %>
+      <tr>
+        <td><%= receso_semestre.user.nombre %></td>
+        <td><%= receso_semestre.user.boleta %></td>
+        <td><%= receso_semestre.user.sepi_programa.nombre %></td>
+        <td><%= receso_semestre.semestre %></td>
+        <td><%= receso_semestre.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if receso_semestre.valida_consejero == true %>
+        <td class="success"><%= receso_semestre.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= receso_semestre.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if receso_semestre.valida_coordinador == true %>
+        <td class="success"><%= receso_semestre.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= receso_semestre.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if receso_semestre.estado == "Pendiente" %>
+        <td class="warning"><%= receso_semestre.estado %></td>
+        <% elsif receso_semestre.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= receso_semestre.estado %></td>
+        <% else receso_semestre.estado == "Finalizado" %>
+        <td class="info"><%= receso_semestre.estado %></td>
+        <% end %>
+      </td>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @tesis_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de registro de tema de tesis, director y comisi&oacute;n revisora</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th>Tema</th>
+      <th>Director</th>
+      <th>Presidente</th>
+      <th>Secretario</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tesis_registros.each do |tesis_registro| %>
+      <tr>
+        <td><%= tesis_registro.user.nombre %></td>
+        <td><%= tesis_registro.user.boleta %></td>
+        <td><%= tesis_registro.user.sepi_programa.nombre %></td>
+        <td><%= tesis_registro.presidente %></td>
+        <td><%= tesis_registro.secretario %></td>
+        <td><%= tesis_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if tesis_registro.valida_consejero == true %>
+        <td class="success"><%= tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if tesis_registro.valida_coordinador == true %>
+        <td class="success"><%= tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if tesis_registro.estado == "Pendiente" %>
+        <td class="warning"><%= tesis_registro.estado %></td>
+        <% elsif tesis_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= tesis_registro.estado %></td>
+        <% else tesis_registro.estado == "Finalizado" %>
+        <td class="info"><%= tesis_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

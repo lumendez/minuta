@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Anterior:</strong>
   <%= @cambiar_asignatura.anterior %>
@@ -10,5 +9,4 @@
   <%= @cambiar_asignatura.actual %>
 </p>
 
-<%= link_to 'Edit', edit_cambiar_asignatura_path(@cambiar_asignatura) %> |
-<%= link_to 'Back', cambiar_asignaturas_path %>
+<%= render 'cambiar_asignaturas/links' %>

@@ -11,43 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
+  <div class="form-group">
+    <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
   </div>
 
-  <div class="field">
-    <%= f.label :clave %>
+  <div class="form-group">
+    <%= f.label :clave %><br>
     <%= f.text_field :clave %>
   </div>
 
-  <div class="field">
-    <%= f.label :unidad %>
+  <div class="form-group">
+    <%= f.label :unidad %><br>
     <%= f.text_field :unidad %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, cursar_asignatura %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, cursar_asignatura %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, cursar_asignatura %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:cursar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

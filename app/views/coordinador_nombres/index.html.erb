@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Nombres de los coordinadores</h3>
 
-<h1>Coordinador Nombres</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
       <th>Nombre</th>
-      <th colspan="3"></th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -14,9 +13,9 @@
     <% @coordinador_nombres.each do |coordinador_nombre| %>
       <tr>
         <td><%= coordinador_nombre.nombre %></td>
-        <td><%= link_to 'Show', coordinador_nombre %></td>
-        <td><%= link_to 'Edit', edit_coordinador_nombre_path(coordinador_nombre) %></td>
-        <td><%= link_to 'Destroy', coordinador_nombre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', coordinador_nombre %></td>
+        <td><%= link_to 'Editar', edit_coordinador_nombre_path(coordinador_nombre) %></td>
+        <td><%= link_to 'Eliminar', coordinador_nombre, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Coordinador Nombre', new_coordinador_nombre_path %>
+<%= link_to 'Crear nuevo nombre de coordinador', new_coordinador_nombre_path %>

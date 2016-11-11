@@ -1,18 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Petición de receso por un semestre</h3>
 
-<h1>Receso Semestres</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
       <th>Semestre</th>
       <th>Creado por</th>
       <th>Boleta</th>
-      <th>Fecha</th>
-      <th>Validacion consejero</th>
-      <th>Validacion coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -23,17 +22,32 @@
         <td><%= receso_semestre.user.nombre %></td>
         <td><%= receso_semestre.user.boleta %></td>
         <td><%= receso_semestre.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <td><%= receso_semestre.valida_consejero ? 'Si' : 'No' %></td>
-        <td><%= receso_semestre.valida_coordinador ? 'Si' : 'No' %></td>
-        <td><%= receso_semestre.estado %></td>
-        <td><%= link_to 'Show', receso_semestre %></td>
-        <td><%= link_to 'Edit', edit_receso_semestre_path(receso_semestre) %></td>
-        <td><%= link_to 'Destroy', receso_semestre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if receso_semestre.valida_consejero == true %>
+        <td class="success"><%= receso_semestre.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= receso_semestre.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if receso_semestre.valida_coordinador == true %>
+        <td class="success"><%= receso_semestre.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= receso_semestre.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if receso_semestre.estado == "Pendiente" %>
+        <td class="warning"><%= receso_semestre.estado %></td>
+        <% elsif receso_semestre.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= receso_semestre.estado %></td>
+        <% else receso_semestre.estado == "Finalizado" %>
+        <td class="info"><%= receso_semestre.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', receso_semestre %></td>
+        <td><%= link_to 'Editar', edit_receso_semestre_path(receso_semestre) %></td>
+        <td><%= link_to 'Eliminar', receso_semestre, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Receso Semestre', new_receso_semestre_path %>
+<% if can? :create, RecesoSemestre %>
+<%= link_to 'Crear petición para solicitar un receso por un semestre', new_receso_semestre_path %>
+<% end %>

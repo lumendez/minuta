@@ -1,0 +1,2 @@
+class ElectronicaAsignatura < ApplicationRecord
+end

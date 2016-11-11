@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Asignaturas de Ingenier&iacute;a El&eacute;ctrica</h3>
+<table class="table table-bordered">
 
-<h1>Electrica Asignaturas</h1>
-
-<table>
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Clave</th>
-      <th colspan="3"></th>
+      <th>Nombre de la asignatura</th>
+      <th>Clave de la asignatura</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -16,9 +14,9 @@
       <tr>
         <td><%= electrica_asignatura.nombre %></td>
         <td><%= electrica_asignatura.clave %></td>
-        <td><%= link_to 'Show', electrica_asignatura %></td>
-        <td><%= link_to 'Edit', edit_electrica_asignatura_path(electrica_asignatura) %></td>
-        <td><%= link_to 'Destroy', electrica_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', electrica_asignatura %></td>
+        <td><%= link_to 'Editar', edit_electrica_asignatura_path(electrica_asignatura) %></td>
+        <td><%= link_to 'Eliminar', electrica_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Electrica Asignatura', new_electrica_asignatura_path %>
+<%= link_to 'Crear nueva asignatura', new_electrica_asignatura_path %>

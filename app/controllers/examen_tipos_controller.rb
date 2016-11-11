@@ -1,5 +1,7 @@
 class ExamenTiposController < ApplicationController
-  before_action :set_examen_tipo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :examen_tipo, only: :create
+  load_and_authorize_resource
 
   # GET /examen_tipos
   # GET /examen_tipos.json
@@ -24,11 +26,10 @@ class ExamenTiposController < ApplicationController
   # POST /examen_tipos
   # POST /examen_tipos.json
   def create
-    @examen_tipo = ExamenTipo.new(examen_tipo_params)
 
     respond_to do |format|
       if @examen_tipo.save
-        format.html { redirect_to @examen_tipo, notice: 'Examen tipo was successfully created.' }
+        format.html { redirect_to @examen_tipo, notice: 'Se añadió un nombre de tipo de examen correctamente.' }
         format.json { render :show, status: :created, location: @examen_tipo }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ExamenTiposController < ApplicationController
   def update
     respond_to do |format|
       if @examen_tipo.update(examen_tipo_params)
-        format.html { redirect_to @examen_tipo, notice: 'Examen tipo was successfully updated.' }
+        format.html { redirect_to @examen_tipo, notice: 'La actualización del nombre del tipo de examen se realizó correctamente.' }
         format.json { render :show, status: :ok, location: @examen_tipo }
       else
         format.html { render :edit }
@@ -56,19 +57,18 @@ class ExamenTiposController < ApplicationController
   def destroy
     @examen_tipo.destroy
     respond_to do |format|
-      format.html { redirect_to examen_tipos_url, notice: 'Examen tipo was successfully destroyed.' }
+      format.html { redirect_to examen_tipos_url, notice: 'El nombre del tipo de examen se eliminó corrctamente.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_examen_tipo
-      @examen_tipo = ExamenTipo.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def examen_tipo_params
       params.require(:examen_tipo).permit(:tipo)
+    end
+
+    def examen_tipo
+      @examen_tipo = ExamenTipo.new(examen_tipo_params)
     end
 end

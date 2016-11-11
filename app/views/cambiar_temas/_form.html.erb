@@ -11,38 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :anterior %>
+  <div class="form-group">
+    <%= f.label :anterior %><br>
     <%= f.text_field :anterior %>
   </div>
 
-  <div class="field">
-    <%= f.label :actual %>
+  <div class="form-group">
+    <%= f.label :actual %><br>
     <%= f.text_field :actual %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, cambiar_tema %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, cambiar_tema %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, cambiar_tema %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:cambiar_tema, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

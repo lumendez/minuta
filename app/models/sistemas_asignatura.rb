@@ -1,0 +1,2 @@
+class SistemasAsignatura < ApplicationRecord
+end

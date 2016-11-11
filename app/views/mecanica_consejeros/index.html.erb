@@ -1,0 +1,25 @@
+<h3 class="sub">Consejeros de Ingenier&iacute;a Mec&aacute;nica</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mecanica_consejeros.each do |mecanica_consejero| %>
+      <tr>
+        <td><%= mecanica_consejero.nombre %></td>
+        <td><%= link_to 'Detalles', mecanica_consejero %></td>
+        <td><%= link_to 'Editar', edit_mecanica_consejero_path(mecanica_consejero) %></td>
+        <td><%= link_to 'Eliminar', mecanica_consejero, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nuevo consejero', new_mecanica_consejero_path %>

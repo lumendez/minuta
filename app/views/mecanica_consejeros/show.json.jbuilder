@@ -1,0 +1,1 @@
+json.partial! "mecanica_consejeros/mecanica_consejero", mecanica_consejero: @mecanica_consejero

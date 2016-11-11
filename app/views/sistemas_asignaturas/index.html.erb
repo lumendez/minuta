@@ -1,0 +1,27 @@
+<h3 class="sub">Asignaturas de Ingenier&iacute;a de Sistemas</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clave</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sistemas_asignaturas.each do |sistemas_asignatura| %>
+      <tr>
+        <td><%= sistemas_asignatura.nombre %></td>
+        <td><%= sistemas_asignatura.clave %></td>
+        <td><%= link_to 'Detalles', sistemas_asignatura %></td>
+        <td><%= link_to 'Editar', edit_sistemas_asignatura_path(sistemas_asignatura) %></td>
+        <td><%= link_to 'Eliminar', sistemas_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear nueva asignatura', new_sistemas_asignatura_path %>

@@ -1,0 +1,22 @@
+<%= form_for(sistemas_consejero) do |f| %>
+  <% if sistemas_consejero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sistemas_consejero.errors.count, "error") %> prohibited this sistemas_consejero from being saved:</h2>
+
+      <ul>
+      <% sistemas_consejero.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, "Nombre del consejero" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Crear", class: "btn btn-md btn-primary"%>
+  </div>
+<% end %>

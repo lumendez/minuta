@@ -1,0 +1,2 @@
+class SistemasConsejero < ApplicationRecord
+end

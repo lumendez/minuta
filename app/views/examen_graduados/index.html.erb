@@ -1,18 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Peticiones para presentar examen de grado</h3>
 
-<h1>Examen Graduados</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
       <th>Tipo de examen</th>
       <th>Creado por</th>
       <th>Boleta</th>
-      <th>Fecha</th>
-      <th>Validacion consejero</th>
-      <th>Validacion coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -23,17 +22,32 @@
         <td><%= examen_graduado.user.nombre %></td>
         <td><%= examen_graduado.user.boleta %></td>
         <td><%= examen_graduado.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <td><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>
-        <td><%= examen_graduado.valida_coordinador ? 'Si' : 'No' %></td>
-        <td><%= examen_graduado.estado %></td>
-        <td><%= link_to 'Show', examen_graduado %></td>
-        <td><%= link_to 'Edit', edit_examen_graduado_path(examen_graduado) %></td>
-        <td><%= link_to 'Destroy', examen_graduado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if examen_graduado.valida_consejero == true %>
+        <td class="success"><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if examen_graduado.valida_coordinador == true %>
+        <td class="success"><%= examen_graduado.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= examen_graduado.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if examen_graduado.estado == "Pendiente" %>
+        <td class="warning"><%= examen_graduado.estado %></td>
+        <% elsif examen_graduado.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= examen_graduado.estado %></td>
+        <% else examen_graduado.estado == "Finalizado" %>
+        <td class="info"><%= examen_graduado.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', examen_graduado %></td>
+        <td><%= link_to 'Editar', edit_examen_graduado_path(examen_graduado) %></td>
+        <td><%= link_to 'Eliminar', examen_graduado, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Examen Graduado', new_examen_graduado_path %>
+<% if can? :create, ExamenGraduado %>
+<%= link_to 'Crear petición para realizar examen de grado', new_examen_graduado_path %>
+<% end %>

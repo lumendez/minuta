@@ -11,68 +11,68 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tema %>
+  <div class="form-group">
+    <%= f.label :tema %><br>
     <%= f.text_field :tema %>
   </div>
 
-  <div class="field">
-    <%= f.label :director %>
-    <%= collection_select(:tesis_registro, :director, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :director %><br>
+    <%= collection_select(:tesis_registro, :director, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :presidente %>
-    <%= collection_select(:tesis_registro, :presidente, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :presidente %><br>
+    <%= collection_select(:tesis_registro, :presidente, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :secretario %>
-    <%= collection_select(:tesis_registro, :secretario, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :secretario %><br>
+    <%= collection_select(:tesis_registro, :secretario, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :primer_vocal %>
-    <%= collection_select(:tesis_registro, :primer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :primer_vocal %><br>
+    <%= collection_select(:tesis_registro, :primer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :segundo_vocal %>
-    <%= collection_select(:tesis_registro, :segundo_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :segundo_vocal %><br>
+    <%= collection_select(:tesis_registro, :segundo_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :tercer_vocal %>
-    <%= collection_select(:tesis_registro, :tercer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :tercer_vocal %><br>
+    <%= collection_select(:tesis_registro, :tercer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :suplente %>
-    <%= collection_select(:tesis_registro, :suplente, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :suplente %><br>
+    <%= collection_select(:tesis_registro, :suplente, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, tesis_registro %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, tesis_registro %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, tesis_registro %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:tesis_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

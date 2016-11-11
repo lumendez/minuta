@@ -1,12 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Nombres de los tipos de usuarios</h3>
 
-<h1>Tipos Usuarios</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
-      <th>Tipo</th>
-      <th colspan="3"></th>
+      <th>Nombre del tipo de usuario</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -14,9 +13,9 @@
     <% @tipos_usuarios.each do |tipos_usuario| %>
       <tr>
         <td><%= tipos_usuario.tipo %></td>
-        <td><%= link_to 'Show', tipos_usuario %></td>
-        <td><%= link_to 'Edit', edit_tipos_usuario_path(tipos_usuario) %></td>
-        <td><%= link_to 'Destroy', tipos_usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', tipos_usuario %></td>
+        <td><%= link_to 'Editar', edit_tipos_usuario_path(tipos_usuario) %></td>
+        <td><%= link_to 'Eliminar', tipos_usuario, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Tipos Usuario', new_tipos_usuario_path %>
+<%= link_to 'Nuevo nombre de tipo de usuario', new_tipos_usuario_path %>

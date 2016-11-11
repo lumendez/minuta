@@ -11,33 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :semestre %>
-    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :semestre %><br>
+    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, receso_semestre %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, receso_semestre %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, receso_semestre %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:receso_semestre, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

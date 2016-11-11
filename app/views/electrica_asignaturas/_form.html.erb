@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
+  <div class="form-group">
+    <%= f.label :nombre, "Nombre de la asignatura" %><br>
     <%= f.text_field :nombre %>
   </div>
 
-  <div class="field">
-    <%= f.label :clave %>
+  <div class="form-group">
+    <%= f.label :clave, "Clave de la asignatura" %><br>
     <%= f.text_field :clave %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

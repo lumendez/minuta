@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :semestre %>
+  <div class="form-group">
+    <%= f.label :semestre, "Clave del semestre" %><br>
     <%= f.text_field :semestre %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear", class: "btn btn-md btn-primary"%>
   </div>
 <% end %>

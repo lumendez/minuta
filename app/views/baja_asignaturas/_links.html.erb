@@ -1,0 +1,9 @@
+<% if current_user.tipos_usuario.tipo == 'Administrador' %>
+  <%= link_to "Regresar", baja_asignaturas_path %>
+<% elsif current_user.tipos_usuario.tipo == 'Coordinador' %>
+  <%= link_to "Regresar", coordinadores_path %>
+<% elsif current_user.tipos_usuario.tipo == 'Consejero' %>
+  <%= link_to "Regresar", consejeros_path %>
+<% elsif current_user.tipos_usuario.tipo == 'Alumno' %>
+  <%= link_to "Regresar", alumnos_path %>
+<% end %>

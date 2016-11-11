@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Petición para cambiar asignaturas de un programa de estudios</h3>
 
-<h1>Cambiar Asignaturas</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
       <th>Anterior</th>
@@ -11,11 +10,11 @@
       <th>Clave</th>
       <th>Creado por</th>
       <th>Boleta</th>
-      <th>Fecha</th>
-      <th>Validacion consejero</th>
-      <th>Validacion coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -29,17 +28,32 @@
         <td><%= cambiar_asignatura.user.nombre %></td>
         <td><%= cambiar_asignatura.user.boleta %></td>
         <td><%= cambiar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <td><%= cambiar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
-        <td><%= cambiar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
-        <td><%= cambiar_asignatura.estado %></td>
-        <td><%= link_to 'Show', cambiar_asignatura %></td>
-        <td><%= link_to 'Edit', edit_cambiar_asignatura_path(cambiar_asignatura) %></td>
-        <td><%= link_to 'Destroy', cambiar_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if cambiar_asignatura.valida_consejero == true %>
+        <td class="success"><%= cambiar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_asignatura.valida_coordinador == true %>
+        <td class="success"><%= cambiar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_asignatura.estado %></td>
+        <% elsif cambiar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_asignatura.estado %></td>
+        <% else cambiar_asignatura.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_asignatura.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', cambiar_asignatura %></td>
+        <td><%= link_to 'Editar', edit_cambiar_asignatura_path(cambiar_asignatura) %></td>
+        <td><%= link_to 'Eliminar', cambiar_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Cambiar Asignatura', new_cambiar_asignatura_path %>
+<% if can? :create, CambiarAsignatura %>
+<%= link_to 'Crear petición para cambiar una asignatura', new_cambiar_asignatura_path %>
+<% end %>

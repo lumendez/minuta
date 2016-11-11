@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Anterior:</strong>
   <%= @cambiar_tema.anterior %>
@@ -10,5 +9,4 @@
   <%= @cambiar_tema.actual %>
 </p>
 
-<%= link_to 'Edit', edit_cambiar_tema_path(@cambiar_tema) %> |
-<%= link_to 'Back', cambiar_temas_path %>
+<%= render 'cambiar_temas/links' %>

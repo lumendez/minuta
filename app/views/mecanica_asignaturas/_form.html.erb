@@ -1,0 +1,27 @@
+<%= form_for(mecanica_asignatura) do |f| %>
+  <% if mecanica_asignatura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mecanica_asignatura.errors.count, "error") %> prohibited this mecanica_asignatura from being saved:</h2>
+
+      <ul>
+      <% mecanica_asignatura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nombre, "Nombre de la asignatura" %><br>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :clave, "Clave de la asignatura" %><br>
+    <%= f.text_field :clave %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Crear", class: "btn btn-md btn-primary"%>
+  </div>
+<% end %>

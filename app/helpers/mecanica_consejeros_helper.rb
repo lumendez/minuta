@@ -1,0 +1,2 @@
+module MecanicaConsejerosHelper
+end

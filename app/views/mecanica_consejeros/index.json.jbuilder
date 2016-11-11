@@ -1,0 +1,1 @@
+json.array! @mecanica_consejeros, partial: 'mecanica_consejeros/mecanica_consejero', as: :mecanica_consejero

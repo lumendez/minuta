@@ -11,38 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :anterior %>
-    <%= collection_select(:cambiar_consejero, :anterior, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :anterior %><br>
+    <%= collection_select(:cambiar_consejero, :anterior, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
-    <%= f.label :actual %>
-    <%= collection_select(:cambiar_consejero, :actual, ElectricaConsejero.all, :nombre, :nombre, {prompt: true}) %>
+  <div class="form-group">
+    <%= f.label :actual %><br>
+    <%= collection_select(:cambiar_consejero, :actual, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_consejero, cambiar_consejero %>
-      <%= f.label :valida_consejero %>
+      <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :validar_coordinador, cambiar_consejero %>
-      <%= f.label :valida_coordinador %>
+      <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% if can? :cambiar_estado, cambiar_consejero %>
-      <%= f.label :estado %>
+      <%= f.label :estado %><br>
       <%= collection_select(:cambiar_consejero, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
   </div>
 <% end %>

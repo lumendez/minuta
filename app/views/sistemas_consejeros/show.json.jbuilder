@@ -1,0 +1,1 @@
+json.partial! "sistemas_consejeros/sistemas_consejero", sistemas_consejero: @sistemas_consejero

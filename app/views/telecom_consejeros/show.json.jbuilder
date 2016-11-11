@@ -1,0 +1,1 @@
+json.partial! "telecom_consejeros/telecom_consejero", telecom_consejero: @telecom_consejero

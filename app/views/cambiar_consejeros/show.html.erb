@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Anterior:</strong>
   <%= @cambiar_consejero.anterior %>
@@ -10,5 +9,4 @@
   <%= @cambiar_consejero.actual %>
 </p>
 
-<%= link_to 'Edit', edit_cambiar_consejero_path(@cambiar_consejero) %> |
-<%= link_to 'Back', cambiar_consejeros_path %>
+<%= render 'cambiar_consejeros/links' %>

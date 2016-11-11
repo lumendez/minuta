@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Peticiones para cursar asignaturas en otra unidad acad&eacute;mica</h3>
 
-<h1>Cursar Asignaturas</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
       <th>Nombre</th>
@@ -10,11 +9,11 @@
       <th>Unidad</th>
       <th>Creado por</th>
       <th>Boleta</th>
-      <th>Fecha</th>
-      <th>Validacion consejero</th>
-      <th>Validacion coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -27,17 +26,32 @@
         <td><%= cursar_asignatura.user.nombre %></td>
         <td><%= cursar_asignatura.user.boleta %></td>
         <td><%= cursar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <td><%= cursar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
-        <td><%= cursar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
-        <td><%= cursar_asignatura.estado %></td>
-        <td><%= link_to 'Show', cursar_asignatura %></td>
-        <td><%= link_to 'Edit', edit_cursar_asignatura_path(cursar_asignatura) %></td>
-        <td><%= link_to 'Destroy', cursar_asignatura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if cursar_asignatura.valida_consejero == true %>
+        <td class="success"><%= cursar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cursar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cursar_asignatura.valida_coordinador == true %>
+        <td class="success"><%= cursar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cursar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cursar_asignatura.estado == "Pendiente" %>
+        <td class="warning"><%= cursar_asignatura.estado %></td>
+        <% elsif cursar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cursar_asignatura.estado %></td>
+        <% else cursar_asignatura.estado == "Finalizado" %>
+        <td class="info"><%= cursar_asignatura.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', cursar_asignatura %></td>
+        <td><%= link_to 'Editar', edit_cursar_asignatura_path(cursar_asignatura) %></td>
+        <td><%= link_to 'Eliminar', cursar_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Cursar Asignatura', new_cursar_asignatura_path %>
+<% if can? :create, CursarAsignatura %>
+<%= link_to 'Crear petición para cursar una asignatura en en otra unidad académica', new_cursar_asignatura_path %>
+<% end %>

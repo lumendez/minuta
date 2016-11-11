@@ -1,18 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Petición para darse de baja de un programa</h3>
 
-<h1>Baja Programas</h1>
+<table class="table table-bordered">
 
-<table>
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Creado por</th>
       <th>Boleta</th>
-      <th>Fecha</th>
-      <th>Validacion consejero</th>
-      <th>Validacion coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -23,17 +22,32 @@
         <td><%= baja_programa.user.nombre %></td>
         <td><%= baja_programa.user.boleta %></td>
         <td><%= baja_programa.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <td><%= baja_programa.valida_consejero ? 'Si' : 'No' %></td>
-        <td><%= baja_programa.valida_coordinador ? 'Si' : 'No' %></td>
-        <td><%= baja_programa.estado %></td>
-        <td><%= link_to 'Show', baja_programa %></td>
-        <td><%= link_to 'Edit', edit_baja_programa_path(baja_programa) %></td>
-        <td><%= link_to 'Destroy', baja_programa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if baja_programa.valida_consejero == true %>
+        <td class="success"><%= baja_programa.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= baja_programa.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if baja_programa.valida_coordinador == true %>
+        <td class="success"><%= baja_programa.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= baja_programa.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if baja_programa.estado == "Pendiente" %>
+        <td class="warning"><%= baja_programa.estado %></td>
+        <% elsif baja_programa.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= baja_programa.estado %></td>
+        <% else baja_programa.estado == "Finalizado" %>
+        <td class="info"><%= baja_programa.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', baja_programa %></td>
+        <td><%= link_to 'Editar', edit_baja_programa_path(baja_programa) %></td>
+        <td><%= link_to 'Eliminar', baja_programa, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Baja Programa', new_baja_programa_path %>
+<% if can? :create, BajaPrograma %>
+<%= link_to 'Crear petición de baja de programa', new_baja_programa_path %>
+<% end %>

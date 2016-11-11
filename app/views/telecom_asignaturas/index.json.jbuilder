@@ -1,0 +1,1 @@
+json.array! @telecom_asignaturas, partial: 'telecom_asignaturas/telecom_asignatura', as: :telecom_asignatura

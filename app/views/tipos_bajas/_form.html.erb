@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tipo %>
+  <div class="form-group">
+    <%= f.label :tipo, "Nombre del tipo de baja" %><br>
     <%= f.text_field :tipo %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Crear", class: "btn btn-md btn-primary"%>
   </div>
 <% end %>

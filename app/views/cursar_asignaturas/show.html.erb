@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Nombre:</strong>
   <%= @cursar_asignatura.nombre %>
@@ -15,5 +14,4 @@
   <%= @cursar_asignatura.unidad %>
 </p>
 
-<%= link_to 'Edit', edit_cursar_asignatura_path(@cursar_asignatura) %> |
-<%= link_to 'Back', cursar_asignaturas_path %>
+<%= render 'cursar_asignaturas/links' %>

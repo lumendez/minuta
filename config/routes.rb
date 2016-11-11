@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :mecanica_asignaturas
+  resources :electronica_asignaturas
+  resources :telecom_asignaturas
+  resources :sistemas_asignaturas
+  resources :sistemas_consejeros
+  resources :telecom_consejeros
+  resources :electronica_consejeros
+  resources :mecanica_consejeros
   resources :areas
   resources :electrica_consejeros
   resources :electrica_asignaturas
@@ -29,6 +37,13 @@ Rails.application.routes.draw do
   resources :agregar_asignaturas
   resources :alumnos
   resources :coordinadores
+  resources :consejero_casos
+  resources :ce_usuarios
+  resources :electrica_casos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "alumnos#index"
+  #root to: "alumnos#index"
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+  #get "*path" => redirect("/")
 end
