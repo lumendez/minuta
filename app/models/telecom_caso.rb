@@ -1,0 +1,2 @@
+class TelecomCaso < ApplicationRecord
+end

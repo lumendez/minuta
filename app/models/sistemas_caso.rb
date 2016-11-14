@@ -1,0 +1,2 @@
+class SistemasCaso < ApplicationRecord
+end

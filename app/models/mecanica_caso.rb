@@ -1,0 +1,2 @@
+class MecanicaCaso < ApplicationRecord
+end

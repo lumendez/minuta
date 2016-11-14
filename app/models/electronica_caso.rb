@@ -1,0 +1,2 @@
+class ElectronicaCaso < ApplicationRecord
+end

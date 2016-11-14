@@ -40,6 +40,10 @@ Rails.application.routes.draw do
   resources :consejero_casos
   resources :ce_usuarios
   resources :electrica_casos
+  resources :electronica_casos
+  resources :mecanica_casos
+  resources :sistemas_casos
+  resources :telecom_casos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root to: "alumnos#index"
   devise_scope :user do

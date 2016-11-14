@@ -6,6 +6,11 @@ class Ability
       can :manage, :all
     elsif user.control_escolar?
       can :read, CeUsuario
+      can :read, ElectricaCaso
+      can :read, ElectronicaCaso
+      can :read, MecanicaCaso
+      can :read, SistemasCaso
+      can :read, TelecomCaso
       #Peticiones
       can :read, AgregarAsignatura
       can :update, AgregarAsignatura
@@ -80,6 +85,10 @@ class Ability
     elsif user.coordinador?
       can :read, Coordinadore
       can :read, ElectricaCaso
+      can :read, ElectronicaCaso
+      can :read, MecanicaCaso
+      can :read, SistemasCaso
+      can :read, TelecomCaso
       #AgregarAsignatura
       can :read, AgregarAsignatura
       can :update, AgregarAsignatura
