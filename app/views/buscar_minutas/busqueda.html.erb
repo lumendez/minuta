@@ -1,0 +1,3471 @@
+<div id="minuta">
+<div class="row">
+  <p>
+    <strong>El&eacute;ctrica</strong>
+  </p>
+  <div class="col-md-8">
+    <% @electrica_agregar_asignaturas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Agregar una asignatura al programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= electrica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= electrica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para agregar una asignatura al programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_baja_asignaturas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Dar de baja una asignatura del programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= electrica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= electrica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para dar de baja una asignatura del programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_baja_programas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= electrica.programa %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_baja_programas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= electrica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_cambiar_asignaturas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar una asignatura del programa individual de actividades
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la asignatura actual:
+          </td>
+          <td>
+            <%= electrica.anterior %> <%= electrica.clave_anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la nueva asignatura:
+          </td>
+          <td>
+            <%= electrica.actual %> <%= electrica.clave_actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar una asignatura del programa individual de actividades ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_cambiar_consejeros.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar consejero de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consejero actual:
+          </td>
+          <td>
+            <%= electrica.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo consejero:
+          </td>
+          <td>
+            <%= electrica.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar al consejero de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_cambiar_temas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar tema de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tema de tesis actual:
+          </td>
+          <td>
+            <%= electrica.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo tema de tesis:
+          </td>
+          <td>
+            <%= electrica.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar el tema de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_cursar_asignaturas.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cursar una asignatura en otra unidad acad&eacute;mica
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= electrica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= electrica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unidad acad&eacute;mica:
+          </td>
+          <td>
+            <%= electrica.unidad %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cursar una asignatura en otra unidad acad&eacute;mica ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_examen_graduados.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de examen
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tipo de examen:
+          </td>
+          <td>
+            <%= electrica.tipo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar examen ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_receso_semestres.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de receso por un semestre
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Semestre que se tomar&aacute; de receso:
+          </td>
+          <td>
+            <%= electrica.semestre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar un receso por un semestre ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_comite_registros.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de comit&eacute; tutorial
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 1:
+          </td>
+          <td>
+            <%= electrica.tutor_uno %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 2:
+          </td>
+          <td>
+            <%= electrica.tutor_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 3:
+          </td>
+          <td>
+            <%= electrica.tutor_tres %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 4:
+          </td>
+          <td>
+            <%= electrica.tutor_cuatro %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para registrar comit&eacute; tutorial ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electrica_tesis_registros.each do |electrica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electrica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electrica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de tema, directores y comisi&oacute;n revisora de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 1:
+          </td>
+          <td>
+            <%= electrica.director %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 2:
+          </td>
+          <td>
+            <%= electrica.director_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Presidente:
+          </td>
+          <td>
+            <%= electrica.presidente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Secretario:
+          </td>
+          <td>
+            <%= electrica.secretario %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= electrica.primer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2<sup>o</sup> Vocal:
+          </td>
+          <td>
+            <%= electrica.segundo_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= electrica.tercer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Suplente:
+          </td>
+          <td>
+            <%= electrica.suplente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite de registro de tema, director y comisi&oacute;n revisora de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <p>
+    <strong>Electr&oacute;nica</strong>
+  </p>
+  <div class="col-md-8">
+    <% @electronica_agregar_asignaturas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Agregar una asignatura al programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= electronica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= electronica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para agregar una asignatura al programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_baja_asignaturas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Dar de baja una asignatura del programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= electronica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= electronica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para dar de baja una asignatura del programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_baja_programas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= electronica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_baja_programas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= electronica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_cambiar_asignaturas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar una asignatura del programa individual de actividades
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la asignatura actual:
+          </td>
+          <td>
+            <%= electronica.anterior %> <%= electronica.clave_anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la nueva asignatura:
+          </td>
+          <td>
+            <%= electronica.actual %> <%= electronica.clave_actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar una asignatura del programa individual de actividades ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_cambiar_consejeros.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar consejero de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consejero actual:
+          </td>
+          <td>
+            <%= electronica.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo consejero:
+          </td>
+          <td>
+            <%= electronica.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar al consejero de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_cambiar_temas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar tema de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tema de tesis actual:
+          </td>
+          <td>
+            <%= electronica.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo tema de tesis:
+          </td>
+          <td>
+            <%= electronica.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar el tema de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_cursar_asignaturas.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cursar una asignatura en otra unidad acad&eacute;mica
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= electronica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= electronica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unidad acad&eacute;mica:
+          </td>
+          <td>
+            <%= electronica.unidad %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cursar una asignatura en otra unidad acad&eacute;mica ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_examen_graduados.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de examen
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tipo de examen:
+          </td>
+          <td>
+            <%= electronica.tipo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar examen ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_receso_semestres.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de receso por un semestre
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Semestre que se tomar&aacute; de receso:
+          </td>
+          <td>
+            <%= electronica.semestre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar un receso por un semestre ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_comite_registros.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de comit&eacute; tutorial
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 1:
+          </td>
+          <td>
+            <%= electronica.tutor_uno %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 2:
+          </td>
+          <td>
+            <%= electronica.tutor_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 3:
+          </td>
+          <td>
+            <%= electronica.tutor_tres %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 4:
+          </td>
+          <td>
+            <%= electronica.tutor_cuatro %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para registrar comit&eacute; tutorial ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @electronica_tesis_registros.each do |electronica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= electronica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= electronica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de tema, directores y comisi&oacute;n revisora de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 1:
+          </td>
+          <td>
+            <%= electronica.director %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 2:
+          </td>
+          <td>
+            <%= electronica.director_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Presidente:
+          </td>
+          <td>
+            <%= electronica.presidente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Secretario:
+          </td>
+          <td>
+            <%= electronica.secretario %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= electronica.primer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2<sup>o</sup> Vocal:
+          </td>
+          <td>
+            <%= electronica.segundo_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= electronica.tercer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Suplente:
+          </td>
+          <td>
+            <%= electronica.suplente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite de registro de tema, director y comisi&oacute;n revisora de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <p>
+    <strong>Mec&aacute;nica</strong>
+  </p>
+  <div class="col-md-8">
+    <% @mecanica_agregar_asignaturas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Agregar una asignatura al programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= mecanica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= mecanica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para agregar una asignatura al programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_baja_asignaturas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Dar de baja una asignatura del programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= mecanica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= mecanica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para dar de baja una asignatura del programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_baja_programas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= mecanica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_baja_programas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= mecanica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_cambiar_asignaturas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar una asignatura del programa individual de actividades
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la asignatura actual:
+          </td>
+          <td>
+            <%= mecanica.anterior %> <%= mecanica.clave_anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la nueva asignatura:
+          </td>
+          <td>
+            <%= mecanica.actual %> <%= mecanica.clave_actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar una asignatura del programa individual de actividades ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_cambiar_consejeros.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar consejero de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consejero actual:
+          </td>
+          <td>
+            <%= mecanica.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo consejero:
+          </td>
+          <td>
+            <%= mecanica.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar al consejero de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_cambiar_temas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar tema de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tema de tesis actual:
+          </td>
+          <td>
+            <%= mecanica.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo tema de tesis:
+          </td>
+          <td>
+            <%= mecanica.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar el tema de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_cursar_asignaturas.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cursar una asignatura en otra unidad acad&eacute;mica
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= mecanica.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= mecanica.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unidad acad&eacute;mica:
+          </td>
+          <td>
+            <%= mecanica.unidad %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cursar una asignatura en otra unidad acad&eacute;mica ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_examen_graduados.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de examen
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tipo de examen:
+          </td>
+          <td>
+            <%= mecanica.tipo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar examen ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_receso_semestres.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de receso por un semestre
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Semestre que se tomar&aacute; de receso:
+          </td>
+          <td>
+            <%= mecanica.semestre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar un receso por un semestre ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_comite_registros.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de comit&eacute; tutorial
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 1:
+          </td>
+          <td>
+            <%= mecanica.tutor_uno %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 2:
+          </td>
+          <td>
+            <%= mecanica.tutor_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 3:
+          </td>
+          <td>
+            <%= mecanica.tutor_tres %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 4:
+          </td>
+          <td>
+            <%= mecanica.tutor_cuatro %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para registrar comit&eacute; tutorial ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @mecanica_tesis_registros.each do |mecanica| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= mecanica.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= mecanica.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de tema, directores y comisi&oacute;n revisora de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 1:
+          </td>
+          <td>
+            <%= mecanica.director %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 2:
+          </td>
+          <td>
+            <%= mecanica.director_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Presidente:
+          </td>
+          <td>
+            <%= mecanica.presidente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Secretario:
+          </td>
+          <td>
+            <%= mecanica.secretario %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= mecanica.primer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2<sup>o</sup> Vocal:
+          </td>
+          <td>
+            <%= mecanica.segundo_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= mecanica.tercer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Suplente:
+          </td>
+          <td>
+            <%= mecanica.suplente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite de registro de tema, director y comisi&oacute;n revisora de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <p>
+    <strong>Sistemas</strong>
+  </p>
+  <div class="col-md-8">
+    <% @sistemas_agregar_asignaturas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Agregar una asignatura al programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= sistemas.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= sistemas.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para agregar una asignatura al programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_baja_asignaturas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Dar de baja una asignatura del programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= sistemas.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= sistemas.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para dar de baja una asignatura del programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_baja_programas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= sistemas.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_baja_programas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= sistemas.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_cambiar_asignaturas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar una asignatura del programa individual de actividades
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la asignatura actual:
+          </td>
+          <td>
+            <%= sistemas.anterior %> <%= sistemas.clave_anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la nueva asignatura:
+          </td>
+          <td>
+            <%= sistemas.actual %> <%= sistemas.clave_actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar una asignatura del programa individual de actividades ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_cambiar_consejeros.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar consejero de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consejero actual:
+          </td>
+          <td>
+            <%= sistemas.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo consejero:
+          </td>
+          <td>
+            <%= sistemas.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar al consejero de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_cambiar_temas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar tema de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tema de tesis actual:
+          </td>
+          <td>
+            <%= sistemas.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo tema de tesis:
+          </td>
+          <td>
+            <%= sistemas.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar el tema de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_cursar_asignaturas.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cursar una asignatura en otra unidad acad&eacute;mica
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= sistemas.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= sistemas.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unidad acad&eacute;mica:
+          </td>
+          <td>
+            <%= sistemas.unidad %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cursar una asignatura en otra unidad acad&eacute;mica ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_examen_graduados.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de examen
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tipo de examen:
+          </td>
+          <td>
+            <%= sistemas.tipo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar examen ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_receso_semestres.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de receso por un semestre
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Semestre que se tomar&aacute; de receso:
+          </td>
+          <td>
+            <%= sistemas.semestre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar un receso por un semestre ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_comite_registros.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de comit&eacute; tutorial
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 1:
+          </td>
+          <td>
+            <%= sistemas.tutor_uno %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 2:
+          </td>
+          <td>
+            <%= sistemas.tutor_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 3:
+          </td>
+          <td>
+            <%= sistemas.tutor_tres %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 4:
+          </td>
+          <td>
+            <%= sistemas.tutor_cuatro %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para registrar comit&eacute; tutorial ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @sistemas_tesis_registros.each do |sistemas| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= sistemas.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= sistemas.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de tema, directores y comisi&oacute;n revisora de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 1:
+          </td>
+          <td>
+            <%= sistemas.director %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 2:
+          </td>
+          <td>
+            <%= sistemas.director_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Presidente:
+          </td>
+          <td>
+            <%= sistemas.presidente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Secretario:
+          </td>
+          <td>
+            <%= sistemas.secretario %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= sistemas.primer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2<sup>o</sup> Vocal:
+          </td>
+          <td>
+            <%= sistemas.segundo_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= sistemas.tercer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Suplente:
+          </td>
+          <td>
+            <%= sistemas.suplente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite de registro de tema, director y comisi&oacute;n revisora de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <p>
+    <strong>Telecomunicaciones</strong>
+  </p>
+  <div class="col-md-8">
+    <% @telecom_agregar_asignaturas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Agregar una asignatura al programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= telecom.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= telecom.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para agregar una asignatura al programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_baja_asignaturas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Dar de baja una asignatura del programa individual de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= telecom.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= telecom.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para dar de baja una asignatura del programa individual de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_baja_programas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= telecom.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_baja_programas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Darse de baja de un programa de posgrado
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre del programa:
+          </td>
+          <td>
+            <%= telecom.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para darse de baja de un programa de posgrado ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_cambiar_asignaturas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar una asignatura del programa individual de actividades
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la asignatura actual:
+          </td>
+          <td>
+            <%= telecom.anterior %> <%= telecom.clave_anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre y clave de la nueva asignatura:
+          </td>
+          <td>
+            <%= telecom.actual %> <%= telecom.clave_actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar una asignatura del programa individual de actividades ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_cambiar_consejeros.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar consejero de estudios
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Consejero actual:
+          </td>
+          <td>
+            <%= telecom.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo consejero:
+          </td>
+          <td>
+            <%= telecom.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar al consejero de estudios ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_cambiar_temas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cambiar tema de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tema de tesis actual:
+          </td>
+          <td>
+            <%= telecom.anterior %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nuevo tema de tesis:
+          </td>
+          <td>
+            <%= telecom.actual %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cambiar el tema de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_cursar_asignaturas.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Cursar una asignatura en otra unidad acad&eacute;mica
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nombre de la asignatura:
+          </td>
+          <td>
+            <%= telecom.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Clave de la asignatura:
+          </td>
+          <td>
+            <%= telecom.clave %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unidad acad&eacute;mica:
+          </td>
+          <td>
+            <%= telecom.unidad %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para cursar una asignatura en otra unidad acad&eacute;mica ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_examen_graduados.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de examen
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tipo de examen:
+          </td>
+          <td>
+            <%= telecom.tipo %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar examen ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_receso_semestres.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Solicitud de receso por un semestre
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Semestre que se tomar&aacute; de receso:
+          </td>
+          <td>
+            <%= telecom.semestre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para solicitar un receso por un semestre ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_comite_registros.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de comit&eacute; tutorial
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 1:
+          </td>
+          <td>
+            <%= telecom.tutor_uno %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 2:
+          </td>
+          <td>
+            <%= telecom.tutor_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 3:
+          </td>
+          <td>
+            <%= telecom.tutor_tres %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tutor 4:
+          </td>
+          <td>
+            <%= telecom.tutor_cuatro %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite para registrar comit&eacute; tutorial ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <% @telecom_tesis_registros.each do |telecom| %>
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            Alumno:
+          </td>
+          <td>
+            <%= telecom.user.nombre %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Registro:
+          </td>
+          <td>
+            <%= telecom.user.boleta %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Solicitud:
+          </td>
+          <td>
+            Registro de tema, directores y comisi&oacute;n revisora de tesis
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 1:
+          </td>
+          <td>
+            <%= telecom.director %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Director 2:
+          </td>
+          <td>
+            <%= telecom.director_dos %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Presidente:
+          </td>
+          <td>
+            <%= telecom.presidente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Secretario:
+          </td>
+          <td>
+            <%= telecom.secretario %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            1<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= telecom.primer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2<sup>o</sup> Vocal:
+          </td>
+          <td>
+            <%= telecom.segundo_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            3<sup>er</sup> Vocal:
+          </td>
+          <td>
+            <%= telecom.tercer_vocal %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Suplente:
+          </td>
+          <td>
+            <%= electrica.suplente %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Respuesta:
+          </td>
+          <td>
+            Procede realizar tr&aacute;mite de registro de tema, director y comisi&oacute;n revisora de tesis ante la SIP
+          </td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+</div>

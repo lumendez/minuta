@@ -52,6 +52,16 @@
 		</div>
     <div class="container">
       <div class="row">
+        <div class="col-md-3">
+          <% if user_signed_in? %>
+            <p>
+              <strong>Bienvenido: </strong><%= current_user.nombre %><br />
+              <strong>&Uacute;ltimo inicio de sesi&oacute;n: </strong><%= current_user.last_sign_in_at.strftime("%d/%m/%y a las %T %P") %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
         <div id="flash">
           <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>

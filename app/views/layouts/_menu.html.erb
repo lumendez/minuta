@@ -4,40 +4,36 @@
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Nueva solicitud  <span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li>
-          <%= link_to "Agregar una asignatura al programa de estudios", new_agregar_asignatura_path %>
-        </li>
-        <li>
-          <%= link_to "Baja de una asignatura del programa de estudios", new_baja_asignatura_path %>
-        </li>
-        <li>
-          <%= link_to "Baja definitiva de un programa", new_baja_programa_path %>
-        </li>
-        <li>
-          <%= link_to "Cambiar asignaturas del programa de estudios", new_cambiar_asignatura_path %>
-        </li>
-        <li>
-          <%= link_to "Cambiar de consejero", new_cambiar_consejero_path %>
-        </li>
-        <li>
-          <%= link_to "Cambiar título del tema de tesis", new_cambiar_tema_path %>
-        </li>
-        <li>
-          <%= link_to "Cursar asignaturas en otra unidad académica", new_cursar_asignatura_path %>
-        </li>
-        <li>
-          <%= link_to "Solicitud de examen de grado", new_examen_graduado_path %>
-        </li>
-        <li>
-          <%= link_to "Receso por un semestre", new_receso_semestre_path %>
-        </li>
-        <li>
-          <%= link_to "Registro de comité tutorial", new_comite_registro_path %>
-        </li>
-        <li>
-          <%= link_to "Registro de tema de tesis, director y comisión revisora", new_tesis_registro_path %>
-        </li>
+        <li><%= link_to "Agregar una asignatura al programa de estudios", new_agregar_asignatura_path %></li>
+        <li><%= link_to "Baja de una asignatura del programa de estudios", new_baja_asignatura_path %></li>
+        <li><%= link_to "Baja definitiva de un programa", new_baja_programa_path %></li>
+        <li><%= link_to "Cambiar asignaturas del programa de estudios", new_cambiar_asignatura_path %></li>
+        <li><%= link_to "Cambiar de consejero", new_cambiar_consejero_path %></li>
+        <li><%= link_to "Cambiar título del tema de tesis", new_cambiar_tema_path %></li>
+        <li><%= link_to "Cursar asignaturas en otra unidad académica", new_cursar_asignatura_path %></li>
+        <li><%= link_to "Solicitud de examen de grado", new_examen_graduado_path %></li>
+        <li><%= link_to "Receso por un semestre", new_receso_semestre_path %></li>
+        <li><%= link_to "Registro de comité tutorial", new_comite_registro_path %></li>
+        <li><%= link_to "Registro de tema de tesis, director y comisión revisora", new_tesis_registro_path %></li>
       </ul>
+    </li>
+    <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
+    <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+  </ul>
+<% elsif user_signed_in? && current_user.tipos_usuario.tipo == 'Coordinador' %>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="Selected"><%= link_to "Inicio", coordinadores_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Casos por programa  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_casos_path %></li>
+        <li><%= link_to "Electrónica", electronica_casos_path %></li>
+        <li><%= link_to "Mecánica", mecanica_casos_path %></li>
+        <li><%= link_to "Sistemas", sistemas_casos_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_casos_path %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Consultar minuta", buscar_minutas_path %></li>
     </li>
     <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
     <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
@@ -45,19 +41,107 @@
 <% elsif user_signed_in? && current_user.tipos_usuario.tipo == 'Consejero' %>
   <ul class="nav navbar-nav navbar-right">
     <li class="Selected"><%= link_to "Inicio", consejero_casos_path %></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Casos por programa  <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Eléctrica", electrica_casos_path %>
-      </ul>
-    </li>
     <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
     <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
   </ul>
-
+<% elsif user_signed_in? && current_user.tipos_usuario.tipo == 'Control escolar' %>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="Selected"><%= link_to "Inicio", ce_usuarios_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Casos por programa  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_casos_path %></li>
+        <li><%= link_to "Electrónica", electronica_casos_path %></li>
+        <li><%= link_to "Mecánica", mecanica_casos_path %></li>
+        <li><%= link_to "Sistemas", sistemas_casos_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_casos_path %></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mapa curricular  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_asignaturas_path %></li>
+        <li><%= link_to "Electrónica", electronica_asignaturas_path %></li>
+        <li><%= link_to "Mecánica", mecanica_asignaturas_path %></li>
+        <li><%= link_to "Sistemas", sistemas_asignaturas_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_asignaturas_path %></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesores por &aacute;rea  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_consejeros_path %></li>
+        <li><%= link_to "Electrónica", electronica_consejeros_path %></li>
+        <li><%= link_to "Mecánica", mecanica_consejeros_path %></li>
+        <li><%= link_to "Sistemas", sistemas_consejeros_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_consejeros_path %></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Otros datos  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Claves de semestres", clave_semestres_path %></li>
+        <li><%= link_to "Nombres de los coordinadores", coordinador_nombres_path %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Consultar minuta", buscar_minutas_path %></li>
+    <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
+    <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+  </ul>
+<% elsif user_signed_in? && current_user.tipos_usuario.tipo == 'Administrador' %>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="Selected"><%= link_to "Inicio", ce_usuarios_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Casos por programa  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_casos_path %></li>
+        <li><%= link_to "Electrónica", electronica_casos_path %></li>
+        <li><%= link_to "Mecánica", mecanica_casos_path %></li>
+        <li><%= link_to "Sistemas", sistemas_casos_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_casos_path %></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mapa curricular  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_asignaturas_path %></li>
+        <li><%= link_to "Electrónica", electronica_asignaturas_path %></li>
+        <li><%= link_to "Mecánica", mecanica_asignaturas_path %></li>
+        <li><%= link_to "Sistemas", sistemas_asignaturas_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_asignaturas_path %></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profesores por &aacute;rea  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Eléctrica", electrica_consejeros_path %></li>
+        <li><%= link_to "Electrónica", electronica_consejeros_path %></li>
+        <li><%= link_to "Mecánica", mecanica_consejeros_path %></li>
+        <li><%= link_to "Sistemas", sistemas_consejeros_path %></li>
+        <li><%= link_to "Telecomunicaciones", telecom_consejeros_path %></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Otros datos  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Áreas de la SEPI", areas_path %></li>
+        <li><%= link_to "Claves de semestres", clave_semestres_path %></li>
+        <li><%= link_to "Nombres de los coordinadores", coordinador_nombres_path %></li>
+        <li><%= link_to "Estados de los casos", estados_path %></li>
+        <li><%= link_to "Programas de SEPI", sepi_programas_path %></li>
+        <li><%= link_to "Tipos de bajas", tipos_bajas_path %></li>
+        <li><%= link_to "Tipos de examen", examen_tipos_path %></li>
+        <li><%= link_to "Tipos de usuarios", tipos_usuarios_path %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Consultar minuta", buscar_minutas_path %></li>
+    <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
+    <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+  </ul>
 <% else %>
   <ul class="nav navbar-nav navbar-right">
-    <li class="Selected">Inicio</li>
-    <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
+    <li class="Selected"><a href="http://www.ipn.mx/Paginas/Correo-Electronico.aspx" target="_blank">Correo electr&oacute;nico</a></li>
+    <li><a href="http://www.ipn.mx/Paginas/Calendario-Academico.aspx" target="_blank">Calendario Acad&eacute;mico</a></li>
+    <li><a href="http://www.ipn.mx/Paginas/directorio.aspx" target="_blank">Directorio</a></li>
   </ul>
 <% end %>

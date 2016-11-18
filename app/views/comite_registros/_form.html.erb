@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<% if current_user.area == 'Eléctrica' %>
   <div class="form-group">
     <%= f.label :tutor_uno %><br>
     <%= collection_select(:comite_registro, :tutor_uno, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -30,6 +31,87 @@
     <%= f.label :tutor_cuatro %><br>
     <%= collection_select(:comite_registro, :tutor_cuatro, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
+<% elsif current_user.area == 'Electrónica' %>
+  <div class="form-group">
+    <%= f.label :tutor_uno %><br>
+    <%= collection_select(:comite_registro, :tutor_uno, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_dos %><br>
+    <%= collection_select(:comite_registro, :tutor_dos, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_tres %><br>
+    <%= collection_select(:comite_registro, :tutor_tres, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_cuatro %><br>
+    <%= collection_select(:comite_registro, :tutor_cuatro, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+<% elsif current_user.area == 'Mecánica' %>
+  <div class="form-group">
+    <%= f.label :tutor_uno %><br>
+    <%= collection_select(:comite_registro, :tutor_uno, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_dos %><br>
+    <%= collection_select(:comite_registro, :tutor_dos, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_tres %><br>
+    <%= collection_select(:comite_registro, :tutor_tres, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_cuatro %><br>
+    <%= collection_select(:comite_registro, :tutor_cuatro, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+<% elsif current_user.area == 'Sistemas' %>
+  <div class="form-group">
+    <%= f.label :tutor_uno %><br>
+    <%= collection_select(:comite_registro, :tutor_uno, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_dos %><br>
+    <%= collection_select(:comite_registro, :tutor_dos, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_tres %><br>
+    <%= collection_select(:comite_registro, :tutor_tres, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_cuatro %><br>
+    <%= collection_select(:comite_registro, :tutor_cuatro, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+<% else %>
+  <div class="form-group">
+    <%= f.label :tutor_uno %><br>
+    <%= collection_select(:comite_registro, :tutor_uno, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_dos %><br>
+    <%= collection_select(:comite_registro, :tutor_dos, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_tres %><br>
+    <%= collection_select(:comite_registro, :tutor_tres, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tutor_cuatro %><br>
+    <%= collection_select(:comite_registro, :tutor_cuatro, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+<% end %>
 
   <div class="form-group">
     <% if can? :validar_consejero, comite_registro %>

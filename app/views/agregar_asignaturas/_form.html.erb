@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<% if current_user.area == 'Eléctrica' %>
   <div class="form-group">
     <%= f.label :nombre %><br>
     <%= collection_select(:agregar_asignatura, :nombre, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -20,7 +20,47 @@
     <%= f.label :clave %><br>
     <%= collection_select(:agregar_asignatura, :clave, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
   </div>
+<% elsif current_user.area == 'Electrónica' %>
+  <div class="form-group">
+    <%= f.label :nombre %><br>
+    <%= collection_select(:agregar_asignatura, :nombre, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
 
+  <div class="form-group">
+    <%= f.label :clave %><br>
+    <%= collection_select(:agregar_asignatura, :clave, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+  </div>
+<% elsif current_user.area == 'Mecánica' %>
+  <div class="form-group">
+    <%= f.label :nombre %><br>
+    <%= collection_select(:agregar_asignatura, :nombre, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :clave %><br>
+    <%= collection_select(:agregar_asignatura, :clave, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+  </div>
+<% elsif current_user.area == 'Sistemas' %>
+  <div class="form-group">
+    <%= f.label :nombre %><br>
+    <%= collection_select(:agregar_asignatura, :nombre, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :clave %><br>
+    <%= collection_select(:agregar_asignatura, :clave, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+  </div>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :nombre %><br>
+      <%= collection_select(:agregar_asignatura, :nombre, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :clave %><br>
+      <%= collection_select(:agregar_asignatura, :clave, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    </div>
+<% end %>
   <div class="form-group">
     <% if can? :validar_consejero, agregar_asignatura %>
       <%= f.label :valida_consejero %><br>

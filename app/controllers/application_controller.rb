@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
      consejero_casos_path
    elsif current_user.tipos_usuario.tipo == 'Control escolar'
      ce_usuarios_path
+   elsif current_user.tipos_usuario.tipo == 'Alumno'
+     alumnos_path
     else
       alumnos_path
     end

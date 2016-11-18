@@ -95,7 +95,7 @@ class TesisRegistrosController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def tesis_registro_params
-      params.require(:tesis_registro).permit(:tema, :director, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado)
+      params.require(:tesis_registro).permit(:tema, :director, :director_dos, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado)
     end
 
     def tesis_registro

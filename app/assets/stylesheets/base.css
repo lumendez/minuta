@@ -563,3 +563,19 @@ background-color: white;
 .sub{border-bottom: 3px #6c1a42 solid; padding-bottom:10px; font-weight:bold; width:50%; margin-bottom: 25px;}
 .titulo-sub{border-bottom: 3px #ff9933 solid; padding-bottom:10px; font-weight:bold; margin-bottom: 25px;}
 table th {background-color: #DBE6EC;}
+
+h1, h2 {font-weight:bold !important;}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #minuta * {
+    visibility: visible;
+  }
+  #minuta {
+    position: absolute;
+    padding-left: 50px;
+    top: 0;
+  }
+}

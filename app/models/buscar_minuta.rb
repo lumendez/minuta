@@ -1,0 +1,2 @@
+class BuscarMinuta < ApplicationRecord
+end

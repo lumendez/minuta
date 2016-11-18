@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104164236) do
+ActiveRecord::Schema.define(version: 20161117160555) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
@@ -273,6 +273,7 @@ ActiveRecord::Schema.define(version: 20161104164236) do
     t.boolean  "valida_consejero"
     t.boolean  "valida_coordinador"
     t.string   "estado"
+    t.string   "director_dos"
     t.index ["user_id"], name: "index_tesis_registros_on_user_id"
   end
 

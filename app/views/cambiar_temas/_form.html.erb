@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :anterior %><br>
+    <%= f.label :anterior, 'Tema actual' %><br>
     <%= f.text_field :anterior %>
   </div>
 
   <div class="form-group">
-    <%= f.label :actual %><br>
+    <%= f.label :actual, 'Nuevo tema' %><br>
     <%= f.text_field :actual %>
   </div>
 
@@ -40,7 +40,7 @@
       <%= f.label :estado %><br>
       <%= collection_select(:cambiar_tema, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
-  </div
+  </div>
 
   <div class="actions">
     <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>

@@ -48,3 +48,5 @@ gem 'devise'
 gem 'cancan'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
+gem 'bootstrap-datepicker-rails'
