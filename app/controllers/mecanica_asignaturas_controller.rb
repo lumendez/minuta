@@ -29,7 +29,7 @@ class MecanicaAsignaturasController < ApplicationController
 
     respond_to do |format|
       if @mecanica_asignatura.save
-        format.html { redirect_to @mecanica_asignatura, notice: 'Mecanica asignatura was successfully created.' }
+        format.html { redirect_to @mecanica_asignatura, notice: 'La asignatura del programa de ingeniería mecánica fue creada correctamente.' }
         format.json { render :show, status: :created, location: @mecanica_asignatura }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class MecanicaAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @mecanica_asignatura.update(mecanica_asignatura_params)
-        format.html { redirect_to @mecanica_asignatura, notice: 'Mecanica asignatura was successfully updated.' }
+        format.html { redirect_to @mecanica_asignatura, notice: 'La asignatura del programa de ingeniería mecánica fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @mecanica_asignatura }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class MecanicaAsignaturasController < ApplicationController
   def destroy
     @mecanica_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to mecanica_asignaturas_url, notice: 'Mecanica asignatura was successfully destroyed.' }
+      format.html { redirect_to mecanica_asignaturas_url, notice: 'La asignatura del programa de ingeniería mecánica fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

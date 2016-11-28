@@ -1,2 +1,0 @@
-class ConsejeroElectrica < ApplicationRecord
-end

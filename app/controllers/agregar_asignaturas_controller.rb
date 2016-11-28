@@ -42,7 +42,7 @@ class AgregarAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @agregar_asignatura.update(agregar_asignatura_params)
-        format.html { redirect_to @agregar_asignatura, notice: 'Agregar asignatura was successfully updated.' }
+        format.html { redirect_to @agregar_asignatura, notice: 'La asignatura se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @agregar_asignatura }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AgregarAsignaturasController < ApplicationController
   def destroy
     @agregar_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to agregar_asignaturas_url, notice: 'Agregar asignatura was successfully destroyed.' }
+      format.html { redirect_to agregar_asignaturas_url, notice: 'La asignatura se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

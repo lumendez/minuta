@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   resources :examen_tipos
   resources :examen_graduados
   resources :cursar_asignaturas
-  resources :consejero_electricas
   resources :comite_registros
   resources :clave_semestres
   resources :cambiar_temas
@@ -33,7 +32,6 @@ Rails.application.routes.draw do
   resources :cambiar_asignaturas
   resources :baja_programas
   resources :baja_asignaturas
-  resources :asignatura_electricas
   resources :agregar_asignaturas
   resources :alumnos
   resources :coordinadores

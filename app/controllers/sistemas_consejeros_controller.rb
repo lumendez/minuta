@@ -29,7 +29,7 @@ class SistemasConsejerosController < ApplicationController
 
     respond_to do |format|
       if @sistemas_consejero.save
-        format.html { redirect_to @sistemas_consejero, notice: 'Sistemas consejero was successfully created.' }
+        format.html { redirect_to @sistemas_consejero, notice: 'Se añadió un nombre de consejero de ingeniería de sistemas correctamente.' }
         format.json { render :show, status: :created, location: @sistemas_consejero }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SistemasConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @sistemas_consejero.update(sistemas_consejero_params)
-        format.html { redirect_to @sistemas_consejero, notice: 'Sistemas consejero was successfully updated.' }
+        format.html { redirect_to @sistemas_consejero, notice: 'El nombre del consejero de ingeniería de sistemas se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @sistemas_consejero }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SistemasConsejerosController < ApplicationController
   def destroy
     @sistemas_consejero.destroy
     respond_to do |format|
-      format.html { redirect_to sistemas_consejeros_url, notice: 'Sistemas consejero was successfully destroyed.' }
+      format.html { redirect_to sistemas_consejeros_url, notice: 'El nombre del consejero de ingeniería de sistemas se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

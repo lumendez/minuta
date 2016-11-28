@@ -1,1 +1,0 @@
-json.partial! "asignatura_electricas/asignatura_electrica", asignatura_electrica: @asignatura_electrica

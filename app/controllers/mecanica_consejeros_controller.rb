@@ -30,7 +30,7 @@ class MecanicaConsejerosController < ApplicationController
 
     respond_to do |format|
       if @mecanica_consejero.save
-        format.html { redirect_to @mecanica_consejero, notice: 'Mecanica consejero was successfully created.' }
+        format.html { redirect_to @mecanica_consejero, notice: 'Se añadió un nombre de consejero de ingeniería mecánica correctamente.' }
         format.json { render :show, status: :created, location: @mecanica_consejero }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class MecanicaConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @mecanica_consejero.update(mecanica_consejero_params)
-        format.html { redirect_to @mecanica_consejero, notice: 'Mecanica consejero was successfully updated.' }
+        format.html { redirect_to @mecanica_consejero, notice: 'El nombre del consejero de ingeniería mecánica se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @mecanica_consejero }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class MecanicaConsejerosController < ApplicationController
   def destroy
     @mecanica_consejero.destroy
     respond_to do |format|
-      format.html { redirect_to mecanica_consejeros_url, notice: 'Mecanica consejero was successfully destroyed.' }
+      format.html { redirect_to mecanica_consejeros_url, notice: 'El nombre del consejero de ingeniería eléctrica se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

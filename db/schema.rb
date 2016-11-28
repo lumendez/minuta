@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117160555) do
+ActiveRecord::Schema.define(version: 20161128165707) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
@@ -30,12 +30,6 @@ ActiveRecord::Schema.define(version: 20161117160555) do
   end
 
   create_table "areas", force: :cascade do |t|
-    t.string   "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "asignatura_electricas", force: :cascade do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -120,12 +114,6 @@ ActiveRecord::Schema.define(version: 20161117160555) do
     t.boolean  "valida_coordinador"
     t.string   "estado"
     t.index ["user_id"], name: "index_comite_registros_on_user_id"
-  end
-
-  create_table "consejero_electricas", force: :cascade do |t|
-    t.string   "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "consejeros", force: :cascade do |t|

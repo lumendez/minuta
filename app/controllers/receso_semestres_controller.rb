@@ -42,7 +42,7 @@ class RecesoSemestresController < ApplicationController
   def update
     respond_to do |format|
       if @receso_semestre.update(receso_semestre_params)
-        format.html { redirect_to @receso_semestre, notice: 'Receso semestre was successfully updated.' }
+        format.html { redirect_to @receso_semestre, notice: 'Su petición para solicitar un receso por un semestre fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @receso_semestre }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RecesoSemestresController < ApplicationController
   def destroy
     @receso_semestre.destroy
     respond_to do |format|
-      format.html { redirect_to receso_semestres_url, notice: 'Receso semestre was successfully destroyed.' }
+      format.html { redirect_to receso_semestres_url, notice: 'Su petición para solicitar un receso por un semestre fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

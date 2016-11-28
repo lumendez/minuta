@@ -58,7 +58,7 @@ class ClaveSemestresController < ApplicationController
   def destroy
     @clave_semestre.destroy
     respond_to do |format|
-      format.html { redirect_to clave_semestres_url, notice: 'la clave se eliminó corrctamente.' }
+      format.html { redirect_to clave_semestres_url, notice: 'La clave se eliminó corrctamente.' }
       format.json { head :no_content }
     end
   end

@@ -29,7 +29,7 @@ class ElectricaAsignaturasController < ApplicationController
 
     respond_to do |format|
       if @electrica_asignatura.save
-        format.html { redirect_to @electrica_asignatura, notice: 'Electrica asignatura was successfully created.' }
+        format.html { redirect_to @electrica_asignatura, notice: 'La asignatura del programa de ingeniería eléctrica fue creada correctamente.' }
         format.json { render :show, status: :created, location: @electrica_asignatura }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ElectricaAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @electrica_asignatura.update(electrica_asignatura_params)
-        format.html { redirect_to @electrica_asignatura, notice: 'Electrica asignatura was successfully updated.' }
+        format.html { redirect_to @electrica_asignatura, notice: 'La asignatura del programa de ingeniería eléctrica fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @electrica_asignatura }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ElectricaAsignaturasController < ApplicationController
   def destroy
     @electrica_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to electrica_asignaturas_url, notice: 'Electrica asignatura was successfully destroyed.' }
+      format.html { redirect_to electrica_asignaturas_url, notice: 'La asignatura del programa de ingeniería eléctrica fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

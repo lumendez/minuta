@@ -42,7 +42,7 @@ class BajaProgramasController < ApplicationController
   def update
     respond_to do |format|
       if @baja_programa.update(baja_programa_params)
-        format.html { redirect_to @baja_programa, notice: 'Baja programa was successfully updated.' }
+        format.html { redirect_to @baja_programa, notice: 'Su petición para darse de baja de un programa fue actualizada.' }
         format.json { render :show, status: :ok, location: @baja_programa }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class BajaProgramasController < ApplicationController
   def destroy
     @baja_programa.destroy
     respond_to do |format|
-      format.html { redirect_to baja_programas_url, notice: 'Baja programa was successfully destroyed.' }
+      format.html { redirect_to baja_programas_url, notice: 'Su petición para darse de baja de un programa fue eliminada.' }
       format.json { head :no_content }
     end
   end

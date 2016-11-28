@@ -42,7 +42,7 @@ class CursarAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @cursar_asignatura.update(cursar_asignatura_params)
-        format.html { redirect_to @cursar_asignatura, notice: 'Cursar asignatura was successfully updated.' }
+        format.html { redirect_to @cursar_asignatura, notice: 'Su petición para cursar una asignatura en otra unidad académica fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @cursar_asignatura }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CursarAsignaturasController < ApplicationController
   def destroy
     @cursar_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to cursar_asignaturas_url, notice: 'Cursar asignatura was successfully destroyed.' }
+      format.html { redirect_to cursar_asignaturas_url, notice: 'Su petición para cursar una asignatura en otra unidad académica fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

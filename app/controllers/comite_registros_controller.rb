@@ -42,7 +42,7 @@ class ComiteRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @comite_registro.update(comite_registro_params)
-        format.html { redirect_to @comite_registro, notice: 'Comite registro was successfully updated.' }
+        format.html { redirect_to @comite_registro, notice: 'Su petición para registrar su comité tutorial fue actualizada.' }
         format.json { render :show, status: :ok, location: @comite_registro }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ComiteRegistrosController < ApplicationController
   def destroy
     @comite_registro.destroy
     respond_to do |format|
-      format.html { redirect_to comite_registros_url, notice: 'Comite registro was successfully destroyed.' }
+      format.html { redirect_to comite_registros_url, notice: 'Su petición para registrar su comité tutorial fue eliminada.' }
       format.json { head :no_content }
     end
   end

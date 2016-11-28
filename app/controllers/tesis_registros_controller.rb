@@ -43,7 +43,7 @@ class TesisRegistrosController < ApplicationController
   def update
     respond_to do |format|
       if @tesis_registro.update(tesis_registro_params)
-        format.html { redirect_to @tesis_registro, notice: 'Tesis registro was successfully updated.' }
+        format.html { redirect_to @tesis_registro, notice: 'Su petición para solicitar el registro de tema de tesis, directores y comisión revisora fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @tesis_registro }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class TesisRegistrosController < ApplicationController
   def destroy
     @tesis_registro.destroy
     respond_to do |format|
-      format.html { redirect_to tesis_registros_url, notice: 'Tesis registro was successfully destroyed.' }
+      format.html { redirect_to tesis_registros_url, notice: 'Su petición para solicitar el registro de tema de tesis, directores y comisión revisora fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

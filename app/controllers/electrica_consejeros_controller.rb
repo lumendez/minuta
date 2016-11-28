@@ -29,7 +29,7 @@ class ElectricaConsejerosController < ApplicationController
 
     respond_to do |format|
       if @electrica_consejero.save
-        format.html { redirect_to @electrica_consejero, notice: 'Se añadió un nombre de consejero de eléctrica correctamente.' }
+        format.html { redirect_to @electrica_consejero, notice: 'Se añadió un nombre de consejero de ingeniería eléctrica correctamente.' }
         format.json { render :show, status: :created, location: @electrica_consejero }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ElectricaConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @electrica_consejero.update(electrica_consejero_params)
-        format.html { redirect_to @electrica_consejero, notice: 'La actualización del nombre del cconsejero de eléctrica se realizó correctamente.' }
+        format.html { redirect_to @electrica_consejero, notice: 'El nombre del consejero de ingeniería eléctrica se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @electrica_consejero }
       else
         format.html { render :edit }

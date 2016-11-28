@@ -42,7 +42,7 @@ class ExamenGraduadosController < ApplicationController
   def update
     respond_to do |format|
       if @examen_graduado.update(examen_graduado_params)
-        format.html { redirect_to @examen_graduado, notice: 'Examen graduado was successfully updated.' }
+        format.html { redirect_to @examen_graduado, notice: 'Su petición para solicitar su examen de grado se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @examen_graduado }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ExamenGraduadosController < ApplicationController
   def destroy
     @examen_graduado.destroy
     respond_to do |format|
-      format.html { redirect_to examen_graduados_url, notice: 'Examen graduado was successfully destroyed.' }
+      format.html { redirect_to examen_graduados_url, notice: 'Su petición para solicitar su examen de grado se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

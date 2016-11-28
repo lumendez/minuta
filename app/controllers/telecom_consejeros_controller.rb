@@ -29,7 +29,7 @@ class TelecomConsejerosController < ApplicationController
 
     respond_to do |format|
       if @telecom_consejero.save
-        format.html { redirect_to @telecom_consejero, notice: 'Telecom consejero was successfully created.' }
+        format.html { redirect_to @telecom_consejero, notice: 'Se añadió un nombre de consejero de ingeniería de telecomunicaciones correctamente.' }
         format.json { render :show, status: :created, location: @telecom_consejero }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TelecomConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @telecom_consejero.update(telecom_consejero_params)
-        format.html { redirect_to @telecom_consejero, notice: 'Telecom consejero was successfully updated.' }
+        format.html { redirect_to @telecom_consejero, notice: 'El nombre del consejero de ingeniería de telecomunicaciones se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @telecom_consejero }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class TelecomConsejerosController < ApplicationController
   def destroy
     @telecom_consejero.destroy
     respond_to do |format|
-      format.html { redirect_to telecom_consejeros_url, notice: 'Telecom consejero was successfully destroyed.' }
+      format.html { redirect_to telecom_consejeros_url, notice: 'El nombre del consejero de ingeniería de telecomunicaciones se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

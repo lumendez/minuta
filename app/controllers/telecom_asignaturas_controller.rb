@@ -29,7 +29,7 @@ class TelecomAsignaturasController < ApplicationController
 
     respond_to do |format|
       if @telecom_asignatura.save
-        format.html { redirect_to @telecom_asignatura, notice: 'Telecom asignatura was successfully created.' }
+        format.html { redirect_to @telecom_asignatura, notice: 'La asignatura del programa de ingeniería de telecomunicaciones fue creada correctamente.' }
         format.json { render :show, status: :created, location: @telecom_asignatura }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TelecomAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @telecom_asignatura.update(telecom_asignatura_params)
-        format.html { redirect_to @telecom_asignatura, notice: 'Telecom asignatura was successfully updated.' }
+        format.html { redirect_to @telecom_asignatura, notice: 'La asignatura del programa de ingeniería de telecomunicaciones fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @telecom_asignatura }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class TelecomAsignaturasController < ApplicationController
   def destroy
     @telecom_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to telecom_asignaturas_url, notice: 'Telecom asignatura was successfully destroyed.' }
+      format.html { redirect_to telecom_asignaturas_url, notice: 'La asignatura del programa de ingeniería de telecomunicaciones fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

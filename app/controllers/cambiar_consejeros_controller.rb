@@ -41,7 +41,7 @@ class CambiarConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @cambiar_consejero.update(cambiar_consejero_params)
-        format.html { redirect_to @cambiar_consejero, notice: 'Cambiar consejero was successfully updated.' }
+        format.html { redirect_to @cambiar_consejero, notice: 'Su petición para cambiar de consejero fue actualizada.' }
         format.json { render :show, status: :ok, location: @cambiar_consejero }
       else
         format.html { render :edit }
@@ -55,7 +55,7 @@ class CambiarConsejerosController < ApplicationController
   def destroy
     @cambiar_consejero.destroy
     respond_to do |format|
-      format.html { redirect_to cambiar_consejeros_url, notice: 'Cambiar consejero was successfully destroyed.' }
+      format.html { redirect_to cambiar_consejeros_url, notice: 'Su petición para cambiar de consejero fue eliminada.' }
       format.json { head :no_content }
     end
   end

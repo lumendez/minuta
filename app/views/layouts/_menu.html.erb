@@ -33,6 +33,22 @@
         <li><%= link_to "Telecomunicaciones", telecom_casos_path %></li>
       </ul>
     </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Casos por tipo  <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Agregar una asignatura al programa de estudios", agregar_asignaturas_path %></li>
+        <li><%= link_to "Baja de una asignatura del programa de estudios", baja_asignaturas_path %></li>
+        <li><%= link_to "Baja definitiva de un programa", baja_programas_path %></li>
+        <li><%= link_to "Cambiar asignaturas del programa de estudios", cambiar_asignaturas_path %></li>
+        <li><%= link_to "Cambiar de consejero", cambiar_consejeros_path %></li>
+        <li><%= link_to "Cambiar título del tema de tesis", cambiar_temas_path %></li>
+        <li><%= link_to "Cursar asignaturas en otra unidad académica", cursar_asignaturas_path %></li>
+        <li><%= link_to "Solicitud de examen de grado", examen_graduados_path %></li>
+        <li><%= link_to "Receso por un semestre", receso_semestres_path %></li>
+        <li><%= link_to "Registro de comité tutorial", comite_registros_path %></li>
+        <li><%= link_to "Registro de tema de tesis, director y comisión revisora", tesis_registros_path %></li>
+      </ul>
+    </li>
     <li><%= link_to "Consultar minuta", buscar_minutas_path %></li>
     </li>
     <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>

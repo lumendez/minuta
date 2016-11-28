@@ -29,7 +29,7 @@ class SistemasAsignaturasController < ApplicationController
 
     respond_to do |format|
       if @sistemas_asignatura.save
-        format.html { redirect_to @sistemas_asignatura, notice: 'Sistemas asignatura was successfully created.' }
+        format.html { redirect_to @sistemas_asignatura, notice: 'La asignatura del programa de ingeniería de sistemas fue creada correctamente.' }
         format.json { render :show, status: :created, location: @sistemas_asignatura }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class SistemasAsignaturasController < ApplicationController
   def update
     respond_to do |format|
       if @sistemas_asignatura.update(sistemas_asignatura_params)
-        format.html { redirect_to @sistemas_asignatura, notice: 'Sistemas asignatura was successfully updated.' }
+        format.html { redirect_to @sistemas_asignatura, notice: 'La asignatura del programa de ingeniería de sistemas fue actualizada correctamente.' }
         format.json { render :show, status: :ok, location: @sistemas_asignatura }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class SistemasAsignaturasController < ApplicationController
   def destroy
     @sistemas_asignatura.destroy
     respond_to do |format|
-      format.html { redirect_to sistemas_asignaturas_url, notice: 'Sistemas asignatura was successfully destroyed.' }
+      format.html { redirect_to sistemas_asignaturas_url, notice: 'La asignatura del programa de ingeniería de sistemas fue eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

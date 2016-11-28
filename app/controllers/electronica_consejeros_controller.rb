@@ -29,7 +29,7 @@ class ElectronicaConsejerosController < ApplicationController
 
     respond_to do |format|
       if @electronica_consejero.save
-        format.html { redirect_to @electronica_consejero, notice: 'Electronica consejero was successfully created.' }
+        format.html { redirect_to @electronica_consejero, notice: 'Se añadió un nombre de consejero de ingeniería electrónica correctamente.' }
         format.json { render :show, status: :created, location: @electronica_consejero }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ElectronicaConsejerosController < ApplicationController
   def update
     respond_to do |format|
       if @electronica_consejero.update(electronica_consejero_params)
-        format.html { redirect_to @electronica_consejero, notice: 'Electronica consejero was successfully updated.' }
+        format.html { redirect_to @electronica_consejero, notice: 'El nombre del consejero de ingeniería electrónica se actualizó correctamente.' }
         format.json { render :show, status: :ok, location: @electronica_consejero }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ElectronicaConsejerosController < ApplicationController
   def destroy
     @electronica_consejero.destroy
     respond_to do |format|
-      format.html { redirect_to electronica_consejeros_url, notice: 'Electronica consejero was successfully destroyed.' }
+      format.html { redirect_to electronica_consejeros_url, notice: 'El nombre del consejero de ingeniería electrónica se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end

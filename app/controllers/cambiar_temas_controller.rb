@@ -41,7 +41,7 @@ class CambiarTemasController < ApplicationController
   def update
     respond_to do |format|
       if @cambiar_tema.update(cambiar_tema_params)
-        format.html { redirect_to @cambiar_tema, notice: 'Cambiar tema was successfully updated.' }
+        format.html { redirect_to @cambiar_tema, notice: 'Su petición para cambiar de tema de tesis fue actualizada.' }
         format.json { render :show, status: :ok, location: @cambiar_tema }
       else
         format.html { render :edit }
@@ -55,7 +55,7 @@ class CambiarTemasController < ApplicationController
   def destroy
     @cambiar_tema.destroy
     respond_to do |format|
-      format.html { redirect_to cambiar_temas_url, notice: 'Cambiar tema was successfully destroyed.' }
+      format.html { redirect_to cambiar_temas_url, notice: 'Su petición para cambiar de tema de tesis fue eliminada.' }
       format.json { head :no_content }
     end
   end

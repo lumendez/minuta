@@ -57,7 +57,7 @@ class CoordinadorNombresController < ApplicationController
   def destroy
     @coordinador_nombre.destroy
     respond_to do |format|
-      format.html { redirect_to coordinador_nombres_url, notice: 'El nombre del coordinador se eliminó corrctamente.' }
+      format.html { redirect_to coordinador_nombres_url, notice: 'El nombre del coordinador se eliminó correctamente.' }
       format.json { head :no_content }
     end
   end
