@@ -579,4 +579,10 @@ h1, h2 {font-weight:bold !important;}
     padding-left: 50px;
     top: 0;
   }
+  input, textarea {
+        border: 0 !important;
+        border-style: none !important;
+    }
 }
+
+.firmas tr td{padding: 30px;}

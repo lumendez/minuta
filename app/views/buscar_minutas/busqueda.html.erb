@@ -1,8 +1,29 @@
 <div id="minuta">
 <div class="row">
+  <div class="col-md-10">
+    <p align="justify">
+      Minuta de la reuni&oacute;n de la comisi&oacute;n de asuntos escolares del <input type="text" size="22" />, correspondiente a la reuni&oacute;n ordinaria numero <input type="text" size="5" />
+      del H. Colegio de Profesores del <input type="text" size="22" />.
+    </p>
+    <p align="justify">
+      La reuni&oacute;n se llev&oacute; a cabo con la asistencia de los coordinadores de los programas de posgrado en Ingenier&iacute;a El&eacute;ctrica: Dr. Daniel Ruiz Vega;
+      Ingenier&iacute;a Electr&oacute;nica: Dr. Suren Stolik Isakina; Ingenier&iacute;a Mec&aacute;nica: Dr. Jos&eacute; Mart&iacute;nez Trinidad; Ingenier&iacute;a de Sistemas:
+      Dra. Claudia Hern&aacute;ndez Aguilar; Ingenier&iacute;a en Telecomunicaciones M. en C. Miguel S&aacute;nchez Meraz, Jefe del departamento de posgrado, M en C. Juan Carlos Rivera
+      de Anda y el Dr. Miguel Toledo Vel&aacute;zquez, Jefe de la Secci&oacute;n de Estudios de Posgrado e Investigaci&oacute;n de la ESIME-Zacatenco.
+    </p>
+  </div>
+</div>
+<div class="row">
   <p>
     <strong>El&eacute;ctrica</strong>
   </p>
+  <% if @electrica_agregar_asignaturas.empty? && @electrica_baja_asignaturas.empty? &&  @electrica_baja_programas.empty? && @electrica_cambiar_asignaturas.empty? &&
+     @electrica_cambiar_consejeros.empty? && @electrica_cambiar_temas.empty? && @electrica_cursar_asignaturas.empty? && @electrica_examen_graduados.empty? &&
+     @electrica_receso_semestres.empty? && @electrica_comite_registros.empty? && @electrica_tesis_registros.empty? %>
+     <p>
+       No se registraron casos.
+     </p>
+  <% else %>
   <div class="col-md-8">
     <% @electrica_agregar_asignaturas.each do |electrica| %>
       <table class="table table-bordered">
@@ -691,12 +712,20 @@
       </table>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 <div class="row">
   <p>
     <strong>Electr&oacute;nica</strong>
   </p>
+  <% if @electronica_agregar_asignaturas.empty? && @electronica_baja_asignaturas.empty? &&  @electronica_baja_programas.empty? && @electronica_cambiar_asignaturas.empty? &&
+     @electronica_cambiar_consejeros.empty? && @electronica_cambiar_temas.empty? && @electronica_cursar_asignaturas.empty? && @electronica_examen_graduados.empty? &&
+     @electronica_receso_semestres.empty? && @electronica_comite_registros.empty? && @electronica_tesis_registros.empty? %>
+     <p>
+       No se registraron casos.
+     </p>
+  <% else %>
   <div class="col-md-8">
     <% @electronica_agregar_asignaturas.each do |electronica| %>
       <table class="table table-bordered">
@@ -1385,12 +1414,20 @@
       </table>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 <div class="row">
   <p>
     <strong>Mec&aacute;nica</strong>
   </p>
+  <% if @mecanica_agregar_asignaturas.empty? && @mecanica_baja_asignaturas.empty? &&  @mecanica_baja_programas.empty? && @mecanica_cambiar_asignaturas.empty? &&
+     @mecanica_cambiar_consejeros.empty? && @mecanica_cambiar_temas.empty? && @mecanica_cursar_asignaturas.empty? && @mecanica_examen_graduados.empty? &&
+     @mecanica_receso_semestres.empty? && @mecanica_comite_registros.empty? && @mecanica_tesis_registros.empty? %>
+     <p>
+       No se registraron casos.
+     </p>
+  <% else %>
   <div class="col-md-8">
     <% @mecanica_agregar_asignaturas.each do |mecanica| %>
       <table class="table table-bordered">
@@ -2079,12 +2116,20 @@
       </table>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 <div class="row">
   <p>
     <strong>Sistemas</strong>
   </p>
+  <% if @sistemas_agregar_asignaturas.empty? && @sistemas_baja_asignaturas.empty? &&  @sistemas_baja_programas.empty? && @sistemas_cambiar_asignaturas.empty? &&
+     @sistemas_cambiar_consejeros.empty? && @sistemas_cambiar_temas.empty? && @sistemas_cursar_asignaturas.empty? && @sistemas_examen_graduados.empty? &&
+     @sistemas_receso_semestres.empty? && @sistemas_comite_registros.empty? && @sistemas_tesis_registros.empty? %>
+     <p>
+       No se registraron casos.
+     </p>
+  <% else %>
   <div class="col-md-8">
     <% @sistemas_agregar_asignaturas.each do |sistemas| %>
       <table class="table table-bordered">
@@ -2773,12 +2818,20 @@
       </table>
     <% end %>
   </div>
+  <% end %>
 </div>
 
 <div class="row">
   <p>
     <strong>Telecomunicaciones</strong>
   </p>
+  <% if @telecom_agregar_asignaturas.empty? && @telecom_baja_asignaturas.empty? &&  @telecom_baja_programas.empty? && @telecom_cambiar_asignaturas.empty? &&
+     @telecom_cambiar_consejeros.empty? && @telecom_cambiar_temas.empty? && @telecom_cursar_asignaturas.empty? && @telecom_examen_graduados.empty? &&
+     @telecom_receso_semestres.empty? && @telecom_comite_registros.empty? && @telecom_tesis_registros.empty? %>
+     <p>
+       No se registraron casos.
+     </p>
+  <% else %>
   <div class="col-md-8">
     <% @telecom_agregar_asignaturas.each do |telecom| %>
       <table class="table table-bordered">
@@ -3453,7 +3506,7 @@
             Suplente:
           </td>
           <td>
-            <%= electrica.suplente %>
+            <%= telecom.suplente %>
           </td>
         </tr>
         <tr>
@@ -3467,5 +3520,50 @@
       </table>
     <% end %>
   </div>
+  <% end %>
+</div>
+<p>
+  &nbsp;
+</p>
+<p>
+  &nbsp;
+</p>
+<div class="row">
+<div align="center">
+  <table align="center" class="firmas">
+    <tr><td colspan="2"><p align="center">Comisi&oacute;n de Asuntos Escolares</p></td></tr>
+    <tr><td colspan="2"><p align="center">Dr. Miguel Toledo Vel&aacute;zquez<br> Jefe de la Sección de Estudios<br>de Posgrado e Investigaci&oacute;n de la <br>ESIME Zacatenco</p></td></tr>
+    <tr>
+      <td>
+        <p align="center">Dr. Daniel Ruiz Vega<br />
+        Coordinador de Ingenier&iacute;a El&eacute;ctrica</p>
+      </td>
+      <td>
+        <p align="center">Dr. Suren Stolik Isakina<br />
+        Coordinador de Ingenier&iacute;a Electr&oacute;nica</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="center">Dr. Jos&eacute; Mart&iacute;nez Trinidad<br />
+        Coordinador de Ingenier&iacute;a Mec&aacute;nica</p>
+      </td>
+      <td>
+        <p align="center">Dr. Claudia Hern&aacute;ndez Aguilar<br />
+        Coordinador de Ingenier&iacute;a de Sistemas</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p align="center">M. en C. Miguel S&aacute;nchez Meraz<br />
+        Coordinador de Ingenier&iacute;a de Telecomunicaciones</p>
+      </td>
+      <td>
+        <p align="center">M. en C. Juan Carlos Rivera de Anda<br />
+        Jefe del Departamento de Posgrado</p>
+      </td>
+    </tr>
+  </table>
+</div>
 </div>
 </div>
