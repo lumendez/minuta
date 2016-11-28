@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,800);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,800');
 
 a, a:active, a:link, a:visited, a:hover {
     text-decoration: none !important;
@@ -32,7 +32,7 @@ body {
     overflow: hidden;
     position: relative;
     width: 100%;
-	list-style: none;
+ 	  list-style: none;
 }
 
 .banner .contbanner {
@@ -87,7 +87,8 @@ body {
 .banner .contbanner .logoipn span a {
     color: #807e82;
     display: block;
-    font-family: "Adobe Caslon Pro Bold";
+    /*font-family: "Adobe Caslon Pro Bold";*/
+    font-family: 'Open Sans', sans-serif !important;
     font-size: 9.6pt;
     line-height: 10px;
 }
