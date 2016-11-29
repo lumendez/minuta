@@ -173,6 +173,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.5)
   jquery-rails
+  nokogiri
   passenger
   rails (~> 5.0.0, >= 5.0.0.1)
   sass-rails (~> 5.0)
