@@ -21,9 +21,9 @@
 
 en:
   hello: "Hello world"
-  activerecord:
-    attributes:
-      user:
-        email: Correo electrónico #email
-        password: Contraseña #password
-        remember_me: Recordarme #Remember me
+  #activerecord:
+    #attributes:
+      #user:
+        #email: Correo electrónico #email
+        #password: Contraseña #password
+        #remember_me: Recordarme #Remember me

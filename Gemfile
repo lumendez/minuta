@@ -50,3 +50,7 @@ gem 'cancan'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'bootstrap-datepicker-rails'
+
+gem 'rails-i18n'
+
+gem 'devise-i18n'
