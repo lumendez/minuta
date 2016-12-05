@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128165707) do
+ActiveRecord::Schema.define(version: 20161117160555) do
 
   create_table "agregar_asignaturas", force: :cascade do |t|
     t.string   "nombre"
