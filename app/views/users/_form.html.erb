@@ -12,37 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %>
+    <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
   </div>
 
   <div class="field">
-    <%= f.label :boleta %>
+    <%= f.label :boleta %><br>
     <%= f.text_field :boleta %>
   </div>
 
   <div class="field">
-    <%= f.label :sepi_programa_id %>
+    <%= f.label :sepi_programa_id %><br>
     <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
-    <%= f.label :consejero_id %>
+    <%= f.label :consejero_id %><br>
     <%= collection_select(:user, :consejero_id, Consejero.all, :id, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
-    <%= f.label :coordinador_nombre_id %>
+    <%= f.label :coordinador_nombre_id %><br>
     <%= collection_select(:user, :coordinador_nombre_id, CoordinadorNombre.all, :id, :nombre, {prompt: true}) %>
   </div>
 
   <div class="field">
-    <%= f.label :tipos_usuario_id %>
+    <%= f.label :tipos_usuario_id %><br>
     <%= collection_select(:user, :tipos_usuario_id, TiposUsuario.all, :id, :tipo, {prompt: true}) %>
   </div>
 
   <div class="field">
-    <%= f.label :area %>
+    <%= f.label :area %><br>
     <%= collection_select(:user, :area, Area.all, :nombre, :nombre, {prompt: true}) %>
   </div>
 
@@ -67,7 +67,7 @@ $('#user_sepi_programa_id').change(
 
 $('#user_area').change(
   function() {
-    matchUp($('#user_area'), $('#ser_sepi_programa_id'));
+    matchUp($('#user_area'), $('#user_sepi_programa_id'));
   }
 );
 </script>
