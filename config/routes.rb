@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :electrica_asignaturas
   resources :estados
   devise_for :users, :controllers => { registrations: 'registrations' }
-  #scope "/admin" do
-    #resources :users
-  #end
+  scope "/admin" do
+    resources :users
+  end
   resources :users
   resources :coordinador_nombres
   resources :consejeros
