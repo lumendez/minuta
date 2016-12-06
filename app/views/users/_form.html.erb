@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :sepi_programa_id %><br>
-    <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: true}) %>
+    <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: 'Seleccione'}) %>
   </div>
 
   <div class="field">
