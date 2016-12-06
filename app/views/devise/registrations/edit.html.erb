@@ -33,6 +33,11 @@
     <%= collection_select(:user, :tipos_usuario_id, TiposUsuario.all, :id, :tipo, {prompt: true}) %>
   </div>
 
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= collection_select(:user, :area, Area.all, :nombre, :nombre, {prompt: true}) %>
+  </div>
+
   <div class="form-group">
     <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true %>
@@ -43,11 +48,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br>
+    <%= f.label :password %> <i>(dejar en blanco sino desea cambiarla)</i><br>
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= @minimum_password_length %> caracteres m&iacute;nimo</em>
     <% end %>
   </div>
 
@@ -57,12 +62,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br>
+    <%= f.label :current_password %> <i><strong>(teclea tu contrase&ntilde;a actual para confirmar los cambios)</strong></i><br>
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Actualizar datos" %>
+    <%= f.submit "Enviar" %>
   </div>
 <% end %>
 
