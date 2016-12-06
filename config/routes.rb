@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   scope "/admin" do
     resources :users
   end
-  resources :users
   resources :coordinador_nombres
   resources :consejeros
   resources :tipos_usuarios
