@@ -40,8 +40,12 @@
         <td class="info"><%= baja_programa.estado %></td>
         <% end %>
         <td><%= link_to 'Detalles', baja_programa %></td>
+        <% if can? :update, baja_programa %>
         <td><%= link_to 'Editar', edit_baja_programa_path(baja_programa) %></td>
+        <% end %>
+        <% if can? :destroy, baja_programa %>
         <td><%= link_to 'Eliminar', baja_programa, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

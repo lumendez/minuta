@@ -14,6 +14,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -43,6 +44,9 @@
         <% else %>
         <td class="info"><%= agregar_asignatura.estado %></td>
         <% end %>
+        <% if can? :update, AgregarAsignatura %>
+        <td><%= link_to 'Editar', edit_agregar_asignatura_path(agregar_asignatura) %></td>
+        <% end %>
       </tr>
     <% end%>
   </tbody>
@@ -64,6 +68,7 @@
         <th width="5%">Validacion consejero</th>
         <th width="5%">Validacion coordinador</th>
         <th width="15%">Estado</th>
+        <th>Opciones</th>
       </tr>
     </thead>
 
@@ -93,6 +98,9 @@
           <% else baja_asignatura.estado == "Finalizado" %>
           <td class="info"><%= baja_asignatura.estado %></td>
           <% end %>
+          <% if can? :update, baja_asignatura %>
+            <td><%= link_to 'Editar', edit_baja_asignatura_path(baja_asignatura) %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -113,6 +121,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -140,6 +149,9 @@
         <% else baja_programa.estado == "Finalizado" %>
         <td class="info"><%= baja_programa.estado %></td>
         <% end %>
+        <% if can? :update, baja_programa %>
+        <td><%= link_to 'Editar', edit_baja_programa_path(baja_programa) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -163,6 +175,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -194,6 +207,9 @@
         <% else cambiar_asignatura.estado == "Finalizado" %>
         <td class="info"><%= cambiar_asignatura.estado %></td>
         <% end %>
+        <% if can? :update, cambiar_asignatura %>
+        <td><%= link_to 'Editar', edit_cambiar_asignatura_path(cambiar_asignatura) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -215,6 +231,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -244,6 +261,9 @@
         <% else cambiar_consejero.estado == "Finalizado" %>
         <td class="info"><%= cambiar_consejero.estado %></td>
         <% end %>
+        <% if can? :update, cambiar_consejero %>
+        <td><%= link_to 'Editar', edit_cambiar_consejero_path(cambiar_consejero) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -265,6 +285,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -294,6 +315,9 @@
         <% else cambiar_tema.estado == "Finalizado" %>
         <td class="info"><%= cambiar_tema.estado %></td>
         <% end %>
+        <% if can? :update, cambiar_tema %>
+        <td><%= link_to 'Editar', edit_cambiar_tema_path(cambiar_tema) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -317,6 +341,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -348,6 +373,9 @@
         <% else comite_registro.estado == "Finalizado" %>
         <td class="info"><%= comite_registro.estado %></td>
         <% end %>
+        <% if can? :update, comite_registro %>
+        <td><%= link_to 'Editar', edit_comite_registro_path(comite_registro) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -370,6 +398,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -400,6 +429,9 @@
         <% else cursar_asignatura.estado == "Finalizado" %>
         <td class="info"><%= cursar_asignatura.estado %></td>
         <% end %>
+        <% if can? :update, cursar_asignatura %>
+        <td><%= link_to 'Editar', edit_cursar_asignatura_path(cursar_asignatura) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -420,6 +452,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -448,6 +481,9 @@
         <% else examen_graduado.estado == "Finalizado" %>
         <td class="info"><%= examen_graduado.estado %></td>
         <% end %>
+        <% if can? :update, examen_graduado %>
+        <td><%= link_to 'Editar', edit_examen_graduado_path(examen_graduado) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -468,6 +504,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -496,6 +533,9 @@
         <% else receso_semestre.estado == "Finalizado" %>
         <td class="info"><%= receso_semestre.estado %></td>
         <% end %>
+        <% if can? :update, receso_semestre %>
+        <td><%= link_to 'Editar', edit_receso_semestre_path(receso_semestre) %></td>
+        <% end %>
       </td>
     <% end %>
   </tbody>
@@ -519,6 +559,7 @@
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
       <th width="15%">Estado</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
@@ -547,6 +588,9 @@
         <td class="success"><%= tesis_registro.estado %></td>
         <% else tesis_registro.estado == "Finalizado" %>
         <td class="info"><%= tesis_registro.estado %></td>
+        <% end %>
+        <% if can? :update, tesis_registro %>
+        <td><%= link_to 'Editar', edit_tesis_registro_path(tesis_registro) %></td>
         <% end %>
       </tr>
     <% end %>

@@ -14,37 +14,59 @@ class Ability
       #Peticiones
       can :read, AgregarAsignatura
       can :update, AgregarAsignatura
-      can :cambiar_estado, AgregarAsignatura
+      can :cambiar_estado, AgregarAsignatura do |agregar_asignatura|
+        agregar_asignatura.try(:estado)
+      end
       can :read, BajaAsignatura
       can :update, BajaAsignatura
-      can :cambiar_estado, BajaAsignatura
+      can :cambiar_estado, BajaAsignatura do |baja_asignatura|
+        baja_asignatura.try(:estado)
+      end
       can :read, BajaPrograma
       can :update, BajaPrograma
-      can :cambiar_estado, BajaPrograma
+      can :cambiar_estado, BajaPrograma do |baja_programa|
+        baja_programa.try(:estado)
+      end
       can :read, CambiarAsignatura
       can :update, CambiarAsignatura
-      can :cambiar_estado, CambiarAsignatura
+      can :cambiar_estado, CambiarAsignatura do |cambiar_asignatura|
+        cambiar_asignatura.try(:estado)
+      end
       can :read, CambiarConsejero
       can :update, CambiarConsejero
-      can :cambiar_estado, CambiarConsejero
+      can :cambiar_estado, CambiarConsejero do |agregar_asignatura|
+        agregar_asignatura.try(:estado)
+      end
       can :read, CambiarTema
       can :update, CambiarTema
-      can :cambiar_estado, CambiarTema
+      can :cambiar_estado, CambiarTema do |cambiar_tema|
+        cambiar_tema.try(:estado)
+      end
       can :read, ComiteRegistro
       can :update, ComiteRegistro
-      can :cambiar_estado, ComiteRegistro
+      can :cambiar_estado, ComiteRegistro do |comite_registro|
+        comite_registro.try(:estado)
+      end
       can :read, CursarAsignatura
       can :update, CursarAsignatura
-      can :cambiar_estado, CursarAsignatura
+      can :cambiar_estado, CursarAsignatura do |cursar_asignatura|
+        cursar_asignatura.try(:estado)
+      end
       can :read, ExamenGraduado
       can :update, ExamenGraduado
-      can :cambiar_estado, ExamenGraduado
+      can :cambiar_estado, ExamenGraduado do |examen_graduado|
+        examen_graduado.try(:estado)
+      end
       can :read, RecesoSemestre
       can :update, RecesoSemestre
-      can :cambiar_estado, RecesoSemestre
+      can :cambiar_estado, RecesoSemestre do |receso_semestre|
+        receso_semestre.try(:estado)
+      end
       can :read, TesisRegistro
       can :update, TesisRegistro
-      can :cambiar_estado, TesisRegistro
+      can :cambiar_estado, TesisRegistro do |tesis_registro|
+        tesis_registro.try(:estado)
+      end
       #Puede administrar
       can :read, Area
       can :update, Area
