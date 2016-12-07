@@ -57,6 +57,17 @@
 <% elsif user_signed_in? && current_user.tipos_usuario.tipo == 'Consejero' %>
   <ul class="nav navbar-nav navbar-right">
     <li class="Selected"><%= link_to "Inicio", consejero_casos_path %></li>
+    <% if current_user.area == 'Eléctrica' %>
+      <li><%= link_to "Casos del programa", electrica_casos_path %></li>
+    <% elsif current_user.area == 'Electrónica' %>
+      <li><%= link_to "Casos del programa", electronica_casos_path %></li>
+    <% elsif current_user.area == 'Mecánica' %>
+      <li><%= link_to "Casos del programa", mecanica_casos_path %></li>
+    <% elsif current_user.area == 'Sistemas' %>
+      <li><%= link_to "Casos del programa", sistemas_casos_path %></li>
+    <% else %>
+      <li><%= link_to "Casos del programa", telecom_casos_path %></li>
+    <% end %>
     <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
     <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
   </ul>
@@ -138,7 +149,7 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Otros datos  <span class="caret"></span></a>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Datos generales  <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><%= link_to "Áreas de la SEPI", areas_path %></li>
         <li><%= link_to "Claves de semestres", clave_semestres_path %></li>
@@ -150,6 +161,7 @@
         <li><%= link_to "Tipos de usuarios", tipos_usuarios_path %></li>
       </ul>
     </li>
+    <li><%= link_to "Lista de usuarios", users_path %></li>
     <li><%= link_to "Consultar minuta", buscar_minutas_path %></li>
     <li><%= link_to "Cambiar contraseña", edit_user_registration_path %></li>
     <li><%= link_to "Salir", destroy_user_session_path, :method => :delete %></li>
