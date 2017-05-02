@@ -21,6 +21,12 @@ class User < ApplicationRecord
   has_many :tesis_registros, dependent: :destroy
   #has_many :tipos_usuarios, dependent: :destroy
 
+  before_save :assign_role
+
+  def assign_role
+    self.tipos_usuario = TiposUsuario.find_by tipo: "Alumno" if self.tipos_usuario.nil?
+  end
+
   def admin?
     self.tipos_usuario.tipo == "Administrador"
   end

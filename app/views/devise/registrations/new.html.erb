@@ -34,11 +34,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :tipos_usuario_id, "Tipo de usuario" %><br>
-    <%= collection_select(:user, :tipos_usuario_id, TiposUsuario.all, :id, :tipo, {prompt: true}) %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true %>
   </div>
