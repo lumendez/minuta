@@ -100,6 +100,10 @@ class Ability
       can :update, SistemasConsejero
       can :create, SistemasConsejero
       can :destroy, SistemasConsejero
+      can :read, TelecomConsejero
+      can :update, TelecomConsejero
+      can :create, TelecomConsejero
+      can :destroy, TelecomConsejero
       can :read, Estado
       can :update, Estado
       can :create, Estado
