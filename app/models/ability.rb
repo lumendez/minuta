@@ -88,6 +88,18 @@ class Ability
       can :update, ElectricaConsejero
       can :create, ElectricaConsejero
       can :destroy, ElectricaConsejero
+      can :read, ElectronicaConsejero
+      can :update, ElectronicaConsejero
+      can :create, ElectronicaConsejero
+      can :destroy, ElectronicaConsejero
+      can :read, MecanicaConsejero
+      can :update, MecanicaConsejero
+      can :create, MecanicaConsejero
+      can :destroy, MecanicaConsejero
+      can :read, SistemasConsejero
+      can :update, SistemasConsejero
+      can :create, SistemasConsejero
+      can :destroy, SistemasConsejero
       can :read, Estado
       can :update, Estado
       can :create, Estado
@@ -104,6 +116,26 @@ class Ability
       can :update, TiposBaja
       can :create, TiposBaja
       can :destroy, TiposBaja
+      can :read, ElectricaAsignatura
+      can :update, ElectricaAsignatura
+      can :create, ElectricaAsignatura
+      can :destroy, ElectricaAsignatura
+      can :read, ElectronicaAsignatura
+      can :update, ElectronicaAsignatura
+      can :create, ElectronicaAsignatura
+      can :destroy, ElectronicaAsignatura
+      can :read, MecanicaAsignatura
+      can :update, MecanicaAsignatura
+      can :create, MecanicaAsignatura
+      can :destroy, MecanicaAsignatura
+      can :read, SistemasAsignatura
+      can :update, SistemasAsignatura
+      can :create, SistemasAsignatura
+      can :destroy, SistemasAsignatura
+      can :read, TelecomAsignatura
+      can :update, TelecomAsignatura
+      can :create, TelecomAsignatura
+      can :destroy, TelecomAsignatura
     elsif user.coordinador?
       can :read, Coordinadore
       can :read, ElectricaCaso
