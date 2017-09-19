@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :boleta
       t.belongs_to :sepi_programa, foreign_key: true
       t.belongs_to :consejero, foreign_key: true
-      t.belongs_to :coordinador, foreign_key: true
+      t.belongs_to :coordinador_nombre, foreign_key: true
 
       t.timestamps
     end
