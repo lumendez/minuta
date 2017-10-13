@@ -62,6 +62,10 @@ class SepiProgramasController < ApplicationController
     end
   end
 
+  def filtrar_consejeros_por_programa
+    @filtered_units = Consejero.all.where(sepi_programa_id: params[:selected_sepi_programa])
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def sepi_programa_params

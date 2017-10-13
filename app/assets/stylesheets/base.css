@@ -169,12 +169,13 @@ zz15_TopNavigationMenuV4 {
 .PiePagina .menupie ul li {
     float: left;
 }
-.PiePagina a {
+.PiePagina h1 {
     color: #6d1a42;
     display: block;
-    font-size: 12px;
+    font-size: 16px;
     padding: 10px;
     transition: all 0.3s ease-in-out 0s;
+    font-variant: small-caps;
 }
 .PiePagina a:hover {
     text-shadow: 1px 1px 2px white;
@@ -279,7 +280,7 @@ a.PieLink:hover {
     box-shadow: 2px 2px 5px #666666;
     color: #FFFFFF;
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     padding: 15px;
     text-decoration: none;
     text-shadow: 0 1px 1px #000000;
@@ -290,7 +291,7 @@ a.PieLink:hover {
     box-shadow: 2px 2px 5px #666666;
     color: #FFFFFF;
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     padding: 15px;
     text-decoration: none;
     text-shadow: 0 1px 1px #000000;
@@ -481,6 +482,11 @@ table th{
     color: #fff !important;
 }
 
+.navbar-inverse {
+    border-color: #dcdfe4 !important;
+}
+
+
 .panel-heading h3{font-weight: bold !important;}
 
 .panel-body span{color: #666; font-weight:bold;}
@@ -529,7 +535,7 @@ background-color: white;
     table td {
       display: block;
       text-align: right;
-      font-size: 13px;
+      font-size: 16px;
       border-bottom: 1px dotted #ccc;
     }
 
@@ -586,3 +592,5 @@ h1, h2 {font-weight:bold !important;}
 }
 
 .firmas tr td{padding: 30px;}
+
+table td {font-size: 14px;}

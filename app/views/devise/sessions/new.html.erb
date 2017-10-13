@@ -22,6 +22,7 @@
     </div>
   <% end -%>
 </div>
+
 <div class="row">
   <div class="actions" align="center">
     <%= f.submit "Iniciar sesión", class: "btn btn-md btn-primary" %>
@@ -30,7 +31,13 @@
 </div>
 
 <br>
+
+<div class="row">
+  <p align="center"><strong><%= link_to 'Registrarse como usuario nuevo', new_user_registration_path %></strong></p>
+</div>
+
+<br>
 <p align="center">
-  <%= render "devise/shared/links" %>  
+  <%= render "devise/shared/links" %>
 </p>
 </div>

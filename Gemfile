@@ -59,3 +59,5 @@ gem 'yaml_db'
 
 #myslq como servidor de bases de datos
 gem "mysql2", "~> 0.3.11"
+
+gem 'awesome_rails_console'

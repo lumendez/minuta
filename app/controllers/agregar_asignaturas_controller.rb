@@ -30,7 +30,11 @@ class AgregarAsignaturasController < ApplicationController
 
     if @agregar_asignatura.save
       flash[:success] = "Su solicitud para agregar una asignatura a su programa individual de actividades fue creada!"
-      redirect_to root_path
+      if current_user.tipos_usuarios.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su solicitud para agregar una asignatura a su programa individual de actividades no puse ser creada! Revise el formulario."
       render :new

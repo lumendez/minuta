@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117160555) do
+ActiveRecord::Schema.define(version: 20171011175452) do
 
   create_table "agregar_asignaturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -297,6 +297,8 @@ ActiveRecord::Schema.define(version: 20161117160555) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "area"
+    t.string   "paterno"
+    t.string   "materno"
     t.index ["consejero_id"], name: "index_users_on_consejero_id", using: :btree
     t.index ["coordinador_nombre_id"], name: "index_users_on_coordinador_nombre_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -34,7 +34,7 @@
 
 				</div>
 			</div><!--Fin Banner IPN-->
-			<div class="navbar navbar-inverse">
+			<div class="navbar navbar-inverse navbar-static-top">
               <div class="container">
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -52,16 +52,6 @@
 		</div>
     <div class="container">
       <div class="row">
-          <% if user_signed_in? %>
-            <div class="col-md-4 panel panel-default">
-              <h6>
-                <strong>Bienvenido: </strong><%= current_user.nombre %><br>
-                <strong>&Uacute;ltimo inicio de sesi&oacute;n: </strong><%= current_user.last_sign_in_at.strftime("%d/%m/%y a las %T %P") %>
-              </h6>
-            </div>
-          <% end %>
-      </div>
-      <div class="row">
         <div id="flash">
           <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
@@ -75,9 +65,10 @@
         	<div class="PiePagina">
             	<hr>
                 	<h1 align="center">
-                    <a target="_blank" href="http://www.ipn.mx">Instituto Polit&eacute;cnico Nacional</a>
+                    Instituto Polit&eacute;cnico Nacional
                 </h1>
-                <p align="center">Secci&oacute;n de Estudios de Posgrado e Investigaci&oacute;n de la Escuela Superior de Ingenier&iacute;a Mec&aacute;nica y El&eacute;ctrica Unidad Zacatenco<br>
+                <p align="center"><strong>Secci&oacute;n de Estudios de Posgrado e Investigaci&oacute;n<br>
+                  Escuela Superior de Ingenier&iacute;a Mec&aacute;nica y El&eacute;ctrica Unidad Zacatenco</strong><br>
                 Unidad Profesional &ldquo;Adolfo L&oacute;pez Mateos&rdquo; Edificio 5 Tercer Piso.<br>
         		Tel&eacute;fono: (55) 57296000 extensi&oacute;n: 54586
                 </p>
