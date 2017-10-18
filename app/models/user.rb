@@ -47,4 +47,12 @@ class User < ApplicationRecord
     self.tipos_usuario.tipo == "Alumno"
   end
 
+  def nombre_paterno_materno
+    "#{nombre} #{paterno} #{materno}"
+  end
+
+  def paterno_materno_nombre
+    "#{paterno} #{materno} #{nombre}"
+  end
+
 end

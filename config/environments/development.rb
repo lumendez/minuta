@@ -52,6 +52,21 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+  #Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-7.0.4-Q16'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "minutas.ipn.mx",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    #user_name: ENV['gmail_username'],
+    #password: ENV['gmail_password']
+    user_name: 'minutassepiesimezac',
+    password: 'm1nu74553p1'
+}
 
   config.time_zone = 'America/Mexico_City'
 end

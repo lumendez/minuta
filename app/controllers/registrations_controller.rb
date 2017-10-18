@@ -1,5 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def create
+    super
+    RegistroMailer.correo_registro(resource).deliver unless resource.invalid?
+  end
+
   private
 
   def sign_up_params
