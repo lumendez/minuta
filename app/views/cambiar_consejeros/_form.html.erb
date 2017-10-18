@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-<% if current_user.area == 'Eléctrica' %>
+<% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
@@ -24,7 +24,7 @@
     <%= collection_select(:cambiar_consejero, :actual, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.area == 'Electrónica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
@@ -38,7 +38,7 @@
     <%= collection_select(:cambiar_consejero, :actual, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.area == 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
@@ -52,7 +52,7 @@
     <%= collection_select(:cambiar_consejero, :actual, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.area == 'Sistemas' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>

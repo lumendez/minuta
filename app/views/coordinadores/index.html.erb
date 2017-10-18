@@ -20,7 +20,7 @@
 
   <tbody>
     <% @agregar_asignaturas.each do |agregar_asignatura| %>
-      <% if current_user.area == agregar_asignatura.user.area %>
+      <% if current_user.sepi_programa.nombre.include? agregar_asignatura.user.area %>
       <tr>
         <td><%= agregar_asignatura.user.nombre %></td>
         <td><%= agregar_asignatura.user.boleta %></td>
@@ -75,7 +75,7 @@
 
     <tbody>
       <% @baja_asignaturas.each do |baja_asignatura| %>
-        <% if current_user.area == baja_asignatura.user.area %>
+        <% if current_user.sepi_programa.nombre.include? baja_asignatura.user.area %>
         <tr>
           <td><%= baja_asignatura.user.nombre %></td>
           <td><%= baja_asignatura.user.boleta %></td>
@@ -126,7 +126,7 @@
 
   <tbody>
     <% @baja_programas.each do |baja_programa| %>
-      <% if current_user.area == baja_programa.user.area %>
+      <% if current_user.sepi_programa.nombre.include? baja_programa.user.area %>
       <tr>
         <td><%= baja_programa.user.nombre %></td>
         <td><%= baja_programa.user.boleta %></td>
@@ -178,7 +178,7 @@
 
   <tbody>
     <% @cambiar_asignaturas.each do |cambiar_asignatura| %>
-      <% if current_user.area == cambiar_asignatura.user.area %>
+      <% if current_user.sepi_programa.nombre.include? cambiar_asignatura.user.area %>
       <tr>
         <td><%= cambiar_asignatura.user.nombre %></td>
         <td><%= cambiar_asignatura.user.boleta %></td>
@@ -232,7 +232,7 @@
 
   <tbody>
     <% @cambiar_consejeros.each do |cambiar_consejero| %>
-      <% if current_user.area == cambiar_consejero.user.area %>
+      <% if current_user.sepi_programa.nombre.include? cambiar_consejero.user.area %>
       <tr>
         <td><%= cambiar_consejero.user.nombre %></td>
         <td><%= cambiar_consejero.user.boleta %></td>
@@ -284,7 +284,7 @@
 
   <tbody>
     <% @cambiar_temas.each do |cambiar_tema| %>
-      <% if current_user.area == cambiar_tema.user.area %>
+      <% if current_user.sepi_programa.nombre.include? cambiar_tema.user.area %>
       <tr>
         <td><%= cambiar_tema.user.nombre %></td>
         <td><%= cambiar_tema.user.boleta %></td>
@@ -338,7 +338,7 @@
 
   <tbody>
     <% @comite_registros.each do |comite_registro| %>
-      <% if current_user.area == comite_registro.user.area %>
+      <% if current_user.sepi_programa.nombre.include? comite_registro.user.area %>
       <tr>
         <td><%= comite_registro.user.nombre %></td>
         <td><%= comite_registro.user.boleta %></td>
@@ -393,7 +393,7 @@
 
   <tbody>
     <% @cursar_asignaturas.each do |cursar_asignatura| %>
-      <% if current_user.area == cursar_asignatura.user.area %>
+      <% if current_user.sepi_programa.nombre.include? cursar_asignatura.user.area %>
       <tr>
         <td><%= cursar_asignatura.user.nombre %></td>
         <td><%= cursar_asignatura.user.boleta %></td>
@@ -445,7 +445,7 @@
 
   <tbody>
     <% @examen_graduados.each do |examen_graduado| %>
-      <% if current_user.area == examen_graduado.user.area %>
+      <% if current_user.sepi_programa.nombre.include? examen_graduado.user.area %>
       <tr>
         <td><%= examen_graduado.user.nombre %></td>
         <td><%= examen_graduado.user.boleta %></td>
@@ -495,7 +495,7 @@
 
   <tbody>
     <% @receso_semestres.each do |receso_semestre| %>
-      <% if current_user.area == receso_semestre.user.area %>
+      <% if current_user.sepi_programa.nombre.include? receso_semestre.user.area %>
       <tr>
         <td><%= receso_semestre.user.nombre %></td>
         <td><%= receso_semestre.user.boleta %></td>
@@ -548,7 +548,7 @@
 
   <tbody>
     <% @tesis_registros.each do |tesis_registro| %>
-      <% if current_user.area == tesis_registro.user.area %>
+      <% if current_user.sepi_programa.nombre.include? tesis_registro.user.area %>
       <tr>
         <td><%= tesis_registro.user.nombre %></td>
         <td><%= tesis_registro.user.boleta %></td>

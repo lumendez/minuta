@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<% if current_user.area == 'Eléctrica' %>
+<% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
   <div class="form-group">
     <%= f.label :tutor_uno %><br>
     <%= collection_select(:comite_registro, :tutor_uno, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -31,7 +31,7 @@
     <%= f.label :tutor_cuatro %><br>
     <%= collection_select(:comite_registro, :tutor_cuatro, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
-<% elsif current_user.area == 'Electrónica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
   <div class="form-group">
     <%= f.label :tutor_uno %><br>
     <%= collection_select(:comite_registro, :tutor_uno, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -51,7 +51,7 @@
     <%= f.label :tutor_cuatro %><br>
     <%= collection_select(:comite_registro, :tutor_cuatro, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
-<% elsif current_user.area == 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
   <div class="form-group">
     <%= f.label :tutor_uno %><br>
     <%= collection_select(:comite_registro, :tutor_uno, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -71,7 +71,7 @@
     <%= f.label :tutor_cuatro %><br>
     <%= collection_select(:comite_registro, :tutor_cuatro, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
-<% elsif current_user.area == 'Sistemas' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
   <div class="form-group">
     <%= f.label :tutor_uno %><br>
     <%= collection_select(:comite_registro, :tutor_uno, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>

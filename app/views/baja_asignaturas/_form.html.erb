@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<% if current_user.area == 'Eléctrica' %>
+<% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
@@ -25,7 +25,7 @@
     <%= collection_select(:baja_asignatura, :clave, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.area == 'Electrónica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
@@ -38,7 +38,7 @@
     <%= collection_select(:baja_asignatura, :clave, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.area == 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
@@ -52,7 +52,7 @@
     <%= collection_select(:baja_asignatura, :clave, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.area == 'Sistemas' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>

@@ -16,7 +16,7 @@
     <%= f.text_field :tema %>
   </div>
 
-<% if current_user.area == 'Eléctrica' %>
+<% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
   <div class="form-group">
     <%= f.label :director %><br>
     <%= collection_select(:tesis_registro, :director, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -56,7 +56,7 @@
     <%= f.label :suplente %><br>
     <%= collection_select(:tesis_registro, :suplente, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
-<% elsif current_user.area == 'Electrónica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
   <div class="form-group">
     <%= f.label :director %><br>
     <%= collection_select(:tesis_registro, :director, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -96,7 +96,7 @@
     <%= f.label :suplente %><br>
     <%= collection_select(:tesis_registro, :suplente, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
-<% elsif current_user.area == 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
   <div class="form-group">
     <%= f.label :director %><br>
     <%= collection_select(:tesis_registro, :director, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
@@ -136,7 +136,7 @@
     <%= f.label :suplente %><br>
     <%= collection_select(:tesis_registro, :suplente, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
   </div>
-<% elsif current_user.area == 'Sistemas' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
   <div class="form-group">
     <%= f.label :director %><br>
     <%= collection_select(:tesis_registro, :director, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>

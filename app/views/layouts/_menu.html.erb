@@ -71,13 +71,13 @@
 <% elsif user_signed_in? && current_user.tipos_usuario.tipo == 'Consejero' %>
   <ul class="nav navbar-nav navbar-right">
     <li class="Selected"><%= link_to "Inicio", consejero_casos_path %></li>
-    <% if current_user.area == 'Eléctrica' %>
+    <% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
       <li><%= link_to "Casos del programa", electrica_casos_path %></li>
-    <% elsif current_user.area == 'Electrónica' %>
+    <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
       <li><%= link_to "Casos del programa", electronica_casos_path %></li>
-    <% elsif current_user.area == 'Mecánica' %>
+    <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
       <li><%= link_to "Casos del programa", mecanica_casos_path %></li>
-    <% elsif current_user.area == 'Sistemas' %>
+    <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
       <li><%= link_to "Casos del programa", sistemas_casos_path %></li>
     <% else %>
       <li><%= link_to "Casos del programa", telecom_casos_path %></li>
