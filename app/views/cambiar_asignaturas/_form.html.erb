@@ -11,131 +11,178 @@
     </div>
   <% end %>
 <% if current_user.area == 'Eléctrica' %>
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+      <%= collection_select(:cambiar_asignatura, :anterior, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :actual, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 <% elsif current_user.area == 'Electrónica' %>
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+      <%= collection_select(:cambiar_asignatura, :anterior, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :actual, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 <% elsif current_user.area == 'Mecánica' %>
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+      <%= collection_select(:cambiar_asignatura, :anterior, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :actual, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 <% elsif current_user.area == 'Sistemas' %>
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+      <%= collection_select(:cambiar_asignatura, :anterior, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :actual, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 <% else %>
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+      <%= collection_select(:cambiar_asignatura, :anterior, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :actual, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 <% end %>
-
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <% if can? :validar_consejero, cambiar_asignatura %>
       <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-2">
     <% if can? :validar_coordinador, cambiar_asignatura %>
       <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <% if can? :cambiar_estado, cambiar_asignatura %>
       <%= f.label :estado %><br>
-      <%= collection_select(:cambiar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: 'Seleccione'}) %>
+      <%= collection_select(:cambiar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: 'Seleccione'}, class:'form-control') %>
     <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
+<div class="row">
+  <div class="actions col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
   </div>
+</div>
 <% end %>
 <script>
 function matchUp(selected, toselect)

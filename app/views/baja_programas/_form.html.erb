@@ -10,34 +10,42 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
-    <%= collection_select(:baja_programa, :nombre, SepiPrograma.all, :nombre, :nombre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:baja_programa, :nombre, SepiPrograma.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
-
-  <div class="form-group">
+</div>
+<div class="row">
+  <div class="form-group col-md-4">
     <% if can? :validar_consejero, baja_programa %>
       <%= f.label :valida_consejero %><br>
       <%= f.check_box :valida_consejero %>
     <% end %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <% if can? :validar_coordinador, baja_programa %>
       <%= f.label :valida_coordinador %><br>
       <%= f.check_box :valida_coordinador %>
     <% end %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <% if can? :cambiar_estado, baja_programa %>
       <%= f.label :estado %><br>
       <%= collection_select(:baja_programa, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
     <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
+<div class="row">
+  <div class="actions col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary"%>
   </div>
+</div>
 <% end %>
