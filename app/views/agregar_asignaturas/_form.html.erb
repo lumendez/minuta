@@ -36,7 +36,7 @@
     <%= collection_select(:agregar_asignatura, :clave, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif ccurrent_user.sepi_programa.nombre.include? 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
