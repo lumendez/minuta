@@ -4,23 +4,49 @@
 </p>
 
 <p>
+  <strong>Paterno:</strong>
+  <%= @user.paterno %>
+</p>
+
+<p>
+  <strong>Materno:</strong>
+  <%= @user.materno %>
+</p>
+
+<p>
   <strong>Boleta:</strong>
-  <%= @user.boleta %>
+  <% if @user.boleta.empty? %>
+    Sin boleta
+  <% else %>
+    <%= @user.boleta %>
+  <% end %>
 </p>
 
 <p>
   <strong>Programa:</strong>
-  <%= @user.sepi_programa.nombre %>
+  <% if @user.sepi_programa.nil? %>
+    No aplica
+  <% else %>
+    <%= @user.sepi_programa.nombre %>
+  <% end %>
 </p>
 
 <p>
   <strong>Consejero:</strong>
-  <%= @user.consejero.nombre %>
+  <% if @user.consejero.nil? %>
+    No aplica
+  <% else %>
+    <%= @user.consejero.nombre %>
+  <% end %>
 </p>
 
 <p>
   <strong>Coordinador:</strong>
-  <%= @user.coordinador_nombre.nombre %>
+  <% if @user.coordinador_nombre.nil? %>
+    No aplica
+  <% else %>
+    <%= @user.coordinador_nombre.nombre %>
+  <% end %>
 </p>
 
 <p>

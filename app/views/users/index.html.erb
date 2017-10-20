@@ -9,6 +9,7 @@
       <th>Boleta</th>
       <th>Tipo de usuario</th>
       <th>Programa</th>
+      <th>Consejero</th>
       <th colspan="3">Opciones</th>
     </tr>
   </thead>
@@ -19,9 +20,22 @@
         <td><%= user.nombre %></td>
         <td><%= user.paterno %></td>
         <td><%= user.materno %></td>
-        <td><%= user.boleta %></td>
+        <% if user.boleta.empty? %>
+          <td>Sin boleta</td>
+        <% else %>
+          <td><%= user.boleta %></td>
+        <% end %>
         <td><%= user.tipos_usuario.tipo %></td>
-        <td><%#= user.sepi_programa.nombre %></td>
+        <% if user.sepi_programa.nil? %>
+          <td>Sin programa</td>
+        <% else %>
+          <td><%= user.sepi_programa.nombre %></td>
+        <% end %>
+        <% if user.consejero.nil? %>
+          <td>Sin consejero</td>
+        <% else %>
+          <td><%= user.consejero.nombre %></td>
+        <% end %>
         <td><%= link_to 'Detalles', user %></td>
         <td><%= link_to 'Editar', edit_user_path(user) %></td>
         <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
