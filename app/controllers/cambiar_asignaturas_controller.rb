@@ -16,7 +16,11 @@ class CambiarAsignaturasController < ApplicationController
 
   # GET /cambiar_asignaturas/new
   def new
-    @cambiar_asignatura = current_user.cambiar_asignaturas.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @cambiar_asignatura = current_user.cambiar_asignaturas.build
+    end
   end
 
   # GET /cambiar_asignaturas/1/edit

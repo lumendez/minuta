@@ -16,7 +16,11 @@ class CursarAsignaturasController < ApplicationController
 
   # GET /cursar_asignaturas/new
   def new
-    @cursar_asignatura = current_user.cursar_asignaturas.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @cursar_asignatura = current_user.cursar_asignaturas.build
+    end
   end
 
   # GET /cursar_asignaturas/1/edit

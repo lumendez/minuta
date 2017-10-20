@@ -16,7 +16,11 @@ class ComiteRegistrosController < ApplicationController
 
   # GET /comite_registros/new
   def new
-    @comite_registro = current_user.comite_registros.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @comite_registro = current_user.comite_registros.build
+    end
   end
 
   # GET /comite_registros/1/edit

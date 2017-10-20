@@ -16,7 +16,11 @@ class ExamenGraduadosController < ApplicationController
 
   # GET /examen_graduados/new
   def new
-    @examen_graduado = current_user.examen_graduados.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @examen_graduado = current_user.examen_graduados.build
+    end
   end
 
   # GET /examen_graduados/1/edit

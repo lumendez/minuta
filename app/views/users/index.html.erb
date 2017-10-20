@@ -4,6 +4,8 @@
   <thead>
     <tr>
       <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
       <th>Boleta</th>
       <th>Tipo de usuario</th>
       <th>Programa</th>
@@ -15,9 +17,11 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.nombre %></td>
+        <td><%= user.paterno %></td>
+        <td><%= user.materno %></td>
         <td><%= user.boleta %></td>
         <td><%= user.tipos_usuario.tipo %></td>
-        <td><%= user.sepi_programa.nombre %></td>
+        <td><%#= user.sepi_programa.nombre %></td>
         <td><%= link_to 'Detalles', user %></td>
         <td><%= link_to 'Editar', edit_user_path(user) %></td>
         <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

@@ -16,7 +16,11 @@ class AgregarAsignaturasController < ApplicationController
 
   # GET /agregar_asignaturas/new
   def new
-    @agregar_asignatura = current_user.agregar_asignaturas.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @agregar_asignatura = current_user.agregar_asignaturas.build
+    end
   end
 
   # GET /agregar_asignaturas/1/edit

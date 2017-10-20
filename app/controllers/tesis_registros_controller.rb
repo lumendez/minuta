@@ -16,7 +16,11 @@ class TesisRegistrosController < ApplicationController
 
   # GET /tesis_registros/new
   def new
-    @tesis_registro = current_user.tesis_registros.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @tesis_registro = current_user.tesis_registros.build
+    end
   end
 
   # GET /tesis_registros/1/edit

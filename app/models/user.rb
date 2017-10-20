@@ -19,7 +19,6 @@ class User < ApplicationRecord
   has_many :examen_graduados, dependent: :destroy
   has_many :receso_semestres, dependent: :destroy
   has_many :tesis_registros, dependent: :destroy
-  #has_many :tipos_usuarios, dependent: :destroy
 
   before_save :assign_role
 

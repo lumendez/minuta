@@ -16,7 +16,11 @@ class BajaProgramasController < ApplicationController
 
   # GET /baja_programas/new
   def new
-    @baja_programa = current_user.baja_programas.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @baja_programa = current_user.baja_programas.build
+    end
   end
 
   # GET /baja_programas/1/edit

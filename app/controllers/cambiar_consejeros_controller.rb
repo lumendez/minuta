@@ -16,7 +16,11 @@ class CambiarConsejerosController < ApplicationController
 
   # GET /cambiar_consejeros/new
   def new
-    @cambiar_consejero = current_user.cambiar_consejeros.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @cambiar_consejero = current_user.cambiar_consejeros.build
+    end
   end
 
   # GET /cambiar_consejeros/1/edit

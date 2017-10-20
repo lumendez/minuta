@@ -62,7 +62,7 @@
     <%= collection_select(:agregar_asignatura, :clave, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-  <% else %>
+  <% elsif current_user.sepi_programa.nombre.include? 'Telecomunicaciones' %>
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre %><br>

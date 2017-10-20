@@ -16,7 +16,11 @@ class RecesoSemestresController < ApplicationController
 
   # GET /receso_semestres/new
   def new
-    @receso_semestre = current_user.receso_semestres.build
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      @receso_semestre = current_user.receso_semestres.build
+    end
   end
 
   # GET /receso_semestres/1/edit
