@@ -61,3 +61,9 @@ gem 'yaml_db'
 gem "mysql2", "~> 0.3.11"
 
 gem 'awesome_rails_console'
+
+gem 'kaminari'
+
+gem 'bootstrap-kaminari-views'
+
+gem 'filterrific'
