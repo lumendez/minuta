@@ -11,43 +11,57 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :nombre, 'Nombre de la asignatura' %><br>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, class:'form-control' %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :clave, 'Clave de la asignatura' %><br>
-    <%= f.text_field :clave %>
+    <%= f.text_field :clave, class:'form-control' %>
   </div>
+</div>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :unidad, 'Unidad académica' %><br>
-    <%= f.text_field :unidad %>
+    <%= f.text_field :unidad, class:'form-control' %>
   </div>
+</div>
 
+<% if can? :validar_consejero, cursar_asignatura %>
+<div class="row">
   <div class="form-group">
-    <% if can? :validar_consejero, cursar_asignatura %>
-      <%= f.label :valida_consejero %><br>
-      <%= f.check_box :valida_consejero %>
-    <% end %>
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero %>
   </div>
+</div>
+<% end %>
 
+<% if can? :validar_coordinador, cursar_asignatura %>
+<div class="row">
   <div class="form-group">
-    <% if can? :validar_coordinador, cursar_asignatura %>
-      <%= f.label :valida_coordinador %><br>
-      <%= f.check_box :valida_coordinador %>
-    <% end %>
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador %>
   </div>
+</div>
+<% end %>
 
+<% if can? :cambiar_estado, cursar_asignatura %>
+<div class="row">
   <div class="form-group">
-    <% if can? :cambiar_estado, cursar_asignatura %>
-      <%= f.label :estado %><br>
-      <%= collection_select(:cursar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
-    <% end %>
+    <%= f.label :estado %><br>
+    <%= collection_select(:cursar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
   </div>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
+<div class="row">
+  <div class="form-group col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
   </div>
+</div>
 <% end %>

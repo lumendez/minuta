@@ -38,7 +38,7 @@
     <%= collection_select(:baja_asignatura, :clave, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
@@ -81,31 +81,32 @@
   </div>
 </div>
 <% end %>
+
+<% if can? :validar_consejero, baja_asignatura %>
 <div class="row">
   <div class="form-group">
-    <% if can? :validar_consejero, baja_asignatura %>
-      <%= f.label :valida_consejero %><br>
-      <%= f.check_box :valida_consejero %>
-    <% end %>
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero %>
   </div>
 </div>
+<% end %>
 
+<% if can? :validar_coordinador, baja_asignatura %>
 <div class="row">
   <div class="form-group">
-    <% if can? :validar_coordinador, baja_asignatura %>
-      <%= f.label :valida_coordinador %><br>
-      <%= f.check_box :valida_coordinador %>
-    <% end %>
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador %>
   </div>
+<% end %>
 
+<% if can? :cambiar_estado, baja_asignatura %>
 <div class="row">
   <div class="form-group">
-    <% if can? :cambiar_estado, baja_asignatura %>
-      <%= f.label :estado %><br>
-      <%= collection_select(:baja_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
-    <% end %>
+    <%= f.label :estado %><br>
+    <%= collection_select(:baja_asignatura, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
   </div>
 </div>
+<% end %>
 
 <div class="row">
   <div class="actions col-md-2">

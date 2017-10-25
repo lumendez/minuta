@@ -12,40 +12,49 @@
   <% end %>
 
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-4">
     <%= f.label :anterior, 'Tema actual' %><br>
-    <%= f.text_field :anterior %>
+    <%= f.text_field :anterior, class: 'form-control' %>
   </div>
 </div>
 
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-4">
     <%= f.label :actual, 'Nuevo tema' %><br>
-    <%= f.text_field :actual %>
+    <%= f.text_field :actual, class:'form-control' %>
   </div>
+</div>
 
+<% if can? :validar_consejero, cambiar_tema %>
+<div class="row">
   <div class="form-group">
-    <% if can? :validar_consejero, cambiar_tema %>
-      <%= f.label :valida_consejero %><br>
-      <%= f.check_box :valida_consejero %>
-    <% end %>
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero, class: 'form-control' %>
   </div>
+</div>
+<% end %>
 
+<% if can? :validar_coordinador, cambiar_tema %>
+<div class="row">
   <div class="form-group">
-    <% if can? :validar_coordinador, cambiar_tema %>
-      <%= f.label :valida_coordinador %><br>
-      <%= f.check_box :valida_coordinador %>
-    <% end %>
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador, class:'form-control' %>
   </div>
+</div>
+<% end %>
 
+<% if can? :cambiar_estado, cambiar_tema %>
+<div class="row">
   <div class="form-group">
-    <% if can? :cambiar_estado, cambiar_tema %>
-      <%= f.label :estado %><br>
-      <%= collection_select(:cambiar_tema, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
-    <% end %>
+    <%= f.label :estado %><br>
+    <%= collection_select(:cambiar_tema, :estado, Estado.all, :estado, :estado, {prompt: true}, class:'form-control') %>
   </div>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
+<div class="row">
+  <div class="actions col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
   </div>
+</div>
 <% end %>

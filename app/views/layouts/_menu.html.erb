@@ -75,7 +75,7 @@
       <li><%= link_to "Casos del programa", electrica_casos_path %></li>
     <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
       <li><%= link_to "Casos del programa", electronica_casos_path %></li>
-    <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
+    <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
       <li><%= link_to "Casos del programa", mecanica_casos_path %></li>
     <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
       <li><%= link_to "Casos del programa", sistemas_casos_path %></li>

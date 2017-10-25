@@ -11,33 +11,43 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+<div class="row">
+  <div class="form-group col-md-3">
     <%= f.label :semestre %><br>
-    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: 'Seleccione'}) %>
+    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
+</div>
 
+<% if can? :validar_consejero, receso_semestre %>
+<div class="row">
   <div class="form-group">
-    <% if can? :validar_consejero, receso_semestre %>
-      <%= f.label :valida_consejero %><br>
-      <%= f.check_box :valida_consejero %>
-    <% end %>
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero %>
   </div>
+</div>
+<% end %>
 
+<% if can? :validar_coordinador, receso_semestre %>
+<div class="row">
   <div class="form-group">
-    <% if can? :validar_coordinador, receso_semestre %>
-      <%= f.label :valida_coordinador %><br>
-      <%= f.check_box :valida_coordinador %>
-    <% end %>
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador %>
   </div>
+</div>
+<% end %>
 
+<% if can? :cambiar_estado, receso_semestre %>
+<div class="row">
   <div class="form-group">
-    <% if can? :cambiar_estado, receso_semestre %>
-      <%= f.label :estado %><br>
-      <%= collection_select(:receso_semestre, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
-    <% end %>
+    <%= f.label :estado %><br>
+    <%= collection_select(:receso_semestre, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
   </div>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit "Crear petición", class: "btn btn-md btn-primary" %>
+<div class="row">
+  <div class="form-group col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
   </div>
+</div>
 <% end %>

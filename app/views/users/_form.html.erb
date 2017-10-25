@@ -12,56 +12,43 @@
   <% end %>
 
 <div class="row">
-  <div class="field col-md-3">
+  <div class="form-group col-md-3">
     <%= f.label :nombre %><br>
     <%= f.text_field :nombre, class:'form-control' %>
   </div>
 </div>
 
 <div class="row">
-  <div class="field col-md-3">
+  <div class="form-group col-md-3">
     <%= f.label :boleta %><br>
     <%= f.text_field :boleta, class:'form-control' %>
   </div>
 </div>
 
 <div class="row">
-  <div class="field col-md-3">
-    <%= f.label :sepi_programa_id %><br>
+  <div class="form-group col-md-3">
+    <%= f.label :sepi_programa_id, "Programa" %><br>
     <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: true}, class:'form-control') %>
   </div>
 </div>
 
 <div class="row">
-  <div class="field col-md-3">
+  <div class="form-group col-md-3">
     <%= f.label :consejero_id %><br>
     <%= collection_select(:user, :consejero_id, Consejero.all, :id, :nombre, {prompt: true}, class:'form-control') %>
   </div>
 </div>
 
 <div class="row">
-  <div class="field col-md-3">
-    <%= f.label :coordinador_nombre_id %><br>
-    <%= collection_select(:user, :coordinador_nombre_id, CoordinadorNombre.all, :id, :nombre, {prompt: true}, class:'form-control') %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="field col-md-3">
-    <%= f.label :tipos_usuario_id %><br>
+  <div class="form-group col-md-3">
+    <%= f.label :tipos_usuario_id, "Tipo de usuario" %><br>
     <%= collection_select(:user, :tipos_usuario_id, TiposUsuario.all, :id, :tipo, {prompt: true}, class:'form-control') %>
   </div>
 </div>
 
-<div class="row">
-  <div class="field col-md-3">
-    <%= f.label :area %><br>
-    <%= collection_select(:user, :area, Area.all, :nombre, :nombre, {prompt: true}, class:'form-control') %>
-  </div>
-</div>
 
 <div class="row">
-  <div class="actions col-md-3">
+  <div class="form-group col-md-3">
     <%= f.submit 'Enviar', class:'btn btn-primary' %>
   </div>
 </div>

@@ -38,7 +38,7 @@
     <%= collection_select(:cambiar_consejero, :actual, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
-<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
@@ -82,32 +82,32 @@
 </div>
 <% end %>
 
+<% if can? :validar_consejero, cambiar_consejero %>
 <div class="row">
   <div class="form-group col-md-4">
-    <% if can? :validar_consejero, cambiar_consejero %>
-      <%= f.label :valida_consejero %><br>
-      <%= f.check_box :valida_consejero %>
-    <% end %>
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero %>
   </div>
 </div>
+<% end %>
 
+<% if can? :validar_coordinador, cambiar_consejero %>
 <div class="row">
   <div class="form-group col-md-4">
-    <% if can? :validar_coordinador, cambiar_consejero %>
-      <%= f.label :valida_coordinador %><br>
-      <%= f.check_box :valida_coordinador %>
-    <% end %>
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador %>
   </div>
 </div>
+<% end %>
 
+<% if can? :cambiar_estado, cambiar_consejero %>
 <div class="row">
   <div class="form-group col-md-4">
-    <% if can? :cambiar_estado, cambiar_consejero %>
-      <%= f.label :estado %><br>
-      <%= collection_select(:cambiar_consejero, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
-    <% end %>
+    <%= f.label :estado %><br>
+    <%= collection_select(:cambiar_consejero, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
   </div>
 </div>
+<% end %>
 
 <div class="row">
   <div class="actions col-md-2">

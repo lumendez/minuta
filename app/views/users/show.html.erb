@@ -4,12 +4,12 @@
 </p>
 
 <p>
-  <strong>Paterno:</strong>
+  <strong>Apellido paterno:</strong>
   <%= @user.paterno %>
 </p>
 
 <p>
-  <strong>Materno:</strong>
+  <strong>Apellido materno:</strong>
   <%= @user.materno %>
 </p>
 
@@ -41,22 +41,8 @@
 </p>
 
 <p>
-  <strong>Coordinador:</strong>
-  <% if @user.coordinador_nombre.nil? %>
-    No aplica
-  <% else %>
-    <%= @user.coordinador_nombre.nombre %>
-  <% end %>
-</p>
-
-<p>
   <strong>Tipo de usuario:</strong>
   <%= @user.tipos_usuario.tipo %>
-</p>
-
-<p>
-  <strong>&Aacute;rea a la que pertenece:</strong>
-  <%= @user.area %>
 </p>
 
 <p>

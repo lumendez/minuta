@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all.page(params[:pagina])
+    @total_usuarios = User.all.count
   end
 
   # GET /users/1
