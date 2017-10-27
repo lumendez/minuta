@@ -1,0 +1,87 @@
+<%= form_for(revocacion_registro) do |f| %>
+  <% if revocacion_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(revocacion_registro.errors.count, "error") %> prohibited this revocacion_registro from being saved:</h2>
+
+      <ul>
+      <% revocacion_registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :titulo, "Título de la tesis" %>
+    <%= f.text_field :titulo, class:'form-control', required: true %>
+  </div>
+</div>
+<% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :director, 'Nombre del director' %>
+    <%= collection_select(:comite_registro, :tutor_uno, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+<% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :director, 'Nombre del director' %>
+    <%= collection_select(:comite_registro, :tutor_uno, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :director, 'Nombre del director' %>
+    <%= collection_select(:comite_registro, :tutor_uno, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+<% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :director, 'Nombre del director' %>
+    <%= collection_select(:comite_registro, :tutor_uno, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+<% elsif current_user.sepi_programa.nombre.include? 'Telecomunicaciones' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :director, 'Nombre del director' %>
+    <%= collection_select(:comite_registro, :tutor_uno, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+<% end %>
+<% if can? :validar_consejero, revocacion_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_consejero %>
+    <%= f.check_box :valida_consejero %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :validar_coordinador, revocacion_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_coordinador %>
+    <%= f.check_box :valida_coordinador %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :cambiar_estado, revocacion_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :estado %>
+    <%= f.text_field :estado %>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="form-group col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>

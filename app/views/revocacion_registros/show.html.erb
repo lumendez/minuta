@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @revocacion_registro.titulo %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= @revocacion_registro.director %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @revocacion_registro.user %>
+</p>
+
+<p>
+  <strong>Valida consejero:</strong>
+  <%= @revocacion_registro.valida_consejero %>
+</p>
+
+<p>
+  <strong>Valida coordinador:</strong>
+  <%= @revocacion_registro.valida_coordinador %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @revocacion_registro.estado %>
+</p>
+
+<%= link_to 'Edit', edit_revocacion_registro_path(@revocacion_registro) %> |
+<%= link_to 'Back', revocacion_registros_path %>

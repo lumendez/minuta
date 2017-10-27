@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Revocacion Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Director</th>
+      <th>User</th>
+      <th>Valida consejero</th>
+      <th>Valida coordinador</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @revocacion_registros.each do |revocacion_registro| %>
+      <tr>
+        <td><%= revocacion_registro.titulo %></td>
+        <td><%= revocacion_registro.director %></td>
+        <td><%= revocacion_registro.user %></td>
+        <td><%= revocacion_registro.valida_consejero %></td>
+        <td><%= revocacion_registro.valida_coordinador %></td>
+        <td><%= revocacion_registro.estado %></td>
+        <td><%= link_to 'Show', revocacion_registro %></td>
+        <td><%= link_to 'Edit', edit_revocacion_registro_path(revocacion_registro) %></td>
+        <td><%= link_to 'Destroy', revocacion_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Revocacion Registro', new_revocacion_registro_path %>

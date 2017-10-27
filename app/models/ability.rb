@@ -344,6 +344,12 @@ class Ability
         can :update, RecesoSemestre do |receso_semestre|
           receso_semestre.try(:user) == user
         end
+        #RevocacionRegistro
+        can :read, RevocacionRegistro
+        can :create, RevocacionRegistro
+        can :update, RevocacionRegistro do |revocacion_registro|
+          revocacion_registro.try(:user) == user
+        end
         #TesisRegistro
         can :read, TesisRegistro
         can :create, TesisRegistro

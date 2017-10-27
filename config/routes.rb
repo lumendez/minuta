@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :revocacion_registros
   get 'filtrar_consejeros_por_programa' => 'sepi_programas#filtrar_consejeros_por_programa'
   resources :mecanica_asignaturas
   resources :electronica_asignaturas

@@ -1,0 +1,1 @@
+json.partial! "revocacion_registros/revocacion_registro", revocacion_registro: @revocacion_registro
