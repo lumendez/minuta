@@ -14,70 +14,70 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
-    <%= collection_select(:cambiar_consejero, :anterior, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :anterior, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nuevo consejero" %><br>
-    <%= collection_select(:cambiar_consejero, :actual, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :actual, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
-    <%= collection_select(:cambiar_consejero, :anterior, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :anterior, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nuevo consejero" %><br>
-    <%= collection_select(:cambiar_consejero, :actual, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :actual, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
-    <%= collection_select(:cambiar_consejero, :anterior, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :anterior, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nuevo consejero" %><br>
-    <%= collection_select(:cambiar_consejero, :actual, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :actual, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
-    <%= collection_select(:cambiar_consejero, :anterior, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :anterior, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nuevo consejero" %><br>
-    <%= collection_select(:cambiar_consejero, :actual, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :actual, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% else %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
-    <%= collection_select(:cambiar_consejero, :anterior, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :anterior, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nuevo consejero" %><br>
-    <%= collection_select(:cambiar_consejero, :actual, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_consejero, :actual, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% end %>

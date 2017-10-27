@@ -14,140 +14,140 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:cambiar_asignatura, :anterior, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :actual, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:cambiar_asignatura, :anterior, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :actual, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:cambiar_asignatura, :anterior, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :actual, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:cambiar_asignatura, :anterior, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :actual, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% else %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Asignatura actual" %><br>
-      <%= collection_select(:cambiar_asignatura, :anterior, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:cambiar_asignatura, :anterior, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_anterior, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_anterior, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :actual, "Nueva asignatura" %><br>
-    <%= collection_select(:cambiar_asignatura, :actual, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :actual, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-2">
     <%= f.label :clave %><br>
-    <%= collection_select(:cambiar_asignatura, :clave_actual, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :clave_actual, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% end %>
@@ -174,7 +174,7 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :estado %><br>
-    <%= collection_select(:cambiar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:cambiar_asignatura, :estado, Estado.all, :estado, :estado, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% end %>

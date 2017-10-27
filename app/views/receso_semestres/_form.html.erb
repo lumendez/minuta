@@ -14,7 +14,7 @@
 <div class="row">
   <div class="form-group col-md-3">
     <%= f.label :semestre %><br>
-    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:receso_semestre, :semestre, ClaveSemestre.all, :semestre, :semestre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 

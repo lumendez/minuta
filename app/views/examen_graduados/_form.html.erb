@@ -14,7 +14,7 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :tipo, "Tipo de examen" %><br>
-      <%= collection_select(:examen_graduado, :tipo, ExamenTipo.all, :tipo, :tipo, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:examen_graduado, :tipo, ExamenTipo.all, :tipo, :tipo, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 

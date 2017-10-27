@@ -14,65 +14,65 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
-    <%= collection_select(:agregar_asignatura, :nombre, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :nombre, ElectricaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :clave %><br>
-    <%= collection_select(:agregar_asignatura, :clave, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :clave, ElectricaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
-    <%= collection_select(:agregar_asignatura, :nombre, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :nombre, ElectronicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :clave %><br>
-    <%= collection_select(:agregar_asignatura, :clave, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :clave, ElectronicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
-    <%= collection_select(:agregar_asignatura, :nombre, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :nombre, MecanicaAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :clave %><br>
-    <%= collection_select(:agregar_asignatura, :clave, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :clave, MecanicaAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :nombre %><br>
-    <%= collection_select(:agregar_asignatura, :nombre, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :nombre, SistemasAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :clave %><br>
-    <%= collection_select(:agregar_asignatura, :clave, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+    <%= collection_select(:agregar_asignatura, :clave, SistemasAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
   <% elsif current_user.sepi_programa.nombre.include? 'Telecomunicaciones' %>
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre %><br>
-      <%= collection_select(:agregar_asignatura, :nombre, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:agregar_asignatura, :nombre, TelecomAsignatura.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :clave %><br>
-      <%= collection_select(:agregar_asignatura, :clave, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control') %>
+      <%= collection_select(:agregar_asignatura, :clave, TelecomAsignatura.all, :clave, :clave, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
 <% end %>
