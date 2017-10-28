@@ -33,7 +33,11 @@ class CambiarTemasController < ApplicationController
     @cambiar_tema = current_user.cambiar_temas.build(cambiar_tema_params)
     if @cambiar_tema.save
       flash[:success] = "Su petición para cambiar tema de tesis ha sido creada!"
-      redirect_to cambiar_temas_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición para cambiar tema de tesis no pudo crearse! Revise el formulario."
       render :new

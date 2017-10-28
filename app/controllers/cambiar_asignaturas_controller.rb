@@ -33,7 +33,11 @@ class CambiarAsignaturasController < ApplicationController
     @cambiar_asignatura = current_user.cambiar_asignaturas.build(cambiar_asignatura_params)
     if @cambiar_asignatura.save
       flash[:success] = "Su petición para cambiar asignaturas ha sido creada!"
-      redirect_to cambiar_asignaturas_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición para cambiar asignaturas no pudo ser creada! Revise el formulario."
       render :new

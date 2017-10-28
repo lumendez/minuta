@@ -34,7 +34,7 @@ class RevocacionRegistrosController < ApplicationController
 
     if @revocacion_registro.save
       flash[:success] = "Su petición para solicitar una revocación de baja fue creada!"
-      if current_user.tipos_usuarios.tipo == "Alumno"
+      if current_user.tipos_usuario.tipo == "Alumno"
         redirect_to alumnos_path
       else
         redirect_to root_path

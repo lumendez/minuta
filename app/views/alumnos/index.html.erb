@@ -443,6 +443,50 @@
 </table>
 <% end %>
 
+<% if @revocacion_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de revocación de baja</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Título del tema de tesis</th>
+      <th>Director de tesis</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @revocacion_registros.each do |revocacion_registro| %>
+      <tr>
+        <td><%= revocacion_registro.titulo %></td>
+        <td><%= revocacion_registro.director %></td>
+        <td><%= revocacion_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if revocacion_registro.valida_consejero == true %>
+        <td class="success"><%= revocacion_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= revocacion_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if revocacion_registro.valida_coordinador == true %>
+        <td class="success"><%= revocacion_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= revocacion_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if revocacion_registro.estado == "Pendiente" %>
+        <td class="warning"><%= revocacion_registro.estado %></td>
+        <% elsif revocacion_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= revocacion_registro.estado %></td>
+        <% else revocacion_registro.estado == "Finalizado" %>
+        <td class="info"><%= revocacion_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 <% if @tesis_registros.empty? %>
 <% else %>
 <h3 class="sub">Petición de registro de tema de tesis, director y comisi&oacute;n revisora</h3>

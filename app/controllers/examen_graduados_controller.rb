@@ -34,7 +34,11 @@ class ExamenGraduadosController < ApplicationController
 
     if @examen_graduado.save
       flash[:success] = "Su petición para solicitar su examen de grado fue creada!"
-      redirect_to examen_graduados_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición para solicitar su examen de grado no pudo ser creada!. Revise el formulario."
       render :new

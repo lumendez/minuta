@@ -285,7 +285,7 @@ class Ability
         #Alumno
         can :read, Alumno
         #AgregarAsignatura
-        can :read, AgregarAsignatura
+        #can :read, AgregarAsignatura
         can :create, AgregarAsignatura
         can :update, AgregarAsignatura do |agregar_asignatura|
           agregar_asignatura.try(:user) == user
@@ -297,61 +297,61 @@ class Ability
           baja_asignatura.try(:user) == user
         end
         #BajaPrograma
-        can :read, BajaPrograma
+        #can :read, BajaPrograma
         can :create, BajaPrograma
         can :update, BajaPrograma do |baja_programa|
           baja_programa.try(:user) == user
         end
         #CambiarAsignatura
-        can :read, CambiarAsignatura
+        #can :read, CambiarAsignatura
         can :create, CambiarAsignatura
         can :update, CambiarAsignatura do |cambiar_asignatura|
           cambiar_asignatura.try(:user) == user
         end
         #CambiarConsejero
-        can :read, CambiarConsejero
+        #can :read, CambiarConsejero
         can :create, CambiarConsejero
         can :update, CambiarConsejero do |cambiar_consejero|
           cambiar_consejero.try(:user) == user
         end
         #CambiarTema
-        can :read, CambiarTema
+        #can :read, CambiarTema
         can :create, CambiarTema
         can :update, CambiarTema do |cambiar_tema|
           cambiar_tema.try(:user) == user
         end
         #ComiteRegistro
-        can :read, ComiteRegistro
+        #can :read, ComiteRegistro
         can :create, ComiteRegistro
         can :update, ComiteRegistro do |comite_registro|
           comite_registro.try(:user) == user
         end
         #CursarAsignatura
-        can :read, CursarAsignatura
+        #can :read, CursarAsignatura
         can :create, CursarAsignatura
         can :update, CursarAsignatura do |cursar_asignatura|
           cursar_asignatura.try(:user) == user
         end
         #ExamenGraduado
-        can :read, ExamenGraduado
+        #can :read, ExamenGraduado
         can :create, ExamenGraduado
         can :update, ExamenGraduado do |examen_graduado|
           examen_graduado.try(:user) == user
         end
         #RecesoSemestre
-        can :read, RecesoSemestre
+        #can :read, RecesoSemestre
         can :create, RecesoSemestre
         can :update, RecesoSemestre do |receso_semestre|
           receso_semestre.try(:user) == user
         end
         #RevocacionRegistro
-        can :read, RevocacionRegistro
+        #can :read, RevocacionRegistro
         can :create, RevocacionRegistro
         can :update, RevocacionRegistro do |revocacion_registro|
           revocacion_registro.try(:user) == user
         end
         #TesisRegistro
-        can :read, TesisRegistro
+        #can :read, TesisRegistro
         can :create, TesisRegistro
         can :update, TesisRegistro do |tesis_registro|
           tesis_registro.try(:user) == user

@@ -35,7 +35,11 @@ class BajaAsignaturasController < ApplicationController
 
     if @baja_asignatura.save
       flash[:success] = "Su petición  de baja ha sido creada!"
-      redirect_to baja_asignaturas_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición de baja no pudo crearse!  Por favor revise el formulario."
       render :new

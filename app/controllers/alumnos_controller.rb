@@ -14,5 +14,6 @@ class AlumnosController < ApplicationController
     @examen_graduados = current_user.examen_graduados
     @receso_semestres = current_user.receso_semestres
     @tesis_registros = current_user.tesis_registros
+    @revocacion_registros = current_user.revocacion_registros
   end
 end

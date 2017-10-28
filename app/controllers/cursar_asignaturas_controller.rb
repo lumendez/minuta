@@ -34,7 +34,11 @@ class CursarAsignaturasController < ApplicationController
 
     if @cursar_asignatura.save
       flash[:success] = "Su solicitud para cursar asignaturas en otra unidad académica ha sido creada!"
-      redirect_to cursar_asignaturas_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su solicitud para cursar asignaturas en otra unidad académica no pudos ser creada! Revise el formulario."
       render :new

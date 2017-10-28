@@ -34,7 +34,11 @@ class BajaProgramasController < ApplicationController
 
     if @baja_programa.save
       flash[:success] = "Su petición para darse de baja de un programa ha sido creada!"
-      redirect_to baja_programas_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición para darse de baja de un programa no pudo ser creada!  Revise el formulario."
       render :new

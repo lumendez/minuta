@@ -34,7 +34,11 @@ class TesisRegistrosController < ApplicationController
 
     if @tesis_registro.save
       flash[:success] = "Su petición de registro de tesis y comisión revisora ha sido creada!"
-      redirect_to tesis_registros_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición de registro de tesis y comisión revisora no pudo ser creada! Revise el formulario."
       render :new

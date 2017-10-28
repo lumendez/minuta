@@ -33,7 +33,11 @@ class CambiarConsejerosController < ApplicationController
     @cambiar_consejero = current_user.cambiar_consejeros.build(cambiar_consejero_params)
     if @cambiar_consejero.save
       flash[:success] = "Su petición para cambiar consejeros fue creada!"
-      redirect_to cambiar_consejeros_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición para cambiar consejeros no pudo ser creada! Revise el formulario."
       render :ner

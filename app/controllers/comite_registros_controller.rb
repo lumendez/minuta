@@ -34,7 +34,11 @@ class ComiteRegistrosController < ApplicationController
 
     if @comite_registro.save
       flash[:success] = "Su petición para registrar su comité tutorial fue creada!"
-      redirect_to comite_registros_path
+      if current_user.tipos_usuario.tipo == "Alumno"
+        redirect_to alumnos_path
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Su petición para registrar su comité tutorial no pudo ser creada! Revise el formulario."
       render :new
