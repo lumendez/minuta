@@ -38,7 +38,7 @@
     <%= collection_select(:cambiar_consejero, :actual, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
-<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or current_user.sepi_programa.nombre.include? 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :anterior, "Consejero actual" %><br>
