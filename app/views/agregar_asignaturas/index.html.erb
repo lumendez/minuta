@@ -1,58 +1,35 @@
-<h3 class="sub">Peticiones para agregar una asignatura al programa de estudios</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Clave</th>
-      <th>Creado por</th>
-      <th>Boleta</th>
-      <th width="10%">Fecha</th>
-      <th width="5%">Validacion consejero</th>
-      <th width="5%">Validacion coordinador</th>
-      <th width="15%">Estado</th>
-      <th colspan="3">Opciones</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @agregar_asignaturas.each do |agregar_asignatura| %>
-      <tr>
-        <td><%= agregar_asignatura.nombre %></td>
-        <td><%= agregar_asignatura.clave %></td>
-        <td><%= agregar_asignatura.user.nombre %></td>
-        <td><%= agregar_asignatura.user.boleta %></td>
-        <td><%= agregar_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <% if agregar_asignatura.valida_consejero == true %>
-        <td class="success"><%= agregar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
-        <% else %>
-        <td class="danger"><%= agregar_asignatura.valida_consejero ? 'Si' : 'No' %></td>
-        <% end %>
-        <% if agregar_asignatura.valida_coordinador == true %>
-        <td class="success"><%= agregar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
-        <% else %>
-        <td class="danger"><%= agregar_asignatura.valida_coordinador ? 'Si' : 'No' %></td>
-        <% end %>
-        <% if agregar_asignatura.estado == "Pendiente" %>
-        <td class="warning"><%= agregar_asignatura.estado %></td>
-        <% elsif agregar_asignatura.estado == "Procede realizar trámite ante la SIP" %>
-        <td class="success"><%= agregar_asignatura.estado %></td>
-        <% else %>
-        <td class="info"><%= agregar_asignatura.estado %></td>
-        <% end %>
-        <td><%= link_to 'Detalles', agregar_asignatura %></td>
-        <% if can? :update, AgregarAsignatura %>
-        <td><%= link_to 'Editar', edit_agregar_asignatura_path(agregar_asignatura) %></td>
-        <% end %>
-        <% if can? :destroy, AgregarAsignatura %>
-        <td><%= link_to 'Eliminar', agregar_asignatura, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if can? :create, AgregarAsignatura %>
-<%= link_to 'Crear petición para agregar asignatura', new_agregar_asignatura_path %>
+<h1 class="sub">Peticiones para agregar asignaturas al programa individual de estudios</h1>
+<%= form_for_filterrific @filterrific do |f| %>
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-md-4">
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+      <%= f.label :search_query, 'Buscar caso por nombre' %>
+      <%= f.text_field(
+        :search_query,
+        class: 'filterrific-periodically-observed form-control'
+      ) %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :sorted_by, 'Ordenar por' %>
+      <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], { include_blank: '- Por defecto -'}, class:'form-control') %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-sm-3">
+        <%= link_to(
+          'Quitar filtros',
+          reset_filterrific_url,
+          class: 'btn btn-primary'
+        ) %>
+      </div>
+  </div>
+</div>
+  <%# add an automated spinner to your form when the list is refreshed %>
 <% end %>
+
+<%= render(
+  partial: 'agregar_asignaturas/casos',
+  locals: { agregar_asignaturas: @agregar_asignaturas }
+) %>

@@ -6,7 +6,25 @@ class AgregarAsignaturasController < ApplicationController
   # GET /agregar_asignaturas
   # GET /agregar_asignaturas.json
   def index
-    @agregar_asignaturas = AgregarAsignatura.all
+    @filterrific = initialize_filterrific(
+    AgregarAsignatura,
+    params[:filterrific],
+    select_options:{
+      sorted_by: AgregarAsignatura.options_for_sorted_by
+    },
+    ) or return
+    #@inscripcion_registros = @filterrific.find.order("created_at DESC").where(examen_medio: nil, examen_final: nil).page(params[:pagina])
+    @agregar_asignaturas = @filterrific.find.order("created_at DESC").page(params[:pagina])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se tuvieron que restablecer los valores: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /agregar_asignaturas/1
