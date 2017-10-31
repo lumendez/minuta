@@ -21,34 +21,34 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :director, 'Nombre del director' %>
-    <%= collection_select(:revocacion_registro, :director, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    <%= collection_select(:revocacion_registro, :director, ElectricaConsejero.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :director, 'Nombre del director' %>
-    <%= collection_select(:revocacion_registro, :director, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    <%= collection_select(:revocacion_registro, :director, ElectronicaConsejero.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
-<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or 'Térmica' %>
+<% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or current_user.sepi_programa.nombre.include? 'Térmica' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :director, 'Nombre del director' %>
-    <%= collection_select(:revocacion_registro, :director, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    <%= collection_select(:revocacion_registro, :director, MecanicaConsejero.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :director, 'Nombre del director' %>
-    <%= collection_select(:revocacion_registro, :director, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    <%= collection_select(:revocacion_registro, :director, SistemasConsejero.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Telecomunicaciones' %>
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :director, 'Nombre del director' %>
-    <%= collection_select(:revocacion_registro, :director, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    <%= collection_select(:revocacion_registro, :director, TelecomConsejero.all.order('nombre ASC'), :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% end %>
