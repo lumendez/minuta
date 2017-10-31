@@ -41,7 +41,7 @@
 <div class="row">
   <div class="form-group col-md-4">
     <%= f.label :director, 'Nombre del director' %>
-    <%= collection_select(:revocacion_registro, :director, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    <%= collection_select(:revocacion_registro, :director, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
   </div>
 </div>
 <% elsif current_user.sepi_programa.nombre.include? 'Telecomunicaciones' %>
