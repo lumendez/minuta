@@ -5,7 +5,8 @@ class AgregarAsignatura < ApplicationRecord
   filterrific(
     available_filters: [
       :sorted_by,
-      :search_query
+      :search_query,
+      :with_agregar_asignatura
     ]
   )
 
@@ -62,6 +63,12 @@ class AgregarAsignatura < ApplicationRecord
       *terms.map { |e| [e] * num_or_conds }.flatten
     )
   }
+
+  scope :with_agregar_asignatura, lambda {
+  where(
+    'EXISTS (SELECT 1 from agregar_asignaturas WHERE user.id = agregar_asignaturas.user_id)'
+  )
+}
 
   scope :sorted_by, lambda { |sort_option|
   # extract the sort direction from the param value.

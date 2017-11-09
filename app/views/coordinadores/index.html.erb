@@ -20,9 +20,10 @@
 
   <tbody>
     <% @agregar_asignaturas.each do |agregar_asignatura| %>
-      <% if current_user.sepi_programa.nombre.include? agregar_asignatura.user.area %>
+      <!--<#% if current_user.sepi_programa.nombre.include?("Eléctrica") || current_user.sepi_programa.nombre.include?("Electrónica") || current_user.sepi_programa.nombre.include?("Mecánica") || current_user.sepi_programa.nombre.include?("Sistemas") || current_user.sepi_programa.nombre.include?("Telecomunicaciones") %>-->
+      <% if current_user.sepi_programa.nombre.include?"Sistemas" %>
       <tr>
-        <td><%= agregar_asignatura.user.nombre %></td>
+        <td><%= agregar_asignatura.user.nombre_paterno_materno %></td>
         <td><%= agregar_asignatura.user.boleta %></td>
         <td><%= agregar_asignatura.user.sepi_programa.nombre %></td>
         <td><%= agregar_asignatura.nombre %></td>

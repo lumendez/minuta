@@ -29,6 +29,10 @@ class User < ApplicationRecord
     self.tipos_usuario = TiposUsuario.find_by tipo: "Alumno" if self.tipos_usuario.nil?
   end
 
+  #def asignar_area
+    #self.area = Area.find_by tipo: ""
+  #end
+
   def admin?
     self.tipos_usuario.tipo == "Administrador"
   end

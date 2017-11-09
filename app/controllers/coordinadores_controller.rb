@@ -2,7 +2,8 @@ class CoordinadoresController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   def index
-    @agregar_asignaturas = AgregarAsignatura.all.order("created_at DESC")
+    #if current_user.sepi_programa.nombre.include?("Eléctrica")
+    @agregar_asignaturas = AgregarAsignatura.where()all.order("created_at DESC")
     @baja_asignaturas = BajaAsignatura.all.order("created_at DESC")
     @baja_programas = BajaPrograma.all.order("created_at DESC")
     @cambiar_asignaturas = CambiarAsignatura.all.order("created_at DESC")
