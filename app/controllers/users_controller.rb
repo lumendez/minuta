@@ -6,8 +6,25 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.page(params[:pagina])
     @total_usuarios = User.all.count
+    @filterrific = initialize_filterrific(
+    User,
+    params[:filterrific],
+    select_options: {
+      with_sepi_programa_id: SepiPrograma.options_for_select
+    },
+    ) or return
+    @users = @filterrific.find.page(params[:pagina])
+
+    respond_to do |format|
+    format.html
+    format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se restablecieron los parámetros: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /users/1
