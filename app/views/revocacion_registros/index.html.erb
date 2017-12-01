@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Petición de revocación de baja</h1>
 
-<h1>Revocacion Registros</h1>
-
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Titulo</th>
       <th>Director</th>
-      <th>User</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Progrma</th>
       <th>Valida consejero</th>
       <th>Valida coordinador</th>
       <th>Estado</th>
@@ -20,13 +20,15 @@
       <tr>
         <td><%= revocacion_registro.titulo %></td>
         <td><%= revocacion_registro.director %></td>
-        <td><%= revocacion_registro.user %></td>
+        <td><%= revocacion_registro.user.nombre_paterno_materno %></td>
+        <td><%= revocacion_registro.user.boleta %></td>
+        <td><%= revocacion_registro.user.sepi_programa.nombre %></td>
         <td><%= revocacion_registro.valida_consejero %></td>
         <td><%= revocacion_registro.valida_coordinador %></td>
         <td><%= revocacion_registro.estado %></td>
-        <td><%= link_to 'Show', revocacion_registro %></td>
-        <td><%= link_to 'Edit', edit_revocacion_registro_path(revocacion_registro) %></td>
-        <td><%= link_to 'Destroy', revocacion_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', revocacion_registro %></td>
+        <td><%= link_to 'Editar', edit_revocacion_registro_path(revocacion_registro) %></td>
+        <td><%= link_to 'Eliminar', revocacion_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Revocacion Registro', new_revocacion_registro_path %>
+<%= link_to 'Crear petición para solicitar revocación de baja', new_revocacion_registro_path %>

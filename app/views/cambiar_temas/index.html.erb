@@ -8,6 +8,7 @@
       <th>Actual</th>
       <th>Creado por</th>
       <th>Boleta</th>
+      <th>Programa</th>
       <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
@@ -21,8 +22,9 @@
       <tr>
         <td><%= cambiar_tema.anterior %></td>
         <td><%= cambiar_tema.actual %></td>
-        <td><%= cambiar_tema.user.nombre %></td>
+        <td><%= cambiar_tema.user.nombre_paterno_materno %></td>
         <td><%= cambiar_tema.user.boleta %></td>
+        <td><%= cambiar_tema.user.sepi_programa.nombre %></td>
         <td><%= cambiar_tema.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if cambiar_tema.valida_consejero == true %>
         <td class="success"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>

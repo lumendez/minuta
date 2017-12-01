@@ -7,6 +7,7 @@
       <th>Tipo de examen</th>
       <th>Creado por</th>
       <th>Boleta</th>
+      <th>Programa</th>
       <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
@@ -19,8 +20,9 @@
     <% @examen_graduados.each do |examen_graduado| %>
       <tr>
         <td><%= examen_graduado.tipo %></td>
-        <td><%= examen_graduado.user.nombre %></td>
+        <td><%= examen_graduado.user.nombre_paterno_materno %></td>
         <td><%= examen_graduado.user.boleta %></td>
+        <td><%= examen_graduado.user.sepi_programa.nombre %></td>
         <td><%= examen_graduado.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if examen_graduado.valida_consejero == true %>
         <td class="success"><%= examen_graduado.valida_consejero ? 'Si' : 'No' %></td>

@@ -8,6 +8,7 @@
       <th>Consejero Actual</th>
       <th>Creado por</th>
       <th>Boleta</th>
+      <th>Programa</th>
       <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
@@ -21,8 +22,9 @@
       <tr>
         <td><%= cambiar_consejero.anterior %></td>
         <td><%= cambiar_consejero.actual %></td>
-        <td><%= cambiar_consejero.user.nombre %></td>
+        <td><%= cambiar_consejero.user.nombre_paterno_materno %></td>
         <td><%= cambiar_consejero.user.boleta %></td>
+        <td><%= cambiar_consejero.user.sepi_programa.nombre %></td>
         <td><%= cambiar_consejero.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if cambiar_consejero.valida_consejero == true %>
         <td class="success"><%= cambiar_consejero.valida_consejero ? 'Si' : 'No' %></td>

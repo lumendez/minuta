@@ -10,6 +10,7 @@
       <th>Tutor cuatro</th>
       <th>Creado por</th>
       <th>Boleta</th>
+      <th>Programa</th>
       <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
@@ -25,8 +26,9 @@
         <td><%= comite_registro.tutor_dos %></td>
         <td><%= comite_registro.tutor_tres %></td>
         <td><%= comite_registro.tutor_cuatro %></td>
-        <td><%= comite_registro.user.nombre %></td>
+        <td><%= comite_registro.user.nombre_paterno_materno %></td>
         <td><%= comite_registro.user.boleta %></td>
+        <td><%= comite_registro.user.sepi_programa.nombre %></td>
         <td><%= comite_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if comite_registro.valida_consejero == true %>
         <td class="success"><%= comite_registro.valida_consejero ? 'Si' : 'No' %></td>

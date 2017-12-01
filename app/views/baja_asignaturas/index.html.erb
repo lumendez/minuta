@@ -7,6 +7,7 @@
       <th>Clave</th>
       <th>Creado por</th>
       <th>Boleta</th>
+      <th>Programa</th>
       <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
@@ -20,8 +21,9 @@
       <tr>
         <td><%= baja_asignatura.nombre %></td>
         <td><%= baja_asignatura.clave %></td>
-        <td><%= baja_asignatura.user.nombre %></td>
+        <td><%= baja_asignatura.user.nombre_paterno_materno %></td>
         <td><%= baja_asignatura.user.boleta %></td>
+        <td><%= baja_asignatura.user.sepi_programa.nombre %></td>
         <td><%= baja_asignatura.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if baja_asignatura.valida_consejero == true %>
         <td class="success"><%= baja_asignatura.valida_consejero ? 'Si' : 'No' %></td>
