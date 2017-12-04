@@ -34,15 +34,8 @@
 
 <div class="row">
   <div class="form-group col-md-3">
-    <%= f.label :area, "Area" %><br>
-    <%= collection_select(:user, :area, Area.all, :nombre, :nombre, {prompt: true}, class:'form-control') %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="form-group col-md-3">
     <%= f.label :consejero_id %><br>
-    <%= collection_select(:user, :consejero_id, Consejero.all, :id, :nombre, {prompt: true}, class:'form-control') %>
+    <%= collection_select(:user, :consejero_id, User.consejero.order('nombre ASC'), :id, :nombre_paterno_materno, {prompt: true}, class:'form-control') %>
   </div>
 </div>
 
@@ -60,24 +53,3 @@
   </div>
 </div>
 <% end %>
-
-<script>
-function matchUp(selected, toselect)
-{
-  var idx = selected.prop('selectedIndex');
-  toselect.prop('selectedIndex', idx);
-}
-
-
-$('#user_sepi_programa_id').change(
-  function() {
-    matchUp($('#user_sepi_programa_id'), $('#user_area'));
-  }
-);
-
-$('#user_area').change(
-  function() {
-    matchUp($('#user_area'), $('#user_sepi_programa_id'));
-  }
-);
-</script>
