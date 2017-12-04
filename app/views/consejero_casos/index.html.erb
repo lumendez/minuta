@@ -20,9 +20,9 @@
 
   <tbody>
     <% @agregar_asignaturas.each do |agregar_asignatura| %>
-      <% if current_user.nombre == agregar_asignatura.user.consejero.nombre %>
+      <% if current_user.id == agregar_asignatura.user.consejero_id %>
       <tr>
-        <td><%= agregar_asignatura.user.nombre %></td>
+        <td><%= agregar_asignatura.user.nombre_paterno_materno %></td>
         <td><%= agregar_asignatura.user.boleta %></td>
         <td><%= agregar_asignatura.user.sepi_programa.nombre %></td>
         <td><%= agregar_asignatura.nombre %></td>
