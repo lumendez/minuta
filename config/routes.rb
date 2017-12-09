@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  class OnlyAjaxRequest
+     def matches?(request)
+       request.xhr?
+     end
+  end
   resources :revocacion_registros
   get 'filtrar_consejeros_por_programa' => 'sepi_programas#filtrar_consejeros_por_programa'
   resources :mecanica_asignaturas

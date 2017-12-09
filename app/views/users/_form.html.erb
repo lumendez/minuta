@@ -20,6 +20,20 @@
 
 <div class="row">
   <div class="form-group col-md-3">
+    <%= f.label :paterno %><br>
+    <%= f.text_field :paterno, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-md-3">
+    <%= f.label :materno %><br>
+    <%= f.text_field :materno, class:'form-control' %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="form-group col-md-3">
     <%= f.label :boleta %><br>
     <%= f.text_field :boleta, class:'form-control' %>
   </div>
@@ -28,14 +42,14 @@
 <div class="row">
   <div class="form-group col-md-3">
     <%= f.label :sepi_programa_id, "Programa" %><br>
-    <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: true}, class:'form-control') %>
+    <%= collection_select(:user, :sepi_programa_id, SepiPrograma.all, :id, :nombre, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
 
 <div class="row">
   <div class="form-group col-md-3">
     <%= f.label :consejero_id %><br>
-    <%= collection_select(:user, :consejero_id, User.consejero.order('nombre ASC'), :id, :nombre_paterno_materno, {prompt: true}, class:'form-control') %>
+    <%= collection_select(:user, :consejero_id, User.consejero.order('nombre ASC'), :id, :nombre_paterno_materno, {prompt: 'Seleccione'}, class:'form-control') %>
   </div>
 </div>
 

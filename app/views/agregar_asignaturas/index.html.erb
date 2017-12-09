@@ -4,14 +4,14 @@
   <div class="row">
     <div class="col-md-4">
       <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-      <%= f.label :search_query, 'Buscar caso por nombre' %>
+      <%= f.label :search_query_by_users, 'Buscar caso por nombre del alumno:' %>
       <%= f.text_field(
-        :search_query,
+        :search_query_by_users,
         class: 'filterrific-periodically-observed form-control'
       ) %>
     </div>
     <div class="col-md-4">
-      <%= f.label :sorted_by, 'Ordenar por' %>
+      <%= f.label :sorted_by, 'Ordenar por:' %>
       <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by], { include_blank: '- Por defecto -'}, class:'form-control') %>
     </div>
   </div>
@@ -27,6 +27,7 @@
   </div>
 </div>
   <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
 <% end %>
 
 <%= render(

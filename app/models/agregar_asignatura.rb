@@ -5,8 +5,7 @@ class AgregarAsignatura < ApplicationRecord
   filterrific(
     available_filters: [
       :sorted_by,
-      :search_query,
-      :with_agregar_asignatura
+      :search_query_by_users
     ]
   )
 
@@ -37,37 +36,30 @@ class AgregarAsignatura < ApplicationRecord
     self.joins(:user).where("agregar_asignaturas.created_at BETWEEN ? AND ? AND area = ? AND estado = ?", "#{inicio}", "#{fin}", "Telecomunicaciones", "Procede realizar trámite ante la SIP").order("agregar_asignaturas.created_at DESC")
   end
 
-  scope :search_query, lambda { |query|
-
-    # Filters students whose name or email matches the query
-    return nil  if query.blank?
-
-    # condition query, parse into individual keywords
-    terms = query.downcase.split(/\s+/)
-
-    # replace "*" with "%" for wildcard searches,
-    # append '%', remove duplicate '%'s
-    terms = terms.map { |e|
-      (e.gsub('*', '%') + '%').gsub(/%+/, '%')
-    }
-
-    # configure number of OR conditions for provision
-    # of interpolation arguments. Adjust this if you
-    # change the number of OR conditions.
-    num_or_conds = 3
-
-    where(
-      terms.map { |term|
-        "(LOWER(agregar_asignatura.user.nombre) LIKE ? OR LOWER(agregar_asignatura.user.paterno) LIKE ? OR LOWER(agregar_asignatura.user.materno) LIKE ?)"
-      }.join(' AND '),
-      *terms.map { |e| [e] * num_or_conds }.flatten
-    )
+  scope :search_query_by_users, lambda { |query|
+  return nil  if query.blank?
+  # condition query, parse into individual keywords
+  terms = query.downcase.split(/\s+/)
+  # replace "*" with "%" for wildcard searches,
+  # append '%', remove duplicate '%'s
+  terms = terms.map { |e|
+    (e.gsub('*', '%') + '%').gsub(/%+/, '%')
   }
-
-  scope :with_agregar_asignatura, lambda {
+  # configure number of OR conditions for provision
+  # of interpolation arguments. Adjust this if you
+  # change the number of OR conditions.
+  num_or_conditions = 3
   where(
-    'EXISTS (SELECT 1 from agregar_asignaturas WHERE user.id = agregar_asignaturas.user_id)'
-  )
+    terms.map {
+      or_clauses = [
+        "LOWER(users.nombre) LIKE ?",
+        "LOWER(users.paterno) LIKE ?",
+        "LOWER(users.materno) LIKE ?"
+      ].join(' OR ')
+      "(#{ or_clauses })"
+    }.join(' AND '),
+    *terms.map { |e| [e] * num_or_conditions }.flatten
+  ).joins(:user).references(:user)
 }
 
   scope :sorted_by, lambda { |sort_option|

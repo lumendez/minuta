@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     User,
     params[:filterrific],
     select_options: {
-      with_sepi_programa_id: SepiPrograma.options_for_select
+      with_sepi_programa_id: SepiPrograma.options_for_select,
+      with_tipos_usuario_id: TiposUsuario.options_for_select 
     },
     ) or return
     @users = @filterrific.find.page(params[:pagina])

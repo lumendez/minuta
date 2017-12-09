@@ -31,11 +31,7 @@
           <% else %>
             <td><%= user.sepi_programa.nombre %></td>
           <% end %>
-          <% if user.consejero.nil? %>
-            <td>Sin consejero</td>
-          <% else %>
-            <td><%= user.consejero.nombre %></td>
-          <% end %>
+          
           <td><%= user.area %></td>
           <td><%= link_to 'Detalles', user %></td>
           <td><%= link_to 'Editar', edit_user_path(user) %></td>

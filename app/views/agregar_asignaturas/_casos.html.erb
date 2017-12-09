@@ -56,6 +56,3 @@
 <%= paginate @agregar_asignaturas, theme: 'twitter-bootstrap-3', param_name: :pagina %>
 </div>
 <br>
-<% if can? :create, AgregarAsignatura %>
-<%= link_to 'Crear petición para agregar asignatura', new_agregar_asignatura_path %>
-<% end %>

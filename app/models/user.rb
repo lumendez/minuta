@@ -4,7 +4,8 @@ class User < ApplicationRecord
          filterrific(
            available_filters: [
              :search_query,
-             :with_sepi_programa_id
+             :with_sepi_programa_id,
+             :with_tipos_usuario_id
            ]
          )
 
@@ -87,7 +88,12 @@ class User < ApplicationRecord
     tipos_usuario = TiposUsuario.find_by(tipo: "Consejero").id
     usuarios = User.where(tipos_usuario: tipos_usuario)
   end
-
+=begin
+  def user_consejero
+    consejero = "#{consejero_id}"
+    User.find_by(id: consejero).nombre_paterno_materno
+  end
+=end
   #Definición de los filtros para filterrific
   scope :search_query, lambda { |query|
 
@@ -119,6 +125,11 @@ class User < ApplicationRecord
   scope :with_sepi_programa_id, lambda { |sepi_programa_ids|
     # Se filtra a los usuarios dependiendo del role_id dado
     where(sepi_programa_id: [*sepi_programa_ids])
+  }
+
+  scope :with_tipos_usuario_id, lambda { |tipos_usuario_ids|
+    # Se filtra a los usuarios dependiendo del role_id dado
+    where(tipos_usuario_id: [*tipos_usuario_ids])
   }
 
 end
