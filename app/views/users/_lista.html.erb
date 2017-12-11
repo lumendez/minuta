@@ -34,7 +34,8 @@
           <% if user.consejero.nil? %>
           <td>Sin consejero</td>
           <% else %>
-          <td><%= User.find_by(id: user.consejero_id).nombre_paterno_materno %></td>
+          <!--<td><%#= User.find_by(id: user.consejero_id).nombre_paterno_materno %></td>-->
+          <td><%= user.consejero.nombre %></td>
           <% end %>
           <td><%= user.area %></td>
           <td><%= link_to 'Detalles', user %></td>
