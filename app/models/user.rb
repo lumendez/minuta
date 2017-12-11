@@ -39,16 +39,20 @@ class User < ApplicationRecord
   end
 
   def asignar_area
-    self.area = Area.find_by(nombre: "Mecánica").nombre if self.sepi_programa.nombre == "Especialización en Ingeniería Térmica"
-    self.area = Area.find_by(nombre: "Sistemas").nombre if self.sepi_programa.nombre == "Especialización en Ingeniería de Sistemas"
-    self.area = Area.find_by(nombre: "Eléctrica").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería Eléctrica"
-    self.area = Area.find_by(nombre: "Electrónica").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería Electrónica"
-    self.area = Area.find_by(nombre: "Mecánica").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería Mecánica"
-    self.area = Area.find_by(nombre: "Sistemas").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería de Sistemas"
-    self.area = Area.find_by(nombre: "Telecomunicaciones").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería de Telecomunicaciones"
-    self.area = Area.find_by(nombre: "Eléctrica").nombre if self.sepi_programa.nombre == "Doctorado en Ciencias en Ingeniería Eléctrica"
-    self.area = Area.find_by(nombre: "Mecánica").nombre if self.sepi_programa.nombre == "Doctorado en Ciencias en Ingeniería Mecánica"
-    self.area = Area.find_by(nombre: "Sistemas").nombre if self.sepi_programa.nombre == "Doctorado en Ciencias en Ingeniería de Sistemas"
+    if self.sepi_programa.nil?
+      self.area = Area.find_by(nombre: "Sin área").nombre if self.sepi_programa.nil?
+    else
+      self.area = Area.find_by(nombre: "Mecánica").nombre if self.sepi_programa.nombre == "Especialización en Ingeniería Térmica"
+      self.area = Area.find_by(nombre: "Sistemas").nombre if self.sepi_programa.nombre == "Especialización en Ingeniería de Sistemas"
+      self.area = Area.find_by(nombre: "Eléctrica").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería Eléctrica"
+      self.area = Area.find_by(nombre: "Electrónica").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería Electrónica"
+      self.area = Area.find_by(nombre: "Mecánica").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería Mecánica"
+      self.area = Area.find_by(nombre: "Sistemas").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería de Sistemas"
+      self.area = Area.find_by(nombre: "Telecomunicaciones").nombre if self.sepi_programa.nombre == "Maestría en Ciencias en Ingeniería de Telecomunicaciones"
+      self.area = Area.find_by(nombre: "Eléctrica").nombre if self.sepi_programa.nombre == "Doctorado en Ciencias en Ingeniería Eléctrica"
+      self.area = Area.find_by(nombre: "Mecánica").nombre if self.sepi_programa.nombre == "Doctorado en Ciencias en Ingeniería Mecánica"
+      self.area = Area.find_by(nombre: "Sistemas").nombre if self.sepi_programa.nombre == "Doctorado en Ciencias en Ingeniería de Sistemas"
+    end
   end
 
   def admin?
