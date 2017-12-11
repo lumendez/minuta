@@ -286,40 +286,40 @@ class Ability
         can :read, Alumno
         #AgregarAsignatura
         #can :read, AgregarAsignatura
-        can :create, AgregarAsignatura
-        can :update, AgregarAsignatura do |agregar_asignatura|
-          agregar_asignatura.try(:user) == user
-        end
+        #can :create, AgregarAsignatura
+        #can :update, AgregarAsignatura do |agregar_asignatura|
+          #agregar_asignatura.try(:user) == user
+        #end
         #BajaAsignatura
         #can :read, BajaAsignatura
-        can :create, BajaAsignatura
-        can :update, BajaAsignatura do |baja_asignatura|
-          baja_asignatura.try(:user) == user
-        end
+        #can :create, BajaAsignatura
+        #can :update, BajaAsignatura do |baja_asignatura|
+          #baja_asignatura.try(:user) == user
+        #end
         #BajaPrograma
         #can :read, BajaPrograma
-        can :create, BajaPrograma
-        can :update, BajaPrograma do |baja_programa|
-          baja_programa.try(:user) == user
-        end
+        #can :create, BajaPrograma
+        #can :update, BajaPrograma do |baja_programa|
+          #baja_programa.try(:user) == user
+        #end
         #CambiarAsignatura
         #can :read, CambiarAsignatura
-        can :create, CambiarAsignatura
-        can :update, CambiarAsignatura do |cambiar_asignatura|
-          cambiar_asignatura.try(:user) == user
-        end
+        #can :create, CambiarAsignatura
+        #can :update, CambiarAsignatura do |cambiar_asignatura|
+          #cambiar_asignatura.try(:user) == user
+        #end
         #CambiarConsejero
         #can :read, CambiarConsejero
-        can :create, CambiarConsejero
-        can :update, CambiarConsejero do |cambiar_consejero|
-          cambiar_consejero.try(:user) == user
-        end
+        #can :create, CambiarConsejero
+        #can :update, CambiarConsejero do |cambiar_consejero|
+          #cambiar_consejero.try(:user) == user
+        #end
         #CambiarTema
         #can :read, CambiarTema
-        can :create, CambiarTema
-        can :update, CambiarTema do |cambiar_tema|
-          cambiar_tema.try(:user) == user
-        end
+        #can :create, CambiarTema
+        #can :update, CambiarTema do |cambiar_tema|
+          #cambiar_tema.try(:user) == user
+        #end
         #ComiteRegistro
         #can :read, ComiteRegistro
         can :create, ComiteRegistro
@@ -328,28 +328,28 @@ class Ability
         end
         #CursarAsignatura
         #can :read, CursarAsignatura
-        can :create, CursarAsignatura
-        can :update, CursarAsignatura do |cursar_asignatura|
-          cursar_asignatura.try(:user) == user
-        end
+        #can :create, CursarAsignatura
+        #can :update, CursarAsignatura do |cursar_asignatura|
+          #cursar_asignatura.try(:user) == user
+        #end
         #ExamenGraduado
         #can :read, ExamenGraduado
-        can :create, ExamenGraduado
-        can :update, ExamenGraduado do |examen_graduado|
-          examen_graduado.try(:user) == user
-        end
+        #can :create, ExamenGraduado
+        #can :update, ExamenGraduado do |examen_graduado|
+          #examen_graduado.try(:user) == user
+        #end
         #RecesoSemestre
         #can :read, RecesoSemestre
-        can :create, RecesoSemestre
-        can :update, RecesoSemestre do |receso_semestre|
-          receso_semestre.try(:user) == user
-        end
+        #can :create, RecesoSemestre
+        #can :update, RecesoSemestre do |receso_semestre|
+          #receso_semestre.try(:user) == user
+        #end
         #RevocacionRegistro
         #can :read, RevocacionRegistro
-        can :create, RevocacionRegistro
-        can :update, RevocacionRegistro do |revocacion_registro|
-          revocacion_registro.try(:user) == user
-        end
+        #can :create, RevocacionRegistro
+        #can :update, RevocacionRegistro do |revocacion_registro|
+          #revocacion_registro.try(:user) == user
+        #end
         #TesisRegistro
         #can :read, TesisRegistro
         can :create, TesisRegistro
