@@ -1,0 +1,54 @@
+<%= form_for(tema_tesis_registro) do |f| %>
+  <% if tema_tesis_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tema_tesis_registro.errors.count, "error") %> prohibited this tema_tesis_registro from being saved:</h2>
+
+      <ul>
+      <% tema_tesis_registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="form-group col-md-6">
+    <%= f.label :tema, 'Tema de tesis' %>
+    <%= f.text_field :tema, required: true, placeholder: 'Escriba su tema de tesis', class: 'form-control' %>
+  </div>
+</div>
+
+<% if can? :validar_consejero, tema_tesis_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :validar_coordinador, tema_tesis_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :cambiar_estado, tema_tesis_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :estado %><br>
+    <%= collection_select(:tema_tesis_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="actions col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>
+<br>

@@ -2,6 +2,8 @@ class AlumnosController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
+# Se guarda una relacion de casos que tiene el usuario para mostrarlos en su
+# panel de inicio
   def index
     @agregar_asignaturas = current_user.agregar_asignaturas
     @baja_asignaturas = current_user.baja_asignaturas
@@ -13,7 +15,9 @@ class AlumnosController < ApplicationController
     @cursar_asignaturas = current_user.cursar_asignaturas
     @examen_graduados = current_user.examen_graduados
     @receso_semestres = current_user.receso_semestres
+    @tema_tesis_registros = current_user.tema_tesis_registros
     @tesis_registros = current_user.tesis_registros
     @revocacion_registros = current_user.revocacion_registros
   end
+  
 end

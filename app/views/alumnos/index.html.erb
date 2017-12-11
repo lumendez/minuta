@@ -487,6 +487,48 @@
 </table>
 <% end %>
 
+<% if @tema_tesis_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de registro de tema de tesis</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tema</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tema_tesis_registros.each do |tema_tesis_registro| %>
+      <tr>
+        <td><%= tema_tesis_registro.tema %></td>
+        <td><%= tema_tesis_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if tema_tesis_registro.valida_consejero == true %>
+        <td class="success"><%= tema_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= tema_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if tema_tesis_registro.valida_coordinador == true %>
+        <td class="success"><%= tema_tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= tema_tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if tema_tesis_registro.estado == "Pendiente" %>
+        <td class="warning"><%= tema_tesis_registro.estado %></td>
+        <% elsif tema_tesis_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= tema_tesis_registro.estado %></td>
+        <% else tema_tesis_registro.estado == "Finalizado" %>
+        <td class="info"><%= tema_tesis_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 <% if @tesis_registros.empty? %>
 <% else %>
 <h3 class="sub">Petición de registro de tema de tesis, director y comisi&oacute;n revisora</h3>

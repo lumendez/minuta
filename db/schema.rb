@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027191218) do
+ActiveRecord::Schema.define(version: 20171211170212) do
 
   create_table "agregar_asignaturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -258,6 +258,17 @@ ActiveRecord::Schema.define(version: 20171027191218) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tema_tesis_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "tema"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.index ["user_id"], name: "index_tema_tesis_registros_on_user_id", using: :btree
+  end
+
   create_table "tesis_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "tema"
     t.string   "director"
@@ -330,6 +341,7 @@ ActiveRecord::Schema.define(version: 20171027191218) do
   add_foreign_key "examen_graduados", "users"
   add_foreign_key "receso_semestres", "users"
   add_foreign_key "revocacion_registros", "users"
+  add_foreign_key "tema_tesis_registros", "users"
   add_foreign_key "tesis_registros", "users"
   add_foreign_key "users", "consejeros"
   add_foreign_key "users", "coordinador_nombres"

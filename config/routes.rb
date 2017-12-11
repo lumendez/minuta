@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tema_tesis_registros
   class OnlyAjaxRequest
      def matches?(request)
        request.xhr?

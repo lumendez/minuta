@@ -1,4 +1,7 @@
 class TesisRegistro < ApplicationRecord
+  # El siguiente bloque sirve para verificar que la peticion esta asociada a
+  # un usuario, ademas guarda valores iniciales para los campos de validacion y
+  # estado.
   validates :user_id, presence: true
   belongs_to :user
 

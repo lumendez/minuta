@@ -62,6 +62,11 @@ class Ability
       can :cambiar_estado, RecesoSemestre do |receso_semestre|
         receso_semestre.try(:estado)
       end
+      can :read, TemaTesisRegistro
+      can :update, TemaTesisRegistro
+      can :cambiar_estado, TemaTesisRegistro do |tema_tesis_registro|
+        tema_tesis_registro.try(:estado)
+      end
       can :read, TesisRegistro
       can :update, TesisRegistro
       can :cambiar_estado, TesisRegistro do |tesis_registro|
@@ -276,6 +281,12 @@ class Ability
         receso_semestre.try(:valida_consejero) == false || receso_semestre.try(:valida_consejero) == true
       end
       #TesisRegistro
+      can :read, TemaTesisRegistro
+      can :update, TemaTesisRegistro
+      can :validar_consejero, TemaTesisRegistro do |tema_tesis_registro|
+        tema_tesis_registro.try(:valida_consejero) == false || tema_tesis_registro.try(:valida_consejero) == true
+      end
+      #TesisRegistro
       can :read, TesisRegistro
       can :update, TesisRegistro
       can :validar_consejero, TesisRegistro do |tesis_registro|
@@ -350,6 +361,11 @@ class Ability
         #can :update, RevocacionRegistro do |revocacion_registro|
           #revocacion_registro.try(:user) == user
         #end
+        #TemaTesisRegistro
+        can :create, TemaTesisRegistro
+        can :update, TemaTesisRegistro do |tema_tesis_registro|
+          tema_tesis_registro.try(:user) == user
+        end
         #TesisRegistro
         #can :read, TesisRegistro
         can :create, TesisRegistro
