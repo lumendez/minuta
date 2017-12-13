@@ -327,10 +327,10 @@ class Ability
         #end
         #CambiarTema
         #can :read, CambiarTema
-        #can :create, CambiarTema
-        #can :update, CambiarTema do |cambiar_tema|
-          #cambiar_tema.try(:user) == user
-        #end
+        can :create, CambiarTema
+        can :update, CambiarTema do |cambiar_tema|
+          cambiar_tema.try(:user) == user
+        end
         #ComiteRegistro
         #can :read, ComiteRegistro
         can :create, ComiteRegistro

@@ -94,11 +94,6 @@ class User < ApplicationRecord
     usuarios = User.where(tipos_usuario: tipos_usuario)
   end
 
-  def user_consejero
-    consejero = "#{consejero_id}"
-    User.find_by(id: consejero).nombre_paterno_materno
-  end
-
   #Definición de los filtros para filterrific
   scope :search_query, lambda { |query|
 

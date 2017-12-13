@@ -19,7 +19,12 @@ class CambiarTemasController < ApplicationController
     if current_user.sepi_programa.nil?
       redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
     else
-      @cambiar_tema = current_user.cambiar_temas.build
+      if current_user.tema_tesis_registros.present?
+        @tema_anterior = current_user.tema_tesis_registros.last
+        @cambiar_tema = current_user.cambiar_temas.build
+      else
+        redirect_to alumnos_path, alert: "Necesita haber registrado un tema de tesis para esta acción"
+      end
     end
   end
 

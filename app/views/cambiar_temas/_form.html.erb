@@ -12,15 +12,15 @@
   <% end %>
 
 <div class="row">
-  <div class="form-group col-md-4">
-    <%= f.label :anterior, 'Tema actual' %><br>
-    <%= f.text_field :anterior, class: 'form-control', required: true %>
+  <div class="form-group col-md-6">
+    <%= f.label :anterior, 'Tema de tesis actual' %><br>
+    <%= f.text_field :anterior, value: @tema_anterior.tema, class: 'form-control', required: true, readonly: true %>
   </div>
 </div>
 
 <div class="row">
-  <div class="form-group col-md-4">
-    <%= f.label :actual, 'Nuevo tema' %><br>
+  <div class="form-group col-md-6">
+    <%= f.label :actual, 'Nuevo tema de tesis' %><br>
     <%= f.text_field :actual, class:'form-control', required: true %>
   </div>
 </div>
@@ -58,3 +58,4 @@
   </div>
 </div>
 <% end %>
+<br>
