@@ -1,0 +1,108 @@
+<%= form_for(director_tesis_registro) do |f| %>
+  <% if director_tesis_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(director_tesis_registro.errors.count, "error") %> prohibited this director_tesis_registro from being saved:</h2>
+
+      <ul>
+      <% director_tesis_registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% if current_user.area == 'Eléctrica' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :nombre, 'Nombre del director de tesis' %>
+    <%= collection_select(:director_tesis_registro, :nombre, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+
+<% elsif current_user.area == 'Electrónica' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :nombre, 'Nombre del director de tesis' %>
+    <%= collection_select(:director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+
+<% elsif current_user.area == 'Mecánica' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :nombre, 'Nombre del director de tesis' %>
+    <%= collection_select(:director_tesis_registro, :nombre, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+
+<% elsif current_user.area == 'Sistemas' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :nombre, 'Nombre del director de tesis' %>
+    <%= collection_select(:director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+
+<% elsif current_user.area == 'Telecomunicaciones' %>
+<div class="row">
+  <div class="form-group col-md-4">
+    <%= f.label :nombre, 'Nombre del director de tesis' %>
+    <%= collection_select(:director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+  </div>
+</div>
+
+<% end %>
+
+<div class="row">
+  <div class="form-group col-sm-4">
+    <%= f.label :existe_codirector, 'Agregar codirector' %>
+    <%= check_box :existe_codirector, false %>
+  </div>
+</div>
+
+<div class="row" id="existe_codirector" style="display:none">
+  <div class="form-group col-md-4">
+    <%= f.label :codirector, 'Nombre del codirector de tesis' %>
+    <%= f.text_field :codirector, class: 'form-control', required: true %>
+  </div>
+</div>
+
+<% if can? :validar_consejero, director_tesis_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_consejero %>
+    <%= f.check_box :valida_consejero %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :validar_coordinador, director_tesis_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_coordinador %>
+    <%= f.check_box :valida_coordinador %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :cambiar_estado, director_tesis_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :estado %>
+    <%= collection_select(:director_tesis_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="actions col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>
+<br>
+<script>
+$('#existe_codirector_false').click(function() {
+  $("#existe_codirector").slideToggle(this.checked);
+});
+</script>

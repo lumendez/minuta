@@ -75,7 +75,7 @@ class TemaTesisRegistrosController < ApplicationController
       format.json { render :show, status: :ok, location: @tema_tesis_registro }
     else
       format.html { render :edit }
-      format.json { render json: @tesis_registro.errors, status: :unprocessable_entity }
+      format.json { render json: @tema_tesis_registro.errors, status: :unprocessable_entity }
     end
   end
 

@@ -487,13 +487,61 @@
 </table>
 <% end %>
 
+<% if @director_tesis_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de registro de director de tesis</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre del director de tesis</th>
+      <th>Nombre del codirector de tesis</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @director_tesis_registros.each do |director_tesis_registro| %>
+      <tr>
+        <td><%= director_tesis_registro.nombre %></td>
+        <% if director_tesis_registro.codirector.present? %>
+        <td><%= director_tesis_registro.codirector %></td>
+        <% else %>
+        <td>Sin codirector</td>
+        <% end %>
+        <td><%= director_tesis_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if director_tesis_registro.valida_consejero == true %>
+        <td class="success"><%= director_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= director_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if director_tesis_registro.valida_coordinador == true %>
+        <td class="success"><%= director_tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= director_tesis_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if director_tesis_registro.estado == "Pendiente" %>
+        <td class="warning"><%= director_tesis_registro.estado %></td>
+        <% elsif director_tesis_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= director_tesis_registro.estado %></td>
+        <% else director_tesis_registro.estado == "Finalizado" %>
+        <td class="info"><%= director_tesis_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 <% if @tema_tesis_registros.empty? %>
 <% else %>
 <h3 class="sub">Petición de registro de tema de tesis</h3>
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Tema</th>
+      <th>Tema de tesis</th>
       <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>

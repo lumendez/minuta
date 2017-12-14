@@ -23,7 +23,7 @@
         <td><%= tema_tesis_registro.user.boleta %></td>
         <td><%= tema_tesis_registro.user.sepi_programa.nombre %></td>
         <td><%= tema_tesis_registro.created_at.strftime("%d%m%y a las %T %P") %></td>
-        <% if tesis_registro.valida_consejero == true %>
+        <% if tema_tesis_registro.valida_consejero == true %>
         <td class="success"><%= tema_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
         <% else %>
         <td class="danger"><%= tema_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
