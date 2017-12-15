@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  codirector: MyString
+  user: one
+  valida_consejero: false
+  valida_coordinador: false
+  estado: MyString
+
+two:
+  nombre: MyString
+  codirector: MyString
+  user: two
+  valida_consejero: false
+  valida_coordinador: false
+  estado: MyString

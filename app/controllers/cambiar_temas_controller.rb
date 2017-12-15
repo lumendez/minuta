@@ -106,7 +106,7 @@ class CambiarTemasController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def cambiar_tema_params
-      params.require(:cambiar_tema).permit(:anterior, :actual, :valida_consejero, :valida_coordinador, :estado)
+      params.require(:cambiar_tema).permit(:anterior, :actual, :valida_consejero, :valida_coordinador, :estado, :user_id)
     end
 
     def cambiar_tema

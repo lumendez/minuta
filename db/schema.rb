@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214163633) do
+ActiveRecord::Schema.define(version: 20171214182843) do
 
   create_table "agregar_asignaturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -94,6 +94,18 @@ ActiveRecord::Schema.define(version: 20171214163633) do
     t.boolean  "valida_coordinador"
     t.string   "estado"
     t.index ["user_id"], name: "index_cambiar_temas_on_user_id", using: :btree
+  end
+
+  create_table "cambio_director_tesis_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "nombre"
+    t.string   "codirector"
+    t.integer  "user_id"
+    t.boolean  "valida_consejero"
+    t.boolean  "valida_coordinador"
+    t.string   "estado"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["user_id"], name: "index_cambio_director_tesis_registros_on_user_id", using: :btree
   end
 
   create_table "clave_semestres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -348,6 +360,7 @@ ActiveRecord::Schema.define(version: 20171214163633) do
   add_foreign_key "cambiar_asignaturas", "users"
   add_foreign_key "cambiar_consejeros", "users"
   add_foreign_key "cambiar_temas", "users"
+  add_foreign_key "cambio_director_tesis_registros", "users"
   add_foreign_key "comite_registros", "users"
   add_foreign_key "cursar_asignaturas", "users"
   add_foreign_key "director_tesis_registros", "users"

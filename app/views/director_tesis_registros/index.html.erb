@@ -1,9 +1,10 @@
-<h3 class="sub">Director Tesis Registros</h3>
+<h3 class="sub">Peticiones de registro de director(es) de tesis</h3>
 
 <table class="table table-bordered">
   <thead>
     <tr>
       <th>Nombre del director de tesis</th>
+      <th>Nombre del codirector de tesis</th>
       <th>Creado por</th>
       <th>Boleta</th>
       <th>Programa</th>
@@ -19,6 +20,11 @@
     <% @director_tesis_registros.each do |director_tesis_registro| %>
       <tr>
         <td><%= director_tesis_registro.nombre %></td>
+        <% if director_tesis_registro.codirector.present? %>
+        <td><%= director_tesis_registro.codirector %></td>
+        <% else %>
+        <td>Sin codirector</td>
+        <% end %>
         <td><%= director_tesis_registro.user.nombre_paterno_materno %></td>
         <td><%= director_tesis_registro.user.boleta %></td>
         <td><%= director_tesis_registro.user.sepi_programa.nombre %></td>
