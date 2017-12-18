@@ -11,47 +11,65 @@
     </div>
   <% end %>
 
-  <div class="field">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :tutor_uno %>
-    <%= f.text_field :tutor_uno %>
+    <%= f.text_field :tutor_uno, class:'form-control' %>
   </div>
+</div>
 
-  <div class="field">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :tutor_dos %>
-    <%= f.text_field :tutor_dos %>
+    <%= f.text_field :tutor_dos, class:'form-control' %>
   </div>
+</div>
 
-  <div class="field">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :tutor_tres %>
-    <%= f.text_field :tutor_tres %>
+    <%= f.text_field :tutor_tres, class:'form-control' %>
   </div>
+</div>
 
-  <div class="field">
+<div class="row">
+  <div class="form-group col-md-4">
     <%= f.label :tutor_cuatro %>
-    <%= f.text_field :tutor_cuatro %>
+    <%= f.text_field :tutor_cuatro, class:'form-control' %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+<% if can? :validar_consejero, cambio_comite_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_consejero %><br>
+    <%= f.check_box :valida_consejero, class: 'form-control' %>
   </div>
-
-  <div class="field">
-    <%= f.label :valida_consejero %>
-    <%= f.check_box :valida_consejero %>
-  </div>
-
-  <div class="field">
-    <%= f.label :valida_coordinador %>
-    <%= f.check_box :valida_coordinador %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.text_field :estado %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
+
+<% if can? :validar_coordinador, cambio_comite_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :valida_coordinador %><br>
+    <%= f.check_box :valida_coordinador, class:'form-control' %>
+  </div>
+</div>
+<% end %>
+
+<% if can? :cambiar_estado, cambio_comite_registro %>
+<div class="row">
+  <div class="form-group">
+    <%= f.label :estado %><br>
+    <%= collection_select(:cambio_comite_registro, :estado, Estado.all, :estado, :estado, {prompt: true}, class:'form-control') %>
+  </div>
+</div>
+<% end %>
+
+<div class="row">
+  <div class="actions col-md-2">
+    <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+  </div>
+</div>
+<% end %>
+<br>
