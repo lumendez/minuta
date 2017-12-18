@@ -16,6 +16,7 @@ class AlumnosController < ApplicationController
     @examen_graduados = current_user.examen_graduados
     @receso_semestres = current_user.receso_semestres
     @director_tesis_registros = current_user.director_tesis_registros
+    @cambio_director_tesis_registros = current_user.cambio_director_tesis_registros
     @tema_tesis_registros = current_user.tema_tesis_registros
     @tesis_registros = current_user.tesis_registros
     @revocacion_registros = current_user.revocacion_registros

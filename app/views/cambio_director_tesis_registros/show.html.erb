@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h3 class="sub">Detalles</h3>
 <p>
   <strong>Nombre:</strong>
   <%= @cambio_director_tesis_registro.nombre %>
@@ -10,10 +9,6 @@
   <%= @cambio_director_tesis_registro.codirector %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @cambio_director_tesis_registro.user %>
-</p>
 
 <p>
   <strong>Valida consejero:</strong>
@@ -30,5 +25,4 @@
   <%= @cambio_director_tesis_registro.estado %>
 </p>
 
-<%= link_to 'Edit', edit_cambio_director_tesis_registro_path(@cambio_director_tesis_registro) %> |
-<%= link_to 'Back', cambio_director_tesis_registros_path %>
+<%= render 'layouts/links' %>

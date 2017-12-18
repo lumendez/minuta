@@ -62,10 +62,15 @@ class Ability
       can :cambiar_estado, RecesoSemestre do |receso_semestre|
         receso_semestre.try(:estado)
       end
+      can :read, CambioDirectorTesisRegistro
+      can :update, CambioDirectorTesisRegistro
+      can :cambiar_estado, CambioDirectorTesisRegistro do |cambio_director_tesis_registro|
+        cambio_director_tesis_registro.try(:estado)
+      end
       can :read, DirectorTesisRegistro
       can :update, DirectorTesisRegistro
       can :cambiar_estado, DirectorTesisRegistro do |director_tesis_registro|
-        tema_tesis_registro.try(:estado)
+        director_tesis_registro.try(:estado)
       end
       can :read, TemaTesisRegistro
       can :update, TemaTesisRegistro
@@ -150,6 +155,8 @@ class Ability
       can :update, TelecomAsignatura
       can :create, TelecomAsignatura
       can :destroy, TelecomAsignatura
+      # Comienzan las definiciones de los privilegios de los coordinadores en la
+      # aplicación
     elsif user.coordinador?
       can :read, Coordinadore
       can :read, ElectricaCaso
@@ -217,12 +224,26 @@ class Ability
       can :validar_coordinador, RecesoSemestre do |receso_semestre|
         receso_semestre.try(:valida_coordinador) == false || receso_semestre.try(:valida_coordinador) == true
       end
+      #CambioDirectorTesisRegistro
+      can :read, CambioDirectorTesisRegistro
+      can :update, CambioDirectorTesisRegistro
+      can :validar_coordinador, CambioDirectorTesisRegistro do |cambio_director_tesis_registro|
+        cambio_director_tesis_registro.try(:valida_coordinador) == false || cambio_director_tesis_registro.try(:valida_coordinador) == true
+      end
+      #DirectorTesisRegistro
+      can :read, DirectorTesisRegistro
+      can :update, DirectorTesisRegistro
+      can :validar_coordinador, DirectorTesisRegistro do |director_tesis_registro|
+        director_tesis_registro.try(:valida_coordinador) == false || director_tesis_registro.try(:valida_coordinador) == true
+      end
       #TesisRegistro
       can :read, TesisRegistro
       can :update, TesisRegistro
       can :validar_coordinador, TesisRegistro do |tesis_registro|
         tesis_registro.try(:valida_coordinador) == false || tesis_registro.try(:valida_coordinador) == true
       end
+      # Comienzan las definiciones de los privilegios de los consejeros en la
+      # aplicación
     elsif user.consejero?
       can :read, ConsejeroCaso
       #AgregarAsignatura
@@ -284,6 +305,12 @@ class Ability
       can :update, RecesoSemestre
       can :validar_consejero, RecesoSemestre do |receso_semestre|
         receso_semestre.try(:valida_consejero) == false || receso_semestre.try(:valida_consejero) == true
+      end
+      #CambioDirectorTesisRegistro
+      can :read, CambioDirectorTesisRegistro
+      can :update, CambioDirectorTesisRegistro
+      can :validar_consejero, CambioDirectorTesisRegistro do |cambio_director_tesis_registro|
+        cambio_director_tesis_registro.try(:valida_consejero) == false || cambio_director_tesis_registro.try(:valida_consejero) == true
       end
       #DirectorTesisRegistro
       can :read, DirectorTesisRegistro
@@ -372,6 +399,11 @@ class Ability
         #can :update, RevocacionRegistro do |revocacion_registro|
           #revocacion_registro.try(:user) == user
         #end
+        #DirectorTesisRegistro
+        can :create, CambioDirectorTesisRegistro
+        can :update, CambioDirectorTesisRegistro do |cambio_director_tesis_registro|
+          cambio_director_tesis_registro.try(:user) == user
+        end
         #DirectorTesisRegistro
         can :create, DirectorTesisRegistro
         can :update, DirectorTesisRegistro do |director_tesis_registro|

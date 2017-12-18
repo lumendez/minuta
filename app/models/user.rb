@@ -33,6 +33,7 @@ class User < ApplicationRecord
   has_many :revocacion_registros, dependent: :destroy
   has_many :tema_tesis_registros, dependent: :destroy
   has_many :director_tesis_registros, dependent: :destroy
+  has_many :cambio_director_tesis_registros, dependent: :destroy
 
   before_save :assign_role, :asignar_area
 

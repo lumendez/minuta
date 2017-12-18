@@ -21,8 +21,8 @@ class CambioDirectorTesisRegistrosController < ApplicationController
       redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
     else
       if current_user.director_tesis_registros.present?
-        @tema_anterior = current_user.director_tesis_registros.last
-        @cambiar_tema = current_user.cambio_director_tesis_registros.build
+        @director_anterior = current_user.director_tesis_registros.last
+        @cambio_director_tesis_registro = current_user.cambio_director_tesis_registros.build
       else
         redirect_to alumnos_path, alert: "Necesita haber registrado un director de tesis para esta acción"
       end
@@ -112,7 +112,7 @@ class CambioDirectorTesisRegistrosController < ApplicationController
     end
 
     def cambio_director_tesis_registro
-      @cambio_director_tesis_registro = CambioDirectorTesisRegistro.new(cambio_director_tesis_registro)
+      @cambio_director_tesis_registro = CambioDirectorTesisRegistro.new(cambio_director_tesis_registro_params)
     end
 
     def validar_consejero_params

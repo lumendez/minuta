@@ -15,7 +15,7 @@
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre, 'Nombre del director de tesis' %>
-      <%= collection_select(:director_tesis_registro, :nombre, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+      <%= collection_select(:cambio_director_tesis_registro, :nombre, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
 
@@ -23,7 +23,7 @@
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre, 'Nombre del director de tesis' %>
-      <%= collection_select(:director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+      <%= collection_select(:cambio_director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
 
@@ -31,7 +31,7 @@
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre, 'Nombre del director de tesis' %>
-      <%= collection_select(:director_tesis_registro, :nombre, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+      <%= collection_select(:cambio_director_tesis_registro, :nombre, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
 
@@ -39,7 +39,7 @@
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre, 'Nombre del director de tesis' %>
-      <%= collection_select(:director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+      <%= collection_select(:cambio_director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
 
@@ -47,7 +47,7 @@
   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label :nombre, 'Nombre del director de tesis' %>
-      <%= collection_select(:director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+      <%= collection_select(:cambio_director_tesis_registro, :nombre, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
     </div>
   </div>
 
@@ -63,7 +63,7 @@
   <div class="row" id="existe_codirector" style="display:none">
     <div class="form-group col-md-4">
       <%= f.label :codirector, 'Nombre del codirector de tesis' %>
-      <%= f.text_field :codirector, class: 'form-control', required: true %>
+      <%= f.text_field :codirector, class: 'form-control' %>
     </div>
   </div>
 
@@ -100,3 +100,9 @@
   </div>
 </div>
 <% end %>
+<br>
+<script>
+$('#existe_codirector_false').click(function() {
+  $("#existe_codirector").slideToggle(this.checked);
+});
+</script>
