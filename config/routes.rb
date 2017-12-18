@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :cambio_comision_registros
+  resources :comision_registros
+  resources :cambio_comite_registros
   resources :cambio_director_tesis_registros
   resources :director_tesis_registros
   resources :tema_tesis_registros

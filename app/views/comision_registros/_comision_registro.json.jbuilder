@@ -1,0 +1,2 @@
+json.extract! comision_registro, :id, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado, :created_at, :updated_at
+json.url comision_registro_url(comision_registro, format: :json)

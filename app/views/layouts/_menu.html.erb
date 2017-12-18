@@ -13,7 +13,11 @@
         <li><%#= link_to "Cursar asignaturas en otra unidad académica", new_cursar_asignatura_path %></li>
         <li><%#= link_to "Solicitud de examen de grado", new_examen_graduado_path %></li>
         <li><%#= link_to "Receso por un semestre", new_receso_semestre_path %></li>-->
+        <li><%= link_to "Registro de comisión revisora de tesis", new_comision_registro_path %></li>
+        <li><%= link_to "Cambio de comisión revisora de tesis", new_cambio_comision_registro_path %></li>
+        <li role="separator" class="divider"></li>
         <li><%= link_to "Registro de comité tutorial", new_comite_registro_path %></li>
+        <li><%= link_to "Cambio de comité tutorial", new_comite_registro_path %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "Registro de director de tesis", new_director_tesis_registro_path %></li>
         <li><%= link_to "Cambio de director de tesis", new_cambio_director_tesis_registro_path %></li>
@@ -21,7 +25,7 @@
         <li><%= link_to "Registro de tema de tesis", new_tema_tesis_registro_path %></li>
         <li><%= link_to "Cambio de tema de tesis", new_cambiar_tema_path %></li>
         <li role="separator" class="divider"></li>
-        <li><%= link_to "Registro de tema de tesis, director y comisión revisora", new_tesis_registro_path %></li>
+        <!--<li><%#= link_to "Registro de tema de tesis, director y comisión revisora", new_tesis_registro_path %></li>-->
         <!--<li><%#= link_to "Revocación de baja con fines de graduación", new_revocacion_registro_path %></li>-->
       </ul>
     </li>

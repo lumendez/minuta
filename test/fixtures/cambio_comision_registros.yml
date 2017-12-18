@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  presidente: MyString
+  secretario: MyString
+  primer_vocal: MyString
+  segundo_vocal: MyString
+  tercer_vocal: MyString
+  suplente: MyString
+  valida_consejero: false
+  valida_coordinador: false
+  estado: MyString
+
+two:
+  presidente: MyString
+  secretario: MyString
+  primer_vocal: MyString
+  segundo_vocal: MyString
+  tercer_vocal: MyString
+  suplente: MyString
+  valida_consejero: false
+  valida_coordinador: false
+  estado: MyString

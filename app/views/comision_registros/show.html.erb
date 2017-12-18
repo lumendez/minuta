@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Presidente:</strong>
+  <%= @comision_registro.presidente %>
+</p>
+
+<p>
+  <strong>Secretario:</strong>
+  <%= @comision_registro.secretario %>
+</p>
+
+<p>
+  <strong>Primer vocal:</strong>
+  <%= @comision_registro.primer_vocal %>
+</p>
+
+<p>
+  <strong>Segundo vocal:</strong>
+  <%= @comision_registro.segundo_vocal %>
+</p>
+
+<p>
+  <strong>Tercer vocal:</strong>
+  <%= @comision_registro.tercer_vocal %>
+</p>
+
+<p>
+  <strong>Suplente:</strong>
+  <%= @comision_registro.suplente %>
+</p>
+
+<p>
+  <strong>Valida consejero:</strong>
+  <%= @comision_registro.valida_consejero %>
+</p>
+
+<p>
+  <strong>Valida coordinador:</strong>
+  <%= @comision_registro.valida_coordinador %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @comision_registro.estado %>
+</p>
+
+<%= link_to 'Edit', edit_comision_registro_path(@comision_registro) %> |
+<%= link_to 'Back', comision_registros_path %>

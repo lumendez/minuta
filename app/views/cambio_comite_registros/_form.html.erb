@@ -1,0 +1,57 @@
+<%= form_for(cambio_comite_registro) do |f| %>
+  <% if cambio_comite_registro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cambio_comite_registro.errors.count, "error") %> prohibited this cambio_comite_registro from being saved:</h2>
+
+      <ul>
+      <% cambio_comite_registro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tutor_uno %>
+    <%= f.text_field :tutor_uno %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tutor_dos %>
+    <%= f.text_field :tutor_dos %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tutor_tres %>
+    <%= f.text_field :tutor_tres %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tutor_cuatro %>
+    <%= f.text_field :tutor_cuatro %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valida_consejero %>
+    <%= f.check_box :valida_consejero %>
+  </div>
+
+  <div class="field">
+    <%= f.label :valida_coordinador %>
+    <%= f.check_box :valida_coordinador %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado %>
+    <%= f.text_field :estado %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cambio Comite Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tutor uno</th>
+      <th>Tutor dos</th>
+      <th>Tutor tres</th>
+      <th>Tutor cuatro</th>
+      <th>User</th>
+      <th>Valida consejero</th>
+      <th>Valida coordinador</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambio_comite_registros.each do |cambio_comite_registro| %>
+      <tr>
+        <td><%= cambio_comite_registro.tutor_uno %></td>
+        <td><%= cambio_comite_registro.tutor_dos %></td>
+        <td><%= cambio_comite_registro.tutor_tres %></td>
+        <td><%= cambio_comite_registro.tutor_cuatro %></td>
+        <td><%= cambio_comite_registro.user %></td>
+        <td><%= cambio_comite_registro.valida_consejero %></td>
+        <td><%= cambio_comite_registro.valida_coordinador %></td>
+        <td><%= cambio_comite_registro.estado %></td>
+        <td><%= link_to 'Show', cambio_comite_registro %></td>
+        <td><%= link_to 'Edit', edit_cambio_comite_registro_path(cambio_comite_registro) %></td>
+        <td><%= link_to 'Destroy', cambio_comite_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cambio Comite Registro', new_cambio_comite_registro_path %>

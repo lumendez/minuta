@@ -1,0 +1,1 @@
+json.partial! "cambio_comite_registros/cambio_comite_registro", cambio_comite_registro: @cambio_comite_registro

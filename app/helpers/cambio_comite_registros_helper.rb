@@ -1,0 +1,2 @@
+module CambioComiteRegistrosHelper
+end

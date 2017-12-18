@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cambio Comision Registros</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Presidente</th>
+      <th>Secretario</th>
+      <th>Primer vocal</th>
+      <th>Segundo vocal</th>
+      <th>Tercer vocal</th>
+      <th>Suplente</th>
+      <th>Valida consejero</th>
+      <th>Valida coordinador</th>
+      <th>Estado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambio_comision_registros.each do |cambio_comision_registro| %>
+      <tr>
+        <td><%= cambio_comision_registro.presidente %></td>
+        <td><%= cambio_comision_registro.secretario %></td>
+        <td><%= cambio_comision_registro.primer_vocal %></td>
+        <td><%= cambio_comision_registro.segundo_vocal %></td>
+        <td><%= cambio_comision_registro.tercer_vocal %></td>
+        <td><%= cambio_comision_registro.suplente %></td>
+        <td><%= cambio_comision_registro.valida_consejero %></td>
+        <td><%= cambio_comision_registro.valida_coordinador %></td>
+        <td><%= cambio_comision_registro.estado %></td>
+        <td><%= link_to 'Show', cambio_comision_registro %></td>
+        <td><%= link_to 'Edit', edit_cambio_comision_registro_path(cambio_comision_registro) %></td>
+        <td><%= link_to 'Destroy', cambio_comision_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cambio Comision Registro', new_cambio_comision_registro_path %>

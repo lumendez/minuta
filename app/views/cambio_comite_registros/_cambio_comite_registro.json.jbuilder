@@ -1,0 +1,2 @@
+json.extract! cambio_comite_registro, :id, :tutor_uno, :tutor_dos, :tutor_tres, :tutor_cuatro, :user_id, :valida_consejero, :valida_coordinador, :estado, :created_at, :updated_at
+json.url cambio_comite_registro_url(cambio_comite_registro, format: :json)

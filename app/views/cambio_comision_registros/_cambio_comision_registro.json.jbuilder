@@ -1,0 +1,2 @@
+json.extract! cambio_comision_registro, :id, :presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado, :created_at, :updated_at
+json.url cambio_comision_registro_url(cambio_comision_registro, format: :json)

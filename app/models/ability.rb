@@ -42,6 +42,21 @@ class Ability
       can :cambiar_estado, CambiarTema do |cambiar_tema|
         cambiar_tema.try(:estado)
       end
+      can :read, CambioComisionRegistro
+      can :update, CambioComisionRegistro
+      can :cambiar_estado, CambioComisionRegistro do |cambio_comision_registro|
+        cambio_comision_registro.try(:estado)
+      end
+      can :read, ComisionRegistro
+      can :update, ComisionRegistro
+      can :cambiar_estado, ComisionRegistro do |comision_registro|
+        comision_registro.try(:estado)
+      end
+      can :read, CambioComiteRegistro
+      can :update, CambioComiteRegistro
+      can :cambiar_estado, ComiteRegistro do |cambio_comite_registro|
+        cambio_comite_registro.try(:estado)
+      end
       can :read, ComiteRegistro
       can :update, ComiteRegistro
       can :cambiar_estado, ComiteRegistro do |comite_registro|
@@ -200,6 +215,24 @@ class Ability
       can :validar_coordinador, CambiarTema do |cambiar_tema|
         cambiar_tema.try(:valida_coordinador) == false || cambiar_tema.try(:valida_coordinador) == true
       end
+      #ComisionRegistro
+      can :read, CambioComisionRegistro
+      can :update, CambioComisionRegistro
+      can :validar_coordinador, CambioComisionRegistro do |cambio_comision_registro|
+        cambio_comision_registro.try(:valida_coordinador) == false || cambio_comision_registro.try(:valida_coordinador) == true
+      end
+      #ComisionRegistro
+      can :read, ComisionRegistro
+      can :update, ComisionRegistro
+      can :validar_coordinador, ComisionRegistro do |comision_registro|
+        comision_registro.try(:valida_coordinador) == false || comision_registro.try(:valida_coordinador) == true
+      end
+      #CambioComiteRegistro
+      can :read, CambioComiteRegistro
+      can :update, CambioComiteRegistro
+      can :validar_coordinador, CambioComiteRegistro do |cambio_comite_registro|
+        cambio_comite_registro.try(:valida_coordinador) == false || cambio_comite_registro.try(:valida_coordinador) == true
+      end
       #ComiteRegistro
       can :read, ComiteRegistro
       can :update, ComiteRegistro
@@ -281,6 +314,24 @@ class Ability
       can :update, CambiarTema
       can :validar_consejero, CambiarTema do |cambiar_tema|
         cambiar_tema.try(:valida_consejero) == false || cambiar_tema.try(:valida_consejero) == true
+      end
+      #CambioComisionRegistro
+      can :read, CambioComisionRegistro
+      can :update, CambioComisionRegistro
+      can :validar_consejero, CambioComisionRegistro do |cambio_comision_registro|
+        cambio_comision_registro.try(:valida_consejero) == false || cambio_comision_registro.try(:valida_consejero) == true
+      end
+      #ComisionRegistro
+      can :read, ComisionRegistro
+      can :update, ComisionRegistro
+      can :validar_consejero, ComisionRegistro do |comision_registro|
+        comision_registro.try(:valida_consejero) == false || comision_registro.try(:valida_consejero) == true
+      end
+      #ComiteRegistro
+      can :read, CambioComiteRegistro
+      can :update, CambioComiteRegistro
+      can :validar_consejero, CambioComiteRegistro do |cambio_comite_registro|
+        cambio_comite_registro.try(:valida_consejero) == false || cambio_comite_registro.try(:valida_consejero) == true
       end
       #ComiteRegistro
       can :read, ComiteRegistro
@@ -368,6 +419,24 @@ class Ability
         can :create, CambiarTema
         can :update, CambiarTema do |cambiar_tema|
           cambiar_tema.try(:user) == user
+        end
+        #CambioComisionRegistro
+        #can :read, ComiteRegistro
+        can :create, CambioComisionRegistro
+        can :update, CambioComisionRegistro do |cambio_comision_registro|
+          cambio_comision_registro.try(:user) == user
+        end
+        #ComisionRegistro
+        #can :read, ComiteRegistro
+        can :create, ComisionRegistro
+        can :update, ComisionRegistro do |comision_registro|
+          comision_registro.try(:user) == user
+        end
+        #CambioComiteRegistro
+        #can :read, ComiteRegistro
+        can :create, CambioComiteRegistro
+        can :update, CambioComiteRegistro do |cambio_comite_registro|
+          cambio_comite_registro.try(:user) == user
         end
         #ComiteRegistro
         #can :read, ComiteRegistro

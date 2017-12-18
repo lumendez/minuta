@@ -1,0 +1,2 @@
+class CambioComisionRegistro < ApplicationRecord
+end
