@@ -1,5 +1,7 @@
 class ComisionRegistrosController < ApplicationController
-  before_action :set_comision_registro, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :comision_registro, only: :create
+  load_and_authorize_resource
 
   # GET /comision_registros
   # GET /comision_registros.json

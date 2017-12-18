@@ -1,5 +1,7 @@
 class CambioComiteRegistrosController < ApplicationController
-  before_action :set_cambio_comite_registro, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :cambio_comite_registro, only: :create
+  load_and_authorize_resource
 
   # GET /cambio_comite_registros
   # GET /cambio_comite_registros.json

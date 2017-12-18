@@ -1,5 +1,7 @@
 class CambioComisionRegistrosController < ApplicationController
-  before_action :set_cambio_comision_registro, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :cambio_comision_registro, only: :create
+  load_and_authorize_resource
 
   # GET /cambio_comision_registros
   # GET /cambio_comision_registros.json
