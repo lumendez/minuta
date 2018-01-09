@@ -35,6 +35,12 @@
 <div class="row">
   <p align="center"><strong><%= link_to 'Registrarse como usuario nuevo', new_user_registration_path %></strong></p>
 </div>
+<br>
+<div class="row">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <p align="center"><strong><%= link_to "¿Olvidó su contraseña?", new_password_path(resource_name) %></strong></p><br>
+  <% end -%>
+</div>
 
 <br>
 <p align="center">
