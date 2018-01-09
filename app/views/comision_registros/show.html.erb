@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Detalles</h3>
 
 <p>
   <strong>Presidente:</strong>
@@ -45,5 +45,4 @@
   <%= @comision_registro.estado %>
 </p>
 
-<%= link_to 'Edit', edit_comision_registro_path(@comision_registro) %> |
-<%= link_to 'Back', comision_registros_path %>
+<%= render 'layouts/links' %>

@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h3 class="sub">Peticiones de registro de comisión revisora</h3>
 
-<h1>Comision Registros</h1>
-
-<table>
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Presidente</th>
@@ -11,10 +9,14 @@
       <th>Segundo vocal</th>
       <th>Tercer vocal</th>
       <th>Suplente</th>
-      <th>Valida consejero</th>
-      <th>Valida coordinador</th>
-      <th>Estado</th>
-      <th colspan="3"></th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -27,17 +29,33 @@
         <td><%= comision_registro.segundo_vocal %></td>
         <td><%= comision_registro.tercer_vocal %></td>
         <td><%= comision_registro.suplente %></td>
-        <td><%= comision_registro.valida_consejero %></td>
-        <td><%= comision_registro.valida_coordinador %></td>
-        <td><%= comision_registro.estado %></td>
-        <td><%= link_to 'Show', comision_registro %></td>
-        <td><%= link_to 'Edit', edit_comision_registro_path(comision_registro) %></td>
-        <td><%= link_to 'Destroy', comision_registro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= comision_registro.user.nombre_paterno_materno %></td>
+        <td><%= comision_registro.user.boleta %></td>
+        <td><%= comision_registro.user.sepi_programa.nombre %></td>
+        <td><%= comision_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if comision_registro.valida_consejero == true %>
+        <td class="success"><%= comision_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comision_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comision_registro.valida_coordinador == true %>
+        <td class="success"><%= comision_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comision_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comision_registro.estado == "Pendiente" %>
+        <td class="warning"><%= comision_registro.estado %></td>
+        <% elsif comision_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= comision_registro.estado %></td>
+        <% else comision_registro.estado == "Finalizado" %>
+        <td class="info"><%= comision_registro.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', comision_registro %></td>
+        <td><%= link_to 'Editar', edit_comision_registro_path(comision_registro) %></td>
+        <td><%= link_to 'Eliminar', comision_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Comision Registro', new_comision_registro_path %>
