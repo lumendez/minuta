@@ -16,7 +16,16 @@ class CambioComisionRegistrosController < ApplicationController
 
   # GET /cambio_comision_registros/new
   def new
-    @cambio_comision_registro = CambioComisionRegistro.new
+    if current_user.sepi_programa.nil?
+      redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
+    else
+      if current_user.cambio_comision_registros.present?
+        @anterior_comision = current_user.comision_registros.last
+        @cambio_comision_registro = current_user.cambio_comision_registros.build
+      else
+        redirect_to alumnos_path, alert: "Necesita haber registrado una comisión revisora para esta acción"
+      end
+    end
   end
 
   # GET /cambio_comision_registros/1/edit

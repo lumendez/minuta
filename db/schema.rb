@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218071326) do
+ActiveRecord::Schema.define(version: 20180111202725) do
 
   create_table "agregar_asignaturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 20171218071326) do
     t.string   "estado"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_cambio_comision_registros_on_user_id", using: :btree
   end
 
   create_table "cambio_comite_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -154,6 +156,8 @@ ActiveRecord::Schema.define(version: 20171218071326) do
     t.string   "estado"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_comision_registros_on_user_id", using: :btree
   end
 
   create_table "comite_registros", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -402,8 +406,10 @@ ActiveRecord::Schema.define(version: 20171218071326) do
   add_foreign_key "cambiar_asignaturas", "users"
   add_foreign_key "cambiar_consejeros", "users"
   add_foreign_key "cambiar_temas", "users"
+  add_foreign_key "cambio_comision_registros", "users"
   add_foreign_key "cambio_comite_registros", "users"
   add_foreign_key "cambio_director_tesis_registros", "users"
+  add_foreign_key "comision_registros", "users"
   add_foreign_key "comite_registros", "users"
   add_foreign_key "cursar_asignaturas", "users"
   add_foreign_key "director_tesis_registros", "users"
