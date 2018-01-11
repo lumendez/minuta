@@ -11,52 +11,249 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :presidente %>
-    <%= f.text_field :presidente %>
+  <% if current_user.sepi_programa.nombre.include? 'Eléctrica' %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :presidente %>
+      <%= collection_select(:cambio_comision_registro, :presidente, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :secretario %>
-    <%= f.text_field :secretario %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :secretario %>
+      <%= collection_select(:cambio_comision_registro, :secretario, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :primer_vocal %>
-    <%= f.text_field :primer_vocal %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :primer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :primer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :segundo_vocal %>
-    <%= f.text_field :segundo_vocal %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :segundo_vocal %>
+      <%= collection_select(:cambio_comision_registro, :segundo_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :tercer_vocal %>
-    <%= f.text_field :tercer_vocal %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :tercer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :tercer_vocal, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :suplente %>
-    <%= f.text_field :suplente %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :suplente %>
+      <%= collection_select(:cambio_comision_registro, :suplente, ElectricaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+  <% elsif current_user.sepi_programa.nombre.include? 'Electrónica' %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :presidente %>
+      <%= collection_select(:cambio_comision_registro, :presidente, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :valida_consejero %>
-    <%= f.check_box :valida_consejero %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :secretario %>
+      <%= collection_select(:cambio_comision_registro, :secretario, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :valida_coordinador %>
-    <%= f.check_box :valida_coordinador %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :primer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :primer_vocal, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.text_field :estado %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :segundo_vocal %>
+      <%= collection_select(:cambio_comision_registro, :segundo_vocal, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :tercer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :tercer_vocal, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :suplente %>
+      <%= collection_select(:cambio_comision_registro, :suplente, ElectronicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+  <% elsif current_user.sepi_programa.nombre.include? 'Mecánica' or current_user.sepi_programa.nombre.include? 'Térmica' %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :presidente %>
+      <%= collection_select(:cambio_comision_registro, :presidente, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :secretario %>
+      <%= collection_select(:cambio_comision_registro, :secretario, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :primer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :primer_vocal, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :segundo_vocal %>
+      <%= collection_select(:cambio_comision_registro, :segundo_vocal, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :tercer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :tercer_vocal, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :suplente %>
+      <%= collection_select(:cambio_comision_registro, :suplente, MecanicaConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+  <% elsif current_user.sepi_programa.nombre.include? 'Sistemas' %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :presidente %>
+      <%= collection_select(:cambio_comision_registro, :presidente, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :secretario %>
+      <%= collection_select(:cambio_comision_registro, :secretario, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :primer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :primer_vocal, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :segundo_vocal %>
+      <%= collection_select(:cambio_comision_registro, :segundo_vocal, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :tercer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :tercer_vocal, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :suplente %>
+      <%= collection_select(:cambio_comision_registro, :suplente, SistemasConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+  <% else %>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :presidente %>
+      <%= collection_select(:cambio_comision_registro, :presidente, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :secretario %>
+      <%= collection_select(:cambio_comision_registro, :secretario, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :primer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :primer_vocal, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :segundo_vocal %>
+      <%= collection_select(:cambio_comision_registro, :segundo_vocal, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :tercer_vocal %>
+      <%= collection_select(:cambio_comision_registro, :tercer_vocal, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label :suplente %>
+      <%= collection_select(:cambio_comision_registro, :suplente, TelecomConsejero.all, :nombre, :nombre, {prompt: 'Seleccione'}, class:'form-control', required: true) %>
+    </div>
+  </div>
+  <% end %>
+
+  <% if can? :validar_consejero, cambio_comision_registro %>
+  <div class="row">
+    <div class="form-group col-md-2">
+      <%= f.label :valida_consejero %><br>
+      <%= f.check_box :valida_consejero %>
+    </div>
+  </div>
+  <% end %>
+
+  <% if can? :validar_coordinador, cambio_comision_registro %>
+  <div class="row">
+    <div class="form-group col-md-2">
+      <%= f.label :valida_coordinador %><br>
+      <%= f.check_box :valida_coordinador %>
+    </div>
+  </div>
+  <% end %>
+
+  <% if can? :cambiar_estado, cambio_comision_registro %>
+  <div class="row">
+    <div class="form-group col-md-2">
+      <%= f.label :estado %><br>
+      <%= collection_select(:cambio_comision_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="actions col-md-2">
+      <%= f.submit "Enviar", class: "btn btn-md btn-primary" %>
+    </div>
   </div>
 <% end %>
+<br>
