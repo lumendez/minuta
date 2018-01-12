@@ -5,6 +5,8 @@
   "port": 80,
   "ssl": "ssl",
   "ssl-port": 443,
+  "ssl_certificate": "/etc/letsencrypt/live/minutas.esimez.ipn.mx/fullchain.pem",
+  "ssl_certificate_key": "/etc/letsencrypt/live/minutas.esimez.ipn.mx/privkey.pem",
   // Tell Passenger to daemonize into the background.
   "daemonize": true,
   // Tell Passenger to run the app as the given user. Only has effect
