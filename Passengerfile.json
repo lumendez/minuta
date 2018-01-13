@@ -4,7 +4,7 @@
   // Run Passenger on port 80, the standard HTTP port.
   "port": 80,
   "ssl": true,
-  "ssl_port": 8484,
+  "ssl_port": 443,
   "ssl_certificate": "/etc/letsencrypt/live/minutas.esimez.ipn.mx/fullchain.pem",
   "ssl_certificate_key": "/etc/letsencrypt/live/minutas.esimez.ipn.mx/privkey.pem",
   // Tell Passenger to daemonize into the background.
