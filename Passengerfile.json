@@ -2,7 +2,7 @@
   // Run the app in a production environment. The default value is "development".
   "environment": "production",
   // Run Passenger on port 80, the standard HTTP port.
-  "port": 80,
+  "port": 8484,
   "ssl": true,
   "ssl_port": 443,
   "ssl_certificate": "/etc/letsencrypt/live/minutas.esimez.ipn.mx/fullchain.pem",
