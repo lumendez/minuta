@@ -265,6 +265,58 @@
 </table>
 <% end %>
 
+<% if @comision_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de registro de comisión revisora</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Presidente</th>
+      <th>Secretario</th>
+      <th>Primer vocal</th>
+      <th>Segundo vocal</th>
+      <th>Tercer vocal</th>
+      <th>Suplente</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comision_registros.each do |comision_registro| %>
+      <tr>
+        <td><%= comision_registro.presidente %></td>
+        <td><%= comision_registro.secretario %></td>
+        <td><%= comision_registro.primer_vocal %></td>
+        <td><%= comision_registro.segundo_vocal %></td>
+        <td><%= comision_registro.tercer_vocal %></td>
+        <td><%= comision_registro.suplente %></td>
+        <td><%= comision_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if comision_registro.valida_consejero == true %>
+        <td class="success"><%= comision_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comision_registro.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comision_registro.valida_coordinador == true %>
+        <td class="success"><%= comision_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comision_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comision_registro.estado == "Pendiente" %>
+        <td class="warning"><%= comision_registro.estado %></td>
+        <% elsif comision_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= comision_registro.estado %></td>
+        <% else comision_registro.estado == "Finalizado" %>
+        <td class="info"><%= comision_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
 <% if @comite_registros.empty? %>
 <% else %>
 <h3 class="sub">Petición de registro de comit&eacute; tutorial</h3>

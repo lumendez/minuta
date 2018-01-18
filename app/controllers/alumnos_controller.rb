@@ -11,6 +11,7 @@ class AlumnosController < ApplicationController
     @cambiar_asignaturas = current_user.cambiar_asignaturas
     @cambiar_consejeros = current_user.cambiar_consejeros
     @cambiar_temas = current_user.cambiar_temas
+    @comision_registros = current_user.comision_registros
     @comite_registros = current_user.comite_registros
     @cursar_asignaturas = current_user.cursar_asignaturas
     @examen_graduados = current_user.examen_graduados
