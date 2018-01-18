@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'cambio_comision_registros/casos', locals: { cambio_comision_registros: @cambio_comision_registros })
+) %>
+$("#filterrific_results").html("<%= js %>");
