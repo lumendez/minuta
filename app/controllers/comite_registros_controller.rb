@@ -6,7 +6,24 @@ class ComiteRegistrosController < ApplicationController
   # GET /comite_registros
   # GET /comite_registros.json
   def index
-    @comite_registros = ComiteRegistro.all
+    @filterrific = initialize_filterrific(
+    ComiteRegistro,
+    params[:filterrific],
+    select_options:{
+      sorted_by: ComiteRegistro.options_for_sorted_by
+    },
+    ) or return
+    @comite_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se tuvieron que restablecer los valores: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /comite_registros/1

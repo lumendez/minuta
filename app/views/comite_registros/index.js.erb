@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'comite_registros/casos', locals: { comite_registros: @comite_registros })
+) %>
+$("#filterrific_results").html("<%= js %>");
