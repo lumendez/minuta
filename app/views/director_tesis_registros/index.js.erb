@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'director_tesis_registros/casos', locals: { director_tesis_registros: @director_tesis_registros })
+) %>
+$("#filterrific_results").html("<%= js %>");

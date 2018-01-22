@@ -6,7 +6,24 @@ class DirectorTesisRegistrosController < ApplicationController
   # GET /director_tesis_registros
   # GET /director_tesis_registros.json
   def index
-    @director_tesis_registros = DirectorTesisRegistro.all
+    @filterrific = initialize_filterrific(
+    DirectorTesisRegistro,
+    params[:filterrific],
+    select_options:{
+      sorted_by: DirectorTesisRegistro.options_for_sorted_by
+    },
+    ) or return
+    @director_tesis_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+    rescue ActiveRecord::RecordNotFound => e
+    # There is an issue with the persisted param_set. Reset it.
+    puts "Se tuvieron que restablecer los valores: #{ e.message }"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   # GET /director_tesis_registros/1
