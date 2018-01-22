@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'tema_tesis_registros/casos', locals: { tema_tesis_registros: @tesis_tesis_registros })
+) %>
+$("#filterrific_results").html("<%= js %>");

@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'cambiar_temas/casos', locals: { cambiar_temas: @cambiar_temas })
+) %>
+$("#filterrific_results").html("<%= js %>");

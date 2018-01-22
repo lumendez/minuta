@@ -221,50 +221,6 @@
 </table>
 <% end %>
 
-<% if @cambiar_temas.empty? %>
-<% else %>
-<h3 class="sub">Petición de cambios de tema de tesis</h3>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Anterior</th>
-      <th>Actual</th>
-      <th width="10%">Fecha</th>
-      <th width="5%">Validacion consejero</th>
-      <th width="5%">Validacion coordinador</th>
-      <th width="15%">Estado</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cambiar_temas.each do |cambiar_tema| %>
-      <tr>
-        <td><%= cambiar_tema.anterior %></td>
-        <td><%= cambiar_tema.actual %></td>
-        <td><%= cambiar_tema.created_at.strftime("%d/%m/%y a las %T %P") %></td>
-        <% if cambiar_tema.valida_consejero == true %>
-        <td class="success"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
-        <% else %>
-        <td class="danger"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
-        <% end %>
-        <% if cambiar_tema.valida_coordinador == true %>
-        <td class="success"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
-        <% else %>
-        <td class="danger"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
-        <% end %>
-        <% if cambiar_tema.estado == "Pendiente" %>
-        <td class="warning"><%= cambiar_tema.estado %></td>
-        <% elsif cambiar_tema.estado == "Procede realizar trámite ante la SIP" %>
-        <td class="success"><%= cambiar_tema.estado %></td>
-        <% else cambiar_tema.estado == "Finalizado" %>
-        <td class="info"><%= cambiar_tema.estado %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<% end %>
-
 <% if @comision_registros.empty? %>
 <% else %>
 <h3 class="sub">Petición de registro de comisión revisora de tesis</h3>
@@ -770,6 +726,50 @@
         <td class="success"><%= tema_tesis_registro.estado %></td>
         <% else tema_tesis_registro.estado == "Finalizado" %>
         <td class="info"><%= tema_tesis_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<% if @cambiar_temas.empty? %>
+<% else %>
+<h3 class="sub">Petición de cambios de tema de tesis</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Anterior</th>
+      <th>Actual</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_temas.each do |cambiar_tema| %>
+      <tr>
+        <td><%= cambiar_tema.anterior %></td>
+        <td><%= cambiar_tema.actual %></td>
+        <td><%= cambiar_tema.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cambiar_tema.valida_consejero == true %>
+        <td class="success"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_tema.valida_coordinador == true %>
+        <td class="success"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_tema.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_tema.estado %></td>
+        <% elsif cambiar_tema.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_tema.estado %></td>
+        <% else cambiar_tema.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_tema.estado %></td>
         <% end %>
       </tr>
     <% end %>

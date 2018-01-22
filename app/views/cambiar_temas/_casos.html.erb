@@ -1,0 +1,54 @@
+<div id="filterrific_results">
+<table class="table table-bordered">
+
+  <thead>
+    <tr>
+      <th>Anterior</th>
+      <th>Actual</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+      <th colspan="3">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_temas.each do |cambiar_tema| %>
+      <tr>
+        <td><%= cambiar_tema.anterior %></td>
+        <td><%= cambiar_tema.actual %></td>
+        <td><%= cambiar_tema.user.nombre_paterno_materno %></td>
+        <td><%= cambiar_tema.user.boleta %></td>
+        <td><%= cambiar_tema.user.sepi_programa.nombre %></td>
+        <td><%= cambiar_tema.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cambiar_tema.valida_consejero == true %>
+        <td class="success"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_tema.valida_coordinador == true %>
+        <td class="success"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambiar_tema.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_tema.estado %></td>
+        <% elsif cambiar_tema.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_tema.estado %></td>
+        <% else cambiar_tema.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_tema.estado %></td>
+        <% end %>
+        <td><%= link_to 'Detalles', cambiar_tema %></td>
+        <td><%= link_to 'Editar', edit_cambiar_tema_path(cambiar_tema) %></td>
+        <td><%= link_to 'Eliminar', cambiar_tema, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @cambiar_temas, theme: 'twitter-bootstrap-3', param_name: :pagina %>
+</div>
+<br>
