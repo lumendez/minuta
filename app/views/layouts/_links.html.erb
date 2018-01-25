@@ -1,5 +1,5 @@
 <% if current_user.tipos_usuario.tipo == 'Administrador' %>
-  <%= link_to "Regresar", tesis_registros_path %>
+  <%= link_to "Regresar", :back %>
 <% elsif current_user.tipos_usuario.tipo == 'Coordinador' %>
   <%= link_to "Regresar", coordinadores_path %>
 <% elsif current_user.tipos_usuario.tipo == 'Consejero' %>

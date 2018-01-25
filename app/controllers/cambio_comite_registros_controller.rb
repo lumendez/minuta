@@ -37,8 +37,8 @@ class CambioComiteRegistrosController < ApplicationController
       redirect_to alumnos_path, alert: "Necesita pertenecer a un programa de posgrado para esta acción"
     else
       if current_user.comite_registros.present?
-        @anterior_comision = current_user.comite_registros.last
-        @cambio_comision_registro = current_user.cambio_comite_registros.build
+        @anterior_comite = current_user.comite_registros.last
+        @cambio_comite_registro = current_user.cambio_comite_registros.build
       else
         redirect_to alumnos_path, alert: "Necesita haber registrado un comité para esta acción"
       end
@@ -47,6 +47,9 @@ class CambioComiteRegistrosController < ApplicationController
 
   # GET /cambio_comite_registros/1/edit
   def edit
+    if current_user.sepi_programa.nil?
+      current_user.sepi_programa = @cambio_comite_registro.user.sepi_programa
+    end
   end
 
   # POST /cambio_comite_registros

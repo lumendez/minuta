@@ -42,6 +42,9 @@ class DirectorTesisRegistrosController < ApplicationController
 
   # GET /director_tesis_registros/1/edit
   def edit
+    if current_user.area == "Sin área"
+      current_user.area = @director_tesis_registro.user.area
+    end
   end
 
   # POST /director_tesis_registros

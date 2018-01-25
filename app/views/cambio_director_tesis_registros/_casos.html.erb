@@ -25,7 +25,9 @@
         <td>Sin codirector</td>
         <% end %>
         <td><%= cambio_director_tesis_registro.user.nombre_paterno_materno %></td>
-        <td><%= cambio_director_tesis_registro.created_at.strftime("%d%m%y a las %T %P") %></td>
+        <td><%= cambio_director_tesis_registro.user.boleta %></td>
+        <td><%= cambio_director_tesis_registro.user.sepi_programa.nombre %></td>
+        <td><%= cambio_director_tesis_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if cambio_director_tesis_registro.valida_consejero == true %>
         <td class="success"><%= cambio_director_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
         <% else %>

@@ -20,7 +20,7 @@
 
 <% if can? :validar_consejero, tema_tesis_registro %>
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-2">
     <%= f.label :valida_consejero %><br>
     <%= f.check_box :valida_consejero %>
   </div>
@@ -29,7 +29,7 @@
 
 <% if can? :validar_coordinador, tema_tesis_registro %>
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-2">
     <%= f.label :valida_coordinador %><br>
     <%= f.check_box :valida_coordinador %>
   </div>
@@ -38,7 +38,7 @@
 
 <% if can? :cambiar_estado, tema_tesis_registro %>
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-2">
     <%= f.label :estado %><br>
     <%= collection_select(:tema_tesis_registro, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
   </div>

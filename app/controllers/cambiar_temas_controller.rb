@@ -47,6 +47,7 @@ class CambiarTemasController < ApplicationController
 
   # GET /cambiar_temas/1/edit
   def edit
+    @tema_anterior = TemaTesisRegistro.find_by(user_id: @cambiar_tema.user.id)
   end
 
   # POST /cambiar_temas

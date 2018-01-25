@@ -26,7 +26,7 @@
         <td><%= cambio_comite_registro.tutor_cuatro %></td>
         <td><%= cambio_comite_registro.user.nombre_paterno_materno %></td>
         <td><%= cambio_comite_registro.user.boleta %></td>
-        <td><%= cambio_comite_registro.user.programa.nombre %></td>
+        <td><%= cambio_comite_registro.user.sepi_programa.nombre %></td>
         <td><%= cambio_comite_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if cambio_comite_registro.valida_consejero == true %>
         <td class="success"><%= cambio_comite_registro.valida_consejero ? 'Si' : 'No' %></td>

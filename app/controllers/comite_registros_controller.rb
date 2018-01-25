@@ -42,6 +42,9 @@ class ComiteRegistrosController < ApplicationController
 
   # GET /comite_registros/1/edit
   def edit
+    if current_user.sepi_programa.nil?
+      current_user.sepi_programa = @comite_registro.user.sepi_programa
+    end
   end
 
   # POST /comite_registros

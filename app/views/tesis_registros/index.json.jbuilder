@@ -1,1 +1,0 @@
-json.array! @tesis_registros, partial: 'tesis_registros/tesis_registro', as: :tesis_registro

@@ -27,27 +27,27 @@
 
 <% if can? :validar_consejero, cambiar_tema %>
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-2">
     <%= f.label :valida_consejero %><br>
-    <%= f.check_box :valida_consejero, class: 'form-control' %>
+    <%= f.check_box :valida_consejero %>
   </div>
 </div>
 <% end %>
 
 <% if can? :validar_coordinador, cambiar_tema %>
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-2">
     <%= f.label :valida_coordinador %><br>
-    <%= f.check_box :valida_coordinador, class:'form-control' %>
+    <%= f.check_box :valida_coordinador %>
   </div>
 </div>
 <% end %>
 
 <% if can? :cambiar_estado, cambiar_tema %>
 <div class="row">
-  <div class="form-group">
+  <div class="form-group col-md-2">
     <%= f.label :estado %><br>
-    <%= collection_select(:cambiar_tema, :estado, Estado.all, :estado, :estado, {prompt: true}, class:'form-control') %>
+    <%= collection_select(:cambiar_tema, :estado, Estado.all, :estado, :estado, {prompt: true}) %>
   </div>
 </div>
 <% end %>

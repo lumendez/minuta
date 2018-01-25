@@ -47,6 +47,9 @@ class CambioComisionRegistrosController < ApplicationController
 
   # GET /cambio_comision_registros/1/edit
   def edit
+    if current_user.sepi_programa.nil?
+      current_user.sepi_programa = @cambio_comision_registro.user.sepi_programa
+    end
   end
 
   # POST /cambio_comision_registros

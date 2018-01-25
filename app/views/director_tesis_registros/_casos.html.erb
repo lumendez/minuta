@@ -27,7 +27,7 @@
         <td><%= director_tesis_registro.user.nombre_paterno_materno %></td>
         <td><%= director_tesis_registro.user.boleta %></td>
         <td><%= director_tesis_registro.user.sepi_programa.nombre %></td>
-        <td><%= director_tesis_registro.created_at.strftime("%d%m%y a las %T %P") %></td>
+        <td><%= director_tesis_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if director_tesis_registro.valida_consejero == true %>
         <td class="success"><%= director_tesis_registro.valida_consejero ? 'Si' : 'No' %></td>
         <% else %>
