@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       patch :marcar
     end
   end
-  resources :cambio_comite_registros
+  resources :cambio_comite_registros do
+    member do
+      patch :marcar
+    end
+  end
   resources :cambio_director_tesis_registros
   resources :director_tesis_registros
   resources :tema_tesis_registros
