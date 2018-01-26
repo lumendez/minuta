@@ -13,7 +13,7 @@ class CambioComisionRegistrosController < ApplicationController
       sorted_by: CambioComisionRegistro.options_for_sorted_by
     },
     ) or return
-    @cambio_comision_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @cambio_comision_registros = @filterrific.find.where(revisado: false).order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
@@ -124,10 +124,14 @@ class CambioComisionRegistrosController < ApplicationController
     end
   end
 
+  def marcar
+    @cambio_comision_registro.toggle!(:revisado)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def cambio_comision_registro_params
-      params.require(:cambio_comision_registro).permit(:presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado)
+      params.require(:cambio_comision_registro).permit(:presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado, :revisado)
     end
 
     def cambio_comision_registro

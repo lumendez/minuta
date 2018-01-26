@@ -8,14 +8,8 @@
       <th>Segundo vocal</th>
       <th>Tercer vocal</th>
       <th>Suplente</th>
-      <th>Creado por</th>
-      <th>Boleta</th>
-      <th>Programa</th>
-      <th width="10%">Fecha</th>
       <th width="5%">Validacion consejero</th>
       <th width="5%">Validacion coordinador</th>
-      <th width="15%">Estado</th>
-      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -28,10 +22,6 @@
         <td><%= cambio_comision_registro.segundo_vocal %></td>
         <td><%= cambio_comision_registro.tercer_vocal %></td>
         <td><%= cambio_comision_registro.suplente %></td>
-        <td><%= cambio_comision_registro.user.nombre_paterno_materno %></td>
-        <td><%= cambio_comision_registro.user.boleta %></td>
-        <td><%= cambio_comision_registro.user.sepi_programa.nombre %></td>
-        <td><%= cambio_comision_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if cambio_comision_registro.valida_consejero == true %>
         <td class="success"><%= cambio_comision_registro.valida_consejero ? 'Si' : 'No' %></td>
         <% else %>
@@ -42,6 +32,19 @@
         <% else %>
         <td class="danger"><%= cambio_comision_registro.valida_coordinador ? 'Si' : 'No' %></td>
         <% end %>
+      </tr>
+      <tr>
+        <th>Creado por</th>
+        <th>Boleta</th>
+        <th>Programa</th>
+        <th width="10%">Fecha</th>
+        <th width="15%">Estado</th>
+        <th colspan="3">Opciones</th>
+      </tr>
+        <td><%= cambio_comision_registro.user.nombre_paterno_materno %></td>
+        <td><%= cambio_comision_registro.user.boleta %></td>
+        <td><%= cambio_comision_registro.user.sepi_programa.nombre %></td>
+        <td><%= cambio_comision_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
         <% if cambio_comision_registro.estado == "Pendiente" %>
         <td class="warning"><%= cambio_comision_registro.estado %></td>
         <% elsif cambio_comision_registro.estado == "Procede realizar trámite ante la SIP" %>
@@ -49,7 +52,9 @@
         <% else cambio_comision_registro.estado == "Finalizado" %>
         <td class="info"><%= cambio_comision_registro.estado %></td>
         <% end %>
-        <td><%= link_to 'Detalles', cambio_comision_registro %></td>
+        <td class="cambio-comision-registro-<%= cambio_comision_registro.id %>">
+            <%= link_to "#{ cambio_comision_registro.revisado ? 'Revisado' : 'No revisado' }", marcar_cambio_comision_registro_path(cambio_comision_registro), method: :patch, remote: true, class: "btn btn-xs btn-#{ cambio_comision_registro.revisado ? 'success' : 'warning' }" %>
+        </td>
         <td><%= link_to 'Editar', edit_cambio_comision_registro_path(cambio_comision_registro) %></td>
         <td><%= link_to 'Eliminar', cambio_comision_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>

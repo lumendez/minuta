@@ -13,7 +13,7 @@ class ComisionRegistrosController < ApplicationController
       sorted_by: ComisionRegistro.options_for_sorted_by
     },
     ) or return
-    @comision_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @comision_registros = @filterrific.find.where(revisado: false).order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html

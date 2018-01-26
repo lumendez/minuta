@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :cambio_comision_registros
+  resources :cambio_comision_registros do
+    member do
+      patch :marcar
+    end
+  end
   resources :comision_registros do
     member do
       patch :marcar
