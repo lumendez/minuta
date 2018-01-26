@@ -42,7 +42,9 @@
         <% else cambiar_tema.estado == "Finalizado" %>
         <td class="info"><%= cambiar_tema.estado %></td>
         <% end %>
-        <td><%= link_to 'Detalles', cambiar_tema %></td>
+        <td class="cambiar-tema-<%= cambiar_tema.id %>">
+            <%= link_to "#{ usuario.revisado ? 'Revisado' : 'No revisado' }", marcar_usuario_path(usuario), method: :patch, remote: true, class: "btn btn-xs btn-#{ usuario.revisado ? 'success' : 'warning' }" %>
+        </td>
         <td><%= link_to 'Editar', edit_cambiar_tema_path(cambiar_tema) %></td>
         <td><%= link_to 'Eliminar', cambiar_tema, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>

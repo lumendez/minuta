@@ -21,7 +21,6 @@ class AlumnosController < ApplicationController
     @director_tesis_registros = current_user.director_tesis_registros
     @cambio_director_tesis_registros = current_user.cambio_director_tesis_registros
     @tema_tesis_registros = current_user.tema_tesis_registros
-    @tesis_registros = current_user.tesis_registros
     @revocacion_registros = current_user.revocacion_registros
   end
 
