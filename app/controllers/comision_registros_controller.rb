@@ -126,7 +126,7 @@ class ComisionRegistrosController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def comision_registro_params
-      params.require(:comision_registro).permit(:presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado, :revisado)
+      params.require(:comision_registro).permit(:presidente, :secretario, :primer_vocal, :segundo_vocal, :tercer_vocal, :suplente, :valida_consejero, :valida_coordinador, :estado, :revisado, :user_id)
     end
 
     def comision_registro
