@@ -13,7 +13,7 @@ class TemaTesisRegistrosController < ApplicationController
       sorted_by: TemaTesisRegistro.options_for_sorted_by
     },
     ) or return
-    @tema_tesis_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @tema_tesis_registros = @filterrific.find.where(revisado: false).order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
@@ -116,10 +116,14 @@ class TemaTesisRegistrosController < ApplicationController
     end
   end
 
+  def marcar
+    @tema_tesis_registro.toggle!(:revisado)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def tema_tesis_registro_params
-      params.require(:tema_tesis_registro).permit(:tema, :user_id, :valida_consejero, :valida_coordinador, :estado)
+      params.require(:tema_tesis_registro).permit(:tema, :user_id, :valida_consejero, :valida_coordinador, :estado, :revisado)
     end
 
     def tema_tesis_registro

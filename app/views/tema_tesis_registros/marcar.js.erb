@@ -1,0 +1,5 @@
+<% if @tema_tesis_registro.revisado == true %>
+    $(".tema-tesis-registro-<%= @tema_tesis_registro.id %> > a").html('Revisado').removeClass('btn-warning').addClass('btn-success')
+<% else %>
+    $(".tema-tesis-registro-<%= @tema_tesis_registro.id %> > a").html('No revisado').removeClass('btn-success').addClass('btn-warning')
+<% end %>

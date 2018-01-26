@@ -39,7 +39,9 @@
         <% else tema_tesis_registro.estado == "Finalizado" %>
         <td class="info"><%= tema_tesis_registro.estado %></td>
         <% end %>
-        <td><%= link_to 'Detalles', tema_tesis_registro %></td>
+        <td class="tema-tesis-registro-<%= tema_tesis_registro.id %>">
+            <%= link_to "#{ tema_tesis_registro.revisado ? 'Revisado' : 'No revisado' }", marcar_tema_tesis_registro_path(tema_tesis_registro), method: :patch, remote: true, class: "btn btn-xs btn-#{ tema_tesis_registro.revisado ? 'success' : 'warning' }" %>
+        </td>
         <td><%= link_to 'Editar', edit_tema_tesis_registro_path(tema_tesis_registro) %></td>
         <td><%= link_to 'Eliminar', tema_tesis_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>

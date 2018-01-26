@@ -24,7 +24,11 @@ Rails.application.routes.draw do
       patch :marcar
     end
   end
-  resources :tema_tesis_registros
+  resources :tema_tesis_registros do
+    member do
+      patch :marcar
+    end
+  end
   class OnlyAjaxRequest
      def matches?(request)
        request.xhr?
