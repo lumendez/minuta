@@ -43,7 +43,7 @@
         <td class="info"><%= cambiar_tema.estado %></td>
         <% end %>
         <td class="cambiar-tema-<%= cambiar_tema.id %>">
-            <%= link_to "#{ usuario.revisado ? 'Revisado' : 'No revisado' }", marcar_usuario_path(usuario), method: :patch, remote: true, class: "btn btn-xs btn-#{ usuario.revisado ? 'success' : 'warning' }" %>
+            <%= link_to "#{ cambiar_tema.revisado ? 'Revisado' : 'No revisado' }", marcar_cambiar_tema_path(cambiar_tema), method: :patch, remote: true, class: "btn btn-xs btn-#{ cambiar_tema.revisado ? 'success' : 'warning' }" %>
         </td>
         <td><%= link_to 'Editar', edit_cambiar_tema_path(cambiar_tema) %></td>
         <td><%= link_to 'Eliminar', cambiar_tema, method: :delete, data: { confirm: '¿Está seguro?' } %></td>

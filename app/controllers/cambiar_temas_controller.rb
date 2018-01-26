@@ -13,7 +13,7 @@ class CambiarTemasController < ApplicationController
       sorted_by: CambiarTema.options_for_sorted_by
     },
     ) or return
-    @cambiar_temas = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @cambiar_temas = @filterrific.find.where(revisado: false).order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
@@ -121,10 +121,14 @@ class CambiarTemasController < ApplicationController
     end
   end
 
+  def marcar
+    @cambiar_tema.toggle!(:revisado)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def cambiar_tema_params
-      params.require(:cambiar_tema).permit(:anterior, :actual, :valida_consejero, :valida_coordinador, :estado, :user_id)
+      params.require(:cambiar_tema).permit(:anterior, :actual, :valida_consejero, :valida_coordinador, :estado, :user_id, :revisado)
     end
 
     def cambiar_tema

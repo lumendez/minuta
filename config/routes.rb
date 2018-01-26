@@ -68,7 +68,11 @@ Rails.application.routes.draw do
     end
   end
   resources :clave_semestres
-  resources :cambiar_temas
+  resources :cambiar_temas do
+    member do
+      patch :marcar
+    end
+  end
   resources :cambiar_consejeros
   resources :cambiar_asignaturas
   resources :baja_programas
