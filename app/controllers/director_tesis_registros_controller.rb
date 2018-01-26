@@ -13,7 +13,7 @@ class DirectorTesisRegistrosController < ApplicationController
       sorted_by: DirectorTesisRegistro.options_for_sorted_by
     },
     ) or return
-    @director_tesis_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @director_tesis_registros = @filterrific.find.where(revisado: false).order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
@@ -119,10 +119,14 @@ class DirectorTesisRegistrosController < ApplicationController
     end
   end
 
+  def marcar
+    @director_tesis_registro.toggle!(:revisado)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def director_tesis_registro_params
-      params.require(:director_tesis_registro).permit(:nombre, :codirector, :user_id, :valida_consejero, :valida_coordinador, :estado)
+      params.require(:director_tesis_registro).permit(:nombre, :codirector, :user_id, :valida_consejero, :valida_coordinador, :estado, :revisado)
     end
 
     def director_tesis_registro

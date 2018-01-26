@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     end
   end
   resources :cambio_director_tesis_registros
-  resources :director_tesis_registros
+  resources :director_tesis_registros do
+    member do
+      patch :marcar
+    end
+  end
   resources :tema_tesis_registros
   class OnlyAjaxRequest
      def matches?(request)
