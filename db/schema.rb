@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126201744) do
+ActiveRecord::Schema.define(version: 20180126202609) do
 
   create_table "agregar_asignaturas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "nombre"
@@ -135,8 +135,9 @@ ActiveRecord::Schema.define(version: 20180126201744) do
     t.boolean  "valida_consejero"
     t.boolean  "valida_coordinador"
     t.string   "estado"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.boolean  "revisado",           default: false
     t.index ["user_id"], name: "index_cambio_director_tesis_registros_on_user_id", using: :btree
   end
 

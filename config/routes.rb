@@ -14,7 +14,11 @@ Rails.application.routes.draw do
       patch :marcar
     end
   end
-  resources :cambio_director_tesis_registros
+  resources :cambio_director_tesis_registros do
+    member do
+      patch :marcar
+    end
+  end
   resources :director_tesis_registros do
     member do
       patch :marcar

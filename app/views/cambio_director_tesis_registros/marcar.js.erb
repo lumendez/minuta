@@ -1,0 +1,5 @@
+<% if @cambio_director_tesis_registro.revisado == true %>
+    $(".cambio-director-tesis-registro-<%= @cambio_director_tesis_registro.id %> > a").html('Revisado').removeClass('btn-warning').addClass('btn-success')
+<% else %>
+    $(".cambio-director-tesis-registro-<%= @cambio_director_tesis_registro.id %> > a").html('No revisado').removeClass('btn-success').addClass('btn-warning')
+<% end %>

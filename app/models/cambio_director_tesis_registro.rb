@@ -18,6 +18,7 @@ class CambioDirectorTesisRegistro < ApplicationRecord
     self.estado ||= 'Pendiente' if self.has_attribute? :estado
     self.valida_consejero ||= false if self.has_attribute? :valida_consejero
     self.valida_coordinador ||= false if self.has_attribute? :valida_coordinador
+    self.revisado ||= false if self.has_attribute? :revisado
   end
 
   scope :search_query_by_users, lambda { |query|

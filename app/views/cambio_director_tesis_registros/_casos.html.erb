@@ -45,7 +45,9 @@
         <% else cambio_director_tesis_registro.estado == "Finalizado" %>
         <td class="info"><%= cambio_director_tesis_registro.estado %></td>
         <% end %>
-        <td><%= link_to 'Detalles', cambio_director_tesis_registro %></td>
+        <td class="cambio-director-tesis-registro-<%= cambio_director_tesis_registro.id %>">
+            <%= link_to "#{ cambio_director_tesis_registro.revisado ? 'Revisado' : 'No revisado' }", marcar_cambio_director_tesis_registro_path(cambio_director_tesis_registro), method: :patch, remote: true, class: "btn btn-xs btn-#{ cambio_director_tesis_registro.revisado ? 'success' : 'warning' }" %>
+        </td>
         <td><%= link_to 'Editar', edit_cambio_director_tesis_registro_path(cambio_director_tesis_registro) %></td>
         <td><%= link_to 'Eliminar', cambio_director_tesis_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>
