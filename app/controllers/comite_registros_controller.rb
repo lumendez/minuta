@@ -13,7 +13,7 @@ class ComiteRegistrosController < ApplicationController
       sorted_by: ComiteRegistro.options_for_sorted_by
     },
     ) or return
-    @comite_registros = @filterrific.find.order("created_at DESC").page(params[:pagina])
+    @comite_registros = @filterrific.find.where(revisado: false).order("created_at DESC").page(params[:pagina])
 
     respond_to do |format|
       format.html
@@ -119,10 +119,14 @@ class ComiteRegistrosController < ApplicationController
     end
   end
 
+  def marcar
+    @comite_registro.toggle!(:revisado)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def comite_registro_params
-      params.require(:comite_registro).permit(:tutor_uno, :tutor_dos, :tutor_tres, :tutor_cuatro, :valida_consejero, :valida_coordinador, :estado)
+      params.require(:comite_registro).permit(:tutor_uno, :tutor_dos, :tutor_tres, :tutor_cuatro, :valida_consejero, :valida_coordinador, :estado, :revisado)
     end
 
     def comite_registro

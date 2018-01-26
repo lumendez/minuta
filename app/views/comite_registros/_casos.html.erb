@@ -46,7 +46,9 @@
         <% else comite_registro.estado == "Finalizado" %>
         <td class="info"><%= comite_registro.estado %></td>
         <% end %>
-        <td><%= link_to 'Detalles', comite_registro %></td>
+        <td class="comite-registro-<%= comite_registro.id %>">
+            <%= link_to "#{ comite_registro.revisado ? 'Revisado' : 'No revisado' }", marcar_comite_registro_path(comite_registro), method: :patch, remote: true, class: "btn btn-xs btn-#{ comite_registro.revisado ? 'success' : 'warning' }" %>
+        </td>
         <td><%= link_to 'Editar', edit_comite_registro_path(comite_registro) %></td>
         <td><%= link_to 'Eliminar', comite_registro, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
       </tr>

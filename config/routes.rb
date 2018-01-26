@@ -46,7 +46,11 @@ Rails.application.routes.draw do
   resources :examen_tipos
   resources :examen_graduados
   resources :cursar_asignaturas
-  resources :comite_registros
+  resources :comite_registros do
+    member do
+      patch :marcar
+    end
+  end
   resources :clave_semestres
   resources :cambiar_temas
   resources :cambiar_consejeros
