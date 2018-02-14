@@ -128,6 +128,14 @@ class CambioComisionRegistrosController < ApplicationController
     @cambio_comision_registro.toggle!(:revisado)
   end
 
+  def toggle_validar_coordinador
+    @cambio_comision_registro.toggle!(:valida_coordinador)
+  end
+
+  def toggle_validar_consejero
+    @cambio_comision_registro.toggle!(:valida_consejero)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def cambio_comision_registro_params

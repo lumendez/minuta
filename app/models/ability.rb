@@ -221,12 +221,14 @@ class Ability
       can :validar_coordinador, CambioComisionRegistro do |cambio_comision_registro|
         cambio_comision_registro.try(:valida_coordinador) == false || cambio_comision_registro.try(:valida_coordinador) == true
       end
+      can :toggle_validar_coordinador, CambioComisionRegistro
       #ComisionRegistro
       can :read, ComisionRegistro
       can :update, ComisionRegistro
       can :validar_coordinador, ComisionRegistro do |comision_registro|
         comision_registro.try(:valida_coordinador) == false || comision_registro.try(:valida_coordinador) == true
       end
+      can :toggle_validar_coordinador, ComisionRegistro
       #CambioComiteRegistro
       can :read, CambioComiteRegistro
       can :update, CambioComiteRegistro
@@ -270,11 +272,11 @@ class Ability
         director_tesis_registro.try(:valida_coordinador) == false || director_tesis_registro.try(:valida_coordinador) == true
       end
       #TesisRegistro
-      can :read, TesisRegistro
-      can :update, TesisRegistro
-      can :validar_coordinador, TesisRegistro do |tesis_registro|
-        tesis_registro.try(:valida_coordinador) == false || tesis_registro.try(:valida_coordinador) == true
-      end
+      #can :read, TesisRegistro
+      #can :update, TesisRegistro
+      #can :validar_coordinador, TesisRegistro do |tesis_registro|
+        #tesis_registro.try(:valida_coordinador) == false || tesis_registro.try(:valida_coordinador) == true
+      #end
       # Comienzan las definiciones de los privilegios de los consejeros en la
       # aplicación
     elsif user.consejero?
@@ -321,12 +323,14 @@ class Ability
       can :validar_consejero, CambioComisionRegistro do |cambio_comision_registro|
         cambio_comision_registro.try(:valida_consejero) == false || cambio_comision_registro.try(:valida_consejero) == true
       end
+      can :toggle_validar_consejero, CambioComisionRegistro
       #ComisionRegistro
       can :read, ComisionRegistro
       can :update, ComisionRegistro
       can :validar_consejero, ComisionRegistro do |comision_registro|
         comision_registro.try(:valida_consejero) == false || comision_registro.try(:valida_consejero) == true
       end
+      can :toggle_validar_consejero, ComisionRegistro
       #ComiteRegistro
       can :read, CambioComiteRegistro
       can :update, CambioComiteRegistro
@@ -376,11 +380,11 @@ class Ability
         tema_tesis_registro.try(:valida_consejero) == false || tema_tesis_registro.try(:valida_consejero) == true
       end
       #TesisRegistro
-      can :read, TesisRegistro
-      can :update, TesisRegistro
-      can :validar_consejero, TesisRegistro do |tesis_registro|
-        tesis_registro.try(:valida_consejero) == false || tesis_registro.try(:valida_consejero) == true
-      end
+      #can :read, TesisRegistro
+      #can :update, TesisRegistro
+      #can :validar_consejero, TesisRegistro do |tesis_registro|
+        #tesis_registro.try(:valida_consejero) == false || tesis_registro.try(:valida_consejero) == true
+      #end
     elsif user.alumno?
         #Alumno
         can :read, Alumno
@@ -485,10 +489,10 @@ class Ability
         end
         #TesisRegistro
         #can :read, TesisRegistro
-        can :create, TesisRegistro
-        can :update, TesisRegistro do |tesis_registro|
-          tesis_registro.try(:user) == user
-        end
+        #can :create, TesisRegistro
+        #can :update, TesisRegistro do |tesis_registro|
+          #tesis_registro.try(:user) == user
+        #end
     end
   end
 end

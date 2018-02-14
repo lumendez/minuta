@@ -1,0 +1,5 @@
+<% if @cambio_comision_registro.valida_coordinador == true %>
+    $(".cambio-comision-registro-<%= @cambio_comision_registro.id %> > a").html('Validado').removeClass('btn-danger').addClass('btn-success')
+<% else %>
+    $(".cambio-comision-registro-<%= @cambio_comision_registro.id %> > a").html('No validado').removeClass('btn-success').addClass('btn-danger')
+<% end %>

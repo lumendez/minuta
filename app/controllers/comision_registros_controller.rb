@@ -123,6 +123,14 @@ class ComisionRegistrosController < ApplicationController
     @comision_registro.toggle!(:revisado)
   end
 
+  def toggle_validar_coordinador
+    @comision_registro.toggle!(:valida_coordinador)
+  end
+
+  def toggle_validar_consejero
+    @comision_registro.toggle!(:valida_consejero)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def comision_registro_params

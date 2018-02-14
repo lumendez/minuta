@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   resources :cambio_comision_registros do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   resources :comision_registros do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   resources :cambio_comite_registros do
