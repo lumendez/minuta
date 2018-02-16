@@ -123,6 +123,14 @@ class ComiteRegistrosController < ApplicationController
     @comite_registro.toggle!(:revisado)
   end
 
+  def toggle_validar_coordinador
+    @comite_registro.toggle!(:valida_coordinador)
+  end
+
+  def toggle_validar_consejero
+    @comite_registro.toggle!(:valida_consejero)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def comite_registro_params

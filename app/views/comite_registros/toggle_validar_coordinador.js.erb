@@ -1,0 +1,5 @@
+<% if @comite_registro.valida_coordinador == true %>
+    $(".comite-registro-<%= @comite_registro.id %> > a").html('Validado').removeClass('btn-danger').addClass('btn-success')
+<% else %>
+    $(".comite-registro-<%= @comite_registro.id %> > a").html('No validado').removeClass('btn-success').addClass('btn-danger')
+<% end %>

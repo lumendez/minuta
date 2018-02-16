@@ -241,6 +241,7 @@ class Ability
       can :validar_coordinador, ComiteRegistro do |comite_registro|
         comite_registro.try(:valida_coordinador) == false || comite_registro.try(:valida_coordinador) == true
       end
+      can :toggle_validar_coordinador, ComiteRegistro
       #CursarAsignatura
       can :read, CursarAsignatura
       can :update, CursarAsignatura
@@ -343,6 +344,7 @@ class Ability
       can :validar_consejero, ComiteRegistro do |comite_registro|
         comite_registro.try(:valida_consejero) == false || comite_registro.try(:valida_consejero) == true
       end
+      can :toggle_validar_consejero, ComiteRegistro
       #CursarAsignatura
       can :read, CursarAsignatura
       can :update, CursarAsignatura

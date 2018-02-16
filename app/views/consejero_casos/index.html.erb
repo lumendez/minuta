@@ -109,3 +109,55 @@
   </tbody>
 </table>
 <% end %>
+
+<% if @comite_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de registro de comit&eacute; tutorial</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tutor uno</th>
+      <th>Tutor dos</th>
+      <th>Tutor tres</th>
+      <th>Tutor cuatro</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comite_registros.each do |comite_registro| %>
+      <tr>
+        <td><%= comite_registro.tutor_uno %></td>
+        <td><%= comite_registro.tutor_dos %></td>
+        <td><%= comite_registro.tutor_tres %></td>
+        <td><%= comite_registro.tutor_cuatro %></td>
+        <td><%= comite_registro.user.nombre_paterno_materno %></td>
+        <td><%= comite_registro.user.boleta %></td>
+        <td><%= comite_registro.user.sepi_programa.nombre %></td>
+        <td><%= comite_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td class="comite-registro-<%= comite_registro.id %>">
+            <%= link_to "#{ comite_registro.valida_consejero ? 'Validado' : 'No validado' }", toggle_validar_consejero_comite_registro_path(comite_registro), method: :patch, remote: true, class: "btn btn-xs btn-#{ comite_registro.valida_consejero ? 'success' : 'danger' }" %>
+        </td>
+        <% if comite_registro.valida_coordinador == true %>
+        <td class="success"><%= comite_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= comite_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if comite_registro.estado == "Pendiente" %>
+        <td class="warning"><%= comite_registro.estado %></td>
+        <% elsif comite_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= comite_registro.estado %></td>
+        <% else comite_registro.estado == "Finalizado" %>
+        <td class="info"><%= comite_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
