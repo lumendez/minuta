@@ -1,0 +1,5 @@
+<% if @cambio_comite_registro.valida_consejero == true %>
+    $(".cambio-comite-registro-<%= @cambio_comite_registro.id %> > a").html('Validado').removeClass('btn-danger').addClass('btn-success')
+<% else %>
+    $(".cambio-comite-registro-<%= @cambio_comite_registro.id %> > a").html('No validado').removeClass('btn-success').addClass('btn-danger')
+<% end %>

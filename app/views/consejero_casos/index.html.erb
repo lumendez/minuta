@@ -161,3 +161,49 @@
   </tbody>
 </table>
 <% end %>
+
+<% if @cambio_comite_registros.empty? %>
+<% else %>
+<h3 class="sub">Petición de cambio de comit&eacute; tutorial</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tutor uno</th>
+      <th>Tutor dos</th>
+      <th>Tutor tres</th>
+      <th>Tutor cuatro</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambio_comite_registros.each do |cambio_comite_registro| %>
+      <tr>
+        <td><%= cambio_comite_registro.tutor_uno %></td>
+        <td><%= cambio_comite_registro.tutor_dos %></td>
+        <td><%= cambio_comite_registro.tutor_tres %></td>
+        <td><%= cambio_comite_registro.tutor_cuatro %></td>
+        <td><%= cambio_comite_registro.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <td class="cambio-comite-registro-<%= cambio_comite_registro.id %>">
+            <%= link_to "#{ cambio_comite_registro.valida_consejero ? 'Validado' : 'No validado' }", toggle_validar_consejero_cambio_comite_registro_path(cambio_comite_registro), method: :patch, remote: true, class: "btn btn-xs btn-#{ cambio_comite_registro.valida_consejero ? 'success' : 'danger' }" %>
+        </td>
+        <% if cambio_comite_registro.valida_coordinador == true %>
+        <td class="success"><%= cambio_comite_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambio_comite_registro.valida_coordinador ? 'Si' : 'No' %></td>
+        <% end %>
+        <% if cambio_comite_registro.estado == "Pendiente" %>
+        <td class="warning"><%= cambio_comite_registro.estado %></td>
+        <% elsif cambio_comite_registro.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambio_comite_registro.estado %></td>
+        <% else cambio_comite_registro.estado == "Finalizado" %>
+        <td class="info"><%= cambio_comite_registro.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

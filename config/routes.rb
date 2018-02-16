@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :cambio_comite_registros do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   resources :cambio_director_tesis_registros do
