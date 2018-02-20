@@ -275,6 +275,13 @@ class Ability
         director_tesis_registro.try(:valida_coordinador) == false || director_tesis_registro.try(:valida_coordinador) == true
       end
       can :toggle_validar_coordinador, DirectorTesisRegistro
+      #TesisRegistro
+      can :read, TemaTesisRegistro
+      can :update, TemaTesisRegistro
+      can :validar_consejero, TemaTesisRegistro do |tema_tesis_registro|
+        tema_tesis_registro.try(:valida_consejero) == false || tema_tesis_registro.try(:valida_consejero) == true
+      end
+      can :toggle_validar_coordinador, TemaTesisRegistro
     # Comienzan las definiciones de los privilegios de los consejeros en la
     # aplicación
     elsif user.consejero?
@@ -381,12 +388,7 @@ class Ability
       can :validar_consejero, TemaTesisRegistro do |tema_tesis_registro|
         tema_tesis_registro.try(:valida_consejero) == false || tema_tesis_registro.try(:valida_consejero) == true
       end
-      #TesisRegistro
-      #can :read, TesisRegistro
-      #can :update, TesisRegistro
-      #can :validar_consejero, TesisRegistro do |tesis_registro|
-        #tesis_registro.try(:valida_consejero) == false || tesis_registro.try(:valida_consejero) == true
-      #end
+      can :toggle_validar_consejero, TemaTesisRegistro
     elsif user.alumno?
         #Alumno
         can :read, Alumno

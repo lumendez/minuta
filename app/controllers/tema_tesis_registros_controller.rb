@@ -120,6 +120,14 @@ class TemaTesisRegistrosController < ApplicationController
     @tema_tesis_registro.toggle!(:revisado)
   end
 
+  def toggle_validar_coordinador
+    @tema_tesis_registro.toggle!(:valida_coordinador)
+  end
+
+  def toggle_validar_consejero
+    @tema_tesis_registro.toggle!(:valida_consejero)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def tema_tesis_registro_params
