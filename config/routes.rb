@@ -23,16 +23,22 @@ Rails.application.routes.draw do
   resources :cambio_director_tesis_registros do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   resources :director_tesis_registros do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   resources :tema_tesis_registros do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   class OnlyAjaxRequest
@@ -79,6 +85,8 @@ Rails.application.routes.draw do
   resources :cambiar_temas do
     member do
       patch :marcar
+      patch :toggle_validar_consejero
+      patch :toggle_validar_coordinador
     end
   end
   resources :cambiar_consejeros

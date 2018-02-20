@@ -170,8 +170,8 @@ class Ability
       can :update, TelecomAsignatura
       can :create, TelecomAsignatura
       can :destroy, TelecomAsignatura
-      # Comienzan las definiciones de los privilegios de los coordinadores en la
-      # aplicación
+    # Comienzan las definiciones de los privilegios de los coordinadores en la
+    # aplicación
     elsif user.coordinador?
       can :read, Coordinadore
       can :read, ElectricaCaso
@@ -273,14 +273,9 @@ class Ability
       can :validar_coordinador, DirectorTesisRegistro do |director_tesis_registro|
         director_tesis_registro.try(:valida_coordinador) == false || director_tesis_registro.try(:valida_coordinador) == true
       end
-      #TesisRegistro
-      #can :read, TesisRegistro
-      #can :update, TesisRegistro
-      #can :validar_coordinador, TesisRegistro do |tesis_registro|
-        #tesis_registro.try(:valida_coordinador) == false || tesis_registro.try(:valida_coordinador) == true
-      #end
-      # Comienzan las definiciones de los privilegios de los consejeros en la
-      # aplicación
+      can :toggle_validar_coordinador, DirectorTesisRegistro
+    # Comienzan las definiciones de los privilegios de los consejeros en la
+    # aplicación
     elsif user.consejero?
       can :read, ConsejeroCaso
       #AgregarAsignatura
@@ -377,6 +372,7 @@ class Ability
       can :validar_consejero, DirectorTesisRegistro do |director_tesis_registro|
         director_tesis_registro.try(:valida_consejero) == false || director_tesis_registro.try(:valida_consejero) == true
       end
+      can :toggle_validar_consejero, DirectorTesisRegistro
       #TesisRegistro
       can :read, TemaTesisRegistro
       can :update, TemaTesisRegistro

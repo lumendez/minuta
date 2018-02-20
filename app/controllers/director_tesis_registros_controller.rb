@@ -123,6 +123,14 @@ class DirectorTesisRegistrosController < ApplicationController
     @director_tesis_registro.toggle!(:revisado)
   end
 
+  def toggle_validar_coordinador
+    @director_tesis_registro.toggle!(:valida_coordinador)
+  end
+
+  def toggle_validar_consejero
+    @director_tesis_registro.toggle!(:valida_consejero)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def director_tesis_registro_params
