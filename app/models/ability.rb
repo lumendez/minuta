@@ -267,6 +267,7 @@ class Ability
       can :validar_coordinador, CambioDirectorTesisRegistro do |cambio_director_tesis_registro|
         cambio_director_tesis_registro.try(:valida_coordinador) == false || cambio_director_tesis_registro.try(:valida_coordinador) == true
       end
+      can :toggle_validar_coordinador, CambioDirectorTesisRegistro
       #DirectorTesisRegistro
       can :read, DirectorTesisRegistro
       can :update, DirectorTesisRegistro
@@ -366,6 +367,7 @@ class Ability
       can :validar_consejero, CambioDirectorTesisRegistro do |cambio_director_tesis_registro|
         cambio_director_tesis_registro.try(:valida_consejero) == false || cambio_director_tesis_registro.try(:valida_consejero) == true
       end
+      can :toggle_validar_consejero, CambioDirectorTesisRegistro
       #DirectorTesisRegistro
       can :read, DirectorTesisRegistro
       can :update, DirectorTesisRegistro
