@@ -215,6 +215,7 @@ class Ability
       can :validar_coordinador, CambiarTema do |cambiar_tema|
         cambiar_tema.try(:valida_coordinador) == false || cambiar_tema.try(:valida_coordinador) == true
       end
+      can :toggle_validar_coordinador, CambiarTema
       #ComisionRegistro
       can :read, CambioComisionRegistro
       can :update, CambioComisionRegistro
@@ -322,6 +323,7 @@ class Ability
       can :validar_consejero, CambiarTema do |cambiar_tema|
         cambiar_tema.try(:valida_consejero) == false || cambiar_tema.try(:valida_consejero) == true
       end
+      can :toggle_validar_consejero, CambiarTema
       #CambioComisionRegistro
       can :read, CambioComisionRegistro
       can :update, CambioComisionRegistro

@@ -1,0 +1,5 @@
+<% if @cambiar_tema.valida_coordinador == true %>
+    $(".cambiar-tema-<%= @cambiar_tema.id %> > a").html('Validado').removeClass('btn-danger').addClass('btn-success')
+<% else %>
+    $(".cambiar-tema-<%= @cambiar_tema.id %> > a").html('No validar').removeClass('btn-success').addClass('btn-danger')
+<% end %>

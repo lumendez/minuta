@@ -125,6 +125,14 @@ class CambiarTemasController < ApplicationController
     @cambiar_tema.toggle!(:revisado)
   end
 
+  def toggle_validar_coordinador
+    @cambiar_tema.toggle!(:valida_coordinador)
+  end
+
+  def toggle_validar_consejero
+    @cambiar_tema.toggle!(:valida_consejero)
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def cambiar_tema_params

@@ -342,3 +342,48 @@
     <% end %>
   </tbody>
 </table>
+
+<h3 class="sub">Petición de cambios de tema de tesis</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Anterior</th>
+      <th>Actual</th>
+      <th>Creado por</th>
+      <th>Boleta</th>
+      <th>Programa</th>
+      <th width="10%">Fecha</th>
+      <th width="5%">Validacion consejero</th>
+      <th width="5%">Validacion coordinador</th>
+      <th width="15%">Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cambiar_temas.each do |cambiar_tema| %>
+      <tr>
+        <td><%= cambiar_tema.anterior %></td>
+        <td><%= cambiar_tema.actual %></td>
+        <td><%= cambiar_tema.user.nombre_paterno_materno %></td>
+        <td><%= cambiar_tema.user.boleta %></td>
+        <td><%= cambiar_tema.user.sepi_programa.nombre %></td>
+        <td><%= cambiar_tema.created_at.strftime("%d/%m/%y a las %T %P") %></td>
+        <% if cambiar_tema.valida_consejero == true %>
+        <td class="success"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% else %>
+        <td class="danger"><%= cambiar_tema.valida_consejero ? 'Si' : 'No' %></td>
+        <% end %>
+        <td class="cambiar-tema-<%= cambiar_tema.id %>">
+            <%= link_to "#{ cambiar_tema.valida_coordinador ? 'Validado' : 'No validado' }", toggle_validar_coordinador_cambiar_tema_path(cambiar_tema), method: :patch, remote: true, class: "btn btn-xs btn-#{ cambiar_tema.valida_coordinador ? 'success' : 'danger' }" %>
+        </td>
+        <% if cambiar_tema.estado == "Pendiente" %>
+        <td class="warning"><%= cambiar_tema.estado %></td>
+        <% elsif cambiar_tema.estado == "Procede realizar trámite ante la SIP" %>
+        <td class="success"><%= cambiar_tema.estado %></td>
+        <% else cambiar_tema.estado == "Finalizado" %>
+        <td class="info"><%= cambiar_tema.estado %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
