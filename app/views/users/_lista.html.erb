@@ -8,7 +8,7 @@
         <th>Boleta</th>
         <th>Tipo de usuario</th>
         <th>Programa</th>
-        <th>Consejero</th>
+        <!--<th>Consejero</th>-->
         <th>Área</th>
         <th colspan="3">Opciones</th>
       </tr>
@@ -31,12 +31,11 @@
           <% else %>
             <td><%= user.sepi_programa.nombre %></td>
           <% end %>
-          <% if user.consejero.nil? %>
+          <!--<%# if user.consejero.nil? %>
           <td>Sin consejero</td>
-          <% else %>
-          <!--<td><%#= User.find_by(id: user.consejero_id).nombre_paterno_materno %></td>-->
-          <td><%= user.consejero_nombre(user.consejero_id) %></td>
-          <% end %>
+          <%# else %>
+          <td><%#= user.consejero_nombre(user.consejero_id) %></td>
+          <%# end %>-->
           <td><%= user.area %></td>
           <td><%= link_to 'Detalles', user %></td>
           <td><%= link_to 'Editar', edit_user_path(user) %></td>
